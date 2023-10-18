@@ -1,0 +1,46 @@
+@import '../../sass/settings.sass';
+
+.container {
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+
+    &__img {
+        width: 20rem;
+        height: 30rem;
+        background-position: top;
+        background-image: url('../../assets/images/ai_photo.jpeg');
+        animation: opacity infinite 10s;
+        border-radius: 4rem;
+    }
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+        scale: 0;
+    }
+    25% {
+        opacity: 0.5;
+        scale: .7;
+        transform: rotate(45deg);
+    }
+
+    50% {
+        opacity: 1;
+        scale: 1;
+        transform: rotate(0);
+    }
+
+    75% {
+        opacity: .5;
+        scale: .5;
+        transform: rotate(-45deg);
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0;
+        transform: rotate(0);
+    }
+}
