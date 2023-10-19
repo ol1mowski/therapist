@@ -1,7 +1,7 @@
 @import '../../sass/settings.sass';
 
 .container {
-    background-color: #000;
+    background-color: $background-color;
     width: 100vw;
     height: 100vh;
     background-image: url('../../assets/images/title.jpg');
