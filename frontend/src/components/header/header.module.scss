@@ -28,6 +28,7 @@
     color: $dark-text-color;
     top: 0;
     height: 100vh;
+    overflow: scroll;
     &__closeMenu {
       display: flex;
       justify-content: flex-end;
