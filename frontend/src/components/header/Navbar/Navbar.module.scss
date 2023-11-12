@@ -1,0 +1,54 @@
+@import '../../../sass/settings.scss';
+
+.navbar {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    @include d-flex-row;
+    gap: 15vw;
+  }
+
+  @media screen and (min-width: 1024px) {
+    gap: 30vw;
+  }
+
+  &__navigation {
+    @include d-flex-row;
+    padding: 2rem 0;
+    gap: 3rem;
+
+    &__item {
+      &__a {
+        font-size: 1.3rem;
+        transition: color .3s;
+        will-change: color;
+
+      }
+      &__a:hover {
+        color: #147efb;
+      }
+    }
+  }
+
+  &__action {
+    @include d-flex-row;
+    gap: 2rem;
+
+    &__item {
+      @include d-flex-row;
+      gap: 1rem;
+
+      &__a {
+        font-weight: bold;
+        font-size: 1.5rem;
+        transition: color .3s;
+        will-change: color;
+      }
+      &__a:hover {
+        color: #147efb;
+      }
+    }
+  }
+
+}
