@@ -2,9 +2,49 @@
 
 .headerContainer {
   box-shadow: $box-shadow;
+
+  &__navbar {
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+      @include d-flex-row;
+      gap: 15vw;
+    }
+
+    @media screen and (min-width: 1024px) {
+      gap: 30vw;
+    }
+
+    &__navigation {
+      @include d-flex-row;
+      padding: 2rem 0;
+      gap: 3rem;
+      &__item {
+        font-size: 1.3rem;
+      }
+    }
+    &__action {
+      @include d-flex-row;
+      gap: 2rem;
+      &__item {
+        font-weight: bold;
+        font-size: 1.5rem;
+        @include d-flex-row;
+        gap: 1rem;
+      }
+    }
+
+  }
+
   &__hamburgerNav {
     @include d-flex-row;
     gap: 50vw;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+
     &__title {
       &__h2 {
         font-size: 2rem;
@@ -12,6 +52,7 @@
       }
     }
   }
+
   &__navSection {
     display: none;
     z-index: 300;
@@ -21,6 +62,7 @@
     color: $dark-text-color;
     top: 0;
     height: 100vh;
+
     &__closeMenu {
       display: flex;
       justify-content: flex-end;
@@ -28,24 +70,29 @@
       margin: 3rem 3rem 0 0;
       cursor: pointer;
     }
+
     &__items {
       height: 100%;
       @include d-flex-column;
       justify-content: flex-start;
-      margin-top: 10rem;
+      margin-top: 4rem;
       font-size: 3rem;
-      gap: 7rem;
+      gap: 5rem;
       text-align: center;
       color: $dark-text-color;
+
       &__nav__item {
         margin-bottom: 1rem;
       }
+
       &__log {
         @include d-flex-column;
         gap: 2rem;
+
         &__item {
           @include d-flex-row;
           gap: 1rem;
+
           &__a {
             font-weight: 700;
             //   margin-top: 2rem;
