@@ -1,0 +1,16 @@
+@import '../../sass/settings.scss';
+
+.headerContainer {
+    width: 100vw;
+    box-shadow: $box-shadow;
+    &__hamburgerNav {
+        @include d-flex-row;
+        gap: 50vw;
+    }
+    &__navSection {
+        display: none;
+    }
+    &__logSection {
+        display: none;
+    }
+}
