@@ -1,16 +1,59 @@
-@import '../../sass/settings.scss';
+@import "../../sass/settings.scss";
 
 .headerContainer {
+  box-shadow: $box-shadow;
+  &__hamburgerNav {
+    @include d-flex-row;
+    gap: 50vw;
+    &__title {
+      &__h2 {
+        font-size: 2rem;
+        color: $dark-text-color;
+      }
+    }
+  }
+  &__navSection {
+    display: none;
+    z-index: 300;
     width: 100vw;
-    box-shadow: $box-shadow;
-    &__hamburgerNav {
-        @include d-flex-row;
-        gap: 50vw;
+    position: fixed;
+    background-color: $white-background-color;
+    color: $dark-text-color;
+    top: 0;
+    height: 100vh;
+    &__closeMenu {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 3rem 3rem 0 0;
+      cursor: pointer;
     }
-    &__navSection {
-        display: none;
+    &__items {
+      height: 100%;
+      @include d-flex-column;
+      justify-content: flex-start;
+      margin-top: 10rem;
+      font-size: 3rem;
+      gap: 7rem;
+      text-align: center;
+      color: $dark-text-color;
+      &__nav__item {
+        margin-bottom: 1rem;
+      }
+      &__log {
+        @include d-flex-column;
+        gap: 2rem;
+        &__item {
+          @include d-flex-row;
+          gap: 1rem;
+          &__a {
+            font-weight: 700;
+            //   margin-top: 2rem;
+            font-size: 2.5rem;
+            display: block;
+          }
+        }
+      }
     }
-    &__logSection {
-        display: none;
-    }
+  }
 }
