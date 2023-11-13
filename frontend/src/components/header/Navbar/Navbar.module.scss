@@ -15,7 +15,7 @@
 
   &__navigation {
     @include d-flex-row;
-    padding: 2rem 0;
+    padding: 1rem 0;
     gap: 3rem;
 
     &__item {
@@ -50,5 +50,8 @@
       }
     }
   }
+}
 
+#svg {
+  margin-bottom: .5rem;
 }

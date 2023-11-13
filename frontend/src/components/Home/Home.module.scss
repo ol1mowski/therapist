@@ -1,0 +1,28 @@
+@import '../../sass/settings.scss';
+
+.homeContainer {
+    @include d-flex-column;
+    width: 90vw;
+    height: 100vh;
+    &__titleSection {
+        height: 40%;
+        @include d-flex-column;
+        gap: 2rem;
+        &__text {
+            @include d-flex-column;
+            &__h1 {
+                font-size: 3.5rem;
+                color: $dark-text-color;
+            }
+            &__h2 {
+                color: $dark-text-color;
+        }
+        }
+    }
+    &__imageSection {
+        width: 100%;
+        &__imgWrapper__img {
+            width: 100%;
+        }
+    }
+}
