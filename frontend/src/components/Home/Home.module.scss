@@ -4,23 +4,46 @@
     @include d-flex-column;
     width: 90vw;
     height: 100vh;
+    margin: 0 auto;
+    gap: 3rem;
+
     &__titleSection {
         height: 40%;
         @include d-flex-column;
         gap: 2rem;
+
         &__text {
             @include d-flex-column;
+
             &__h1 {
-                font-size: 3.5rem;
+                font-size: 4em;
                 color: $dark-text-color;
             }
+
             &__h2 {
                 color: $dark-text-color;
+            }
         }
+
+        &__button {
+            width: 10rem;
+            height: 3rem;
+
+            &__btn {
+                border-radius: .7rem;
+                background-color: transparent;
+                height: 100%;
+                width: 100%;
+                border: none;
+                font-size: 1.5rem;
+                box-shadow: 1px 5px 1px 4px rgba(244, 239, 255, 0.9);
+            }
         }
     }
+
     &__imageSection {
-        width: 100%;
+        width: 20rem;
+
         &__imgWrapper__img {
             width: 100%;
         }

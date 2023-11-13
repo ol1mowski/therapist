@@ -4,7 +4,7 @@ import img from '../../assets/background_image.png';
 const Home = () => {
     return (
         <>  
-            {/* <section className={style.homeContainer}>
+            <section className={style.homeContainer}>
                 <section className={style.homeContainer__titleSection}>
                     <div className={style.homeContainer__titleSection__text}>
                         <h1 className={style.homeContainer__titleSection__text__h1}>
@@ -25,7 +25,7 @@ const Home = () => {
                         <img src={img} alt='Therapist give some advices your client' className={style.homeContainer__imageSection__imgWrapper__img}/>
                     </div>
                 </section>
-            </section> */}
+            </section>
         </>
     );
 };
