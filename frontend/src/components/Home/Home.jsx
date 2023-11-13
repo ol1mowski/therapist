@@ -3,7 +3,7 @@ import img from '../../assets/background_image.png';
 
 const Home = () => {
     return (
-        <>  
+        <>
             <section className={style.homeContainer}>
                 <section className={style.homeContainer__titleSection}>
                     <div className={style.homeContainer__titleSection__text}>
@@ -15,14 +15,16 @@ const Home = () => {
                         </h2>
                     </div>
                     <div className={style.homeContainer__titleSection__button}>
-                        <button className={style.homeContainer__titleSection__button__btn}>
-                            Learn More
-                        </button>
+                        <a href='#about'>
+                            <button className={style.homeContainer__titleSection__button__btn}>
+                                Learn More
+                            </button>
+                        </a>
                     </div>
                 </section>
                 <section className={style.homeContainer__imageSection}>
                     <div className={style.homeContainer__imageSection__imgWrapper}>
-                        <img src={img} alt='Therapist give some advices your client' className={style.homeContainer__imageSection__imgWrapper__img}/>
+                        <img src={img} alt='Therapist give some advices your client' className={style.homeContainer__imageSection__imgWrapper__img} />
                     </div>
                 </section>
             </section>

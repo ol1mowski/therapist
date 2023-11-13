@@ -14,24 +14,48 @@
         gap: 5rem;
     }
 
+    @media screen and (min-width: 1200px) {
+        margin-top: 5rem;
+    }
+
+    @media screen and (min-width: 1700px) {
+        margin-top: 7rem;
+    }
+
     &__titleSection {
         height: 40%;
         @include d-flex-column;
         gap: 2rem;
 
+        @media screen and (min-width: 1200px) {
+            gap: 5rem;
+        }
+        @media screen and (min-width: 1700px) {
+            gap: 3rem;
+        }
 
         &__text {
             @include d-flex-column;
 
             @media screen and (min-width: 768px) {
                 width: 60%;
-            } 
+            }
+
+            @media screen and (min-width: 1200px) {
+                width: 70%;
+                padding-top: 5rem;
+            }
+
             &__h1 {
                 font-size: 4rem;
                 color: $dark-text-color;
 
                 @media screen and (min-width: 560px) {
                     font-size: 5rem;
+                }
+
+                @media screen and (min-width: 1700px) {
+                    font-size: 6rem;
                 }
             }
 
@@ -41,6 +65,7 @@
                 @media screen and (min-width: 768px) {
                     text-align: center;
                     font-size: 1.7rem;
+                    width: 30vw;
                 }
             }
         }
@@ -62,6 +87,8 @@
                 border: none;
                 font-size: 1.5rem;
                 box-shadow: 1px 5px 1px 4px rgba(244, 239, 255, 0.9);
+                will-change: box-shadow, transform;
+                transition: box-shadow, transform .7s;
 
                 @media screen and (min-width: 560px) {
                     font-size: 1.7rem;
@@ -70,6 +97,8 @@
 
             &__btn:hover {
                 cursor: pointer;
+                transform: translateY(-1vh);
+                box-shadow: 1px 5px 10px 4px rgba(167, 142, 221, 0.3);
             }
         }
     }
@@ -79,6 +108,14 @@
 
         @media screen and (min-width: 768px) {
             width: 25rem;
+        }
+
+        @media screen and (min-width: 1200px) {
+            width: 35rem;
+        }
+
+        @media screen and (min-width: 1700px) {
+            width: 40rem;
         }
 
         &__imgWrapper__img {
