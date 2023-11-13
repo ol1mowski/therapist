@@ -7,27 +7,52 @@
     margin: 0 auto;
     gap: 3rem;
 
+    @media screen and (min-width: 768px) {
+        @include d-flex-row;
+        align-items: flex-start;
+        margin-top: 10rem;
+        gap: 5rem;
+    }
+
     &__titleSection {
         height: 40%;
         @include d-flex-column;
         gap: 2rem;
 
+
         &__text {
             @include d-flex-column;
 
+            @media screen and (min-width: 768px) {
+                width: 60%;
+            } 
             &__h1 {
-                font-size: 4em;
+                font-size: 4rem;
                 color: $dark-text-color;
+
+                @media screen and (min-width: 560px) {
+                    font-size: 5rem;
+                }
             }
 
             &__h2 {
                 color: $dark-text-color;
+
+                @media screen and (min-width: 768px) {
+                    text-align: center;
+                    font-size: 1.7rem;
+                }
             }
         }
 
         &__button {
             width: 10rem;
             height: 3rem;
+
+            @media screen and (min-width: 560px) {
+                width: 13rem;
+                height: 3.5rem;
+            }
 
             &__btn {
                 border-radius: .7rem;
@@ -37,12 +62,24 @@
                 border: none;
                 font-size: 1.5rem;
                 box-shadow: 1px 5px 1px 4px rgba(244, 239, 255, 0.9);
+
+                @media screen and (min-width: 560px) {
+                    font-size: 1.7rem;
+                }
+            }
+
+            &__btn:hover {
+                cursor: pointer;
             }
         }
     }
 
     &__imageSection {
         width: 20rem;
+
+        @media screen and (min-width: 768px) {
+            width: 25rem;
+        }
 
         &__imgWrapper__img {
             width: 100%;
