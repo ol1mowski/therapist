@@ -8,17 +8,17 @@ const Navbar = () => {
           <div
             className={style.navbar__navigation__item}
           >
-            <a className={style.navbar__navigation__item__a} href="#">Home</a>
+            <a className={style.navbar__navigation__item__a} href="#home">Home</a>
           </div>
           <div
             className={style.navbar__navigation__item}
           >
-            <a className={style.navbar__navigation__item__a} href="#">About</a>
+            <a className={style.navbar__navigation__item__a} href="#about">About</a>
           </div>
           <div
             className={style.navbar__navigation__item}
           >
-            <a className={style.navbar__navigation__item__a} href="#">Docs</a>
+            <a className={style.navbar__navigation__item__a} href="#docs">Docs</a>
           </div>
           <div
             className={style.navbar__navigation__item}

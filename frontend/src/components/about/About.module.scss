@@ -1,80 +1,106 @@
 @import '../../sass/settings.scss';
 
 .aboutContainer {
-    margin-bottom: 5rem;
     padding: 10rem 0;
     @include d-flex-column;
     gap: 5rem;
-    border: 2px solid #000;
     background-color: $dark-background-color;
+
     @media screen and (min-width: 768px) {
         @include d-flex-row;
-        align-items: flex-start;
         padding-top: 5rem;
-        gap: 2rem;
+        gap: 5vw;
     }
+
+    @media screen and (min-width: 1000px) {
+        gap: 15vw;
+    }
+
+    @media screen and (min-width: 1200px) {
+        gap: 10vw;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 70rem;
+        margin: 15rem auto;
+    }
+
     &__span {
         color: rgba(167, 142, 221);
         animation: colorAnimate 3s infinite ease-in-out;
     }
+
     &__header {
         padding: 0 3rem;
         @include d-flex-column;
         gap: 2rem;
+
+        @media screen and (min-width: 768px) {
+            padding-left: 5rem;
+        }
+
+        @media screen and (min-width: 1200px) {
+            padding-left: 7rem;
+            width: 150%;
+        }
+
         &__title__h2 {
             @include header-small;
+
             @media screen and (min-width: 768px) {
                 font-size: 3rem;
                 width: 120%;
             }
+            @media screen and (min-width: 1200px) {
+                font-size: 3.5rem;
+            }
         }
+
         &__title__button {
             @include buttonWrapper;
             width: 13rem;
+
             @media screen and (min-width: 560px) {
                 width: 14rem;
                 height: 4rem;
             }
+
             &__btn {
                 @include button;
-                @media screen and (min-width: 560px) {
-                    
-                }
+
+                @media screen and (min-width: 560px) {}
             }
+
             &__btn:hover {
                 @include buttonHover;
             }
         }
+
         &__content {
             padding: 0 2rem;
             text-align: center;
             @include d-flex-column;
             gap: 2rem;
+
             &__text__p {
                 font-size: 1.3rem;
                 opacity: .8;
+                position: relative;
+
+                @media screen and (min-width: 1200px) {
+                    font-size: 1.5rem;
+                }
             }
         }
     }
 }
 
-@keyframes colorAnimate {
-    0% {
-        color: rgba(167, 142, 221);
-    }
-    20% {
-        color: rgba(193, 160, 230);
-    }
-    40% {
-        color: rgba(167, 142, 221);
-    }
-    60% {
-        color: rgba(130, 107, 177);
-    }
-    80% {
-        color: rgba(200, 180, 230);
-    }
-    100% {
-        color: rgba(167, 142, 221);
-    }
+#svg {
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    width: 10rem;
+    height: 10rem;
 }
+
+@include colorAnimation;
