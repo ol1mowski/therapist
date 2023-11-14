@@ -3,7 +3,7 @@
 .homeContainer {
     @include d-flex-column;
     width: 90vw;
-    margin: 0 auto;
+    margin: 5rem auto;
     gap: 3rem;
 
     @media screen and (min-width: 768px) {

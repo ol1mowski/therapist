@@ -2,15 +2,17 @@
 
 .aboutContainer {
     margin-bottom: 5rem;
-    padding: 3rem;
     padding-top: 10rem;
     @include d-flex-column;
+    gap: 5rem;
+    border: 2px solid #000;
     background-color: $dark-background-color;
     &__span {
         color: rgba(167, 142, 221);
         animation: colorAnimate 3s infinite ease-in-out;
     }
     &__header {
+        padding: 0 3rem;
         @include d-flex-column;
         gap: 2rem;
         &__title__h2 {
@@ -19,11 +21,28 @@
         &__title__button {
             @include buttonWrapper;
             width: 13rem;
+            @media screen and (min-width: 560px) {
+                width: 14rem;
+                height: 4rem;
+            }
             &__btn {
                 @include button;
+                @media screen and (min-width: 560px) {
+                    
+                }
             }
             &__btn:hover {
                 @include buttonHover;
+            }
+        }
+        &__content {
+            padding: 0 2rem;
+            text-align: center;
+            @include d-flex-column;
+            gap: 2rem;
+            &__text__p {
+                font-size: 1.3rem;
+                opacity: .8;
             }
         }
     }
