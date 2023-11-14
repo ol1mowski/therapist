@@ -2,11 +2,17 @@
 
 .aboutContainer {
     margin-bottom: 5rem;
-    padding-top: 10rem;
+    padding: 10rem 0;
     @include d-flex-column;
     gap: 5rem;
     border: 2px solid #000;
     background-color: $dark-background-color;
+    @media screen and (min-width: 768px) {
+        @include d-flex-row;
+        align-items: flex-start;
+        padding-top: 5rem;
+        gap: 2rem;
+    }
     &__span {
         color: rgba(167, 142, 221);
         animation: colorAnimate 3s infinite ease-in-out;
@@ -17,6 +23,10 @@
         gap: 2rem;
         &__title__h2 {
             @include header-small;
+            @media screen and (min-width: 768px) {
+                font-size: 3rem;
+                width: 120%;
+            }
         }
         &__title__button {
             @include buttonWrapper;
