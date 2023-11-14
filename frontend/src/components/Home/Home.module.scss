@@ -3,7 +3,6 @@
 .homeContainer {
     @include d-flex-column;
     width: 90vw;
-    height: 100vh;
     margin: 0 auto;
     gap: 3rem;
 
@@ -30,6 +29,7 @@
         @media screen and (min-width: 1200px) {
             gap: 5rem;
         }
+
         @media screen and (min-width: 1700px) {
             gap: 3rem;
         }
@@ -71,34 +71,14 @@
         }
 
         &__button {
-            width: 10rem;
-            height: 3rem;
-
-            @media screen and (min-width: 560px) {
-                width: 13rem;
-                height: 3.5rem;
-            }
+            @include buttonWrapper;
 
             &__btn {
-                border-radius: .7rem;
-                background-color: transparent;
-                height: 100%;
-                width: 100%;
-                border: none;
-                font-size: 1.5rem;
-                box-shadow: 1px 5px 1px 4px rgba(244, 239, 255, 0.9);
-                will-change: box-shadow, transform;
-                transition: box-shadow, transform .7s;
-
-                @media screen and (min-width: 560px) {
-                    font-size: 1.7rem;
-                }
+               @include button;
             }
 
             &__btn:hover {
-                cursor: pointer;
-                transform: translateY(-1vh);
-                box-shadow: 1px 5px 10px 4px rgba(167, 142, 221, 0.3);
+               @include buttonHover;
             }
         }
     }

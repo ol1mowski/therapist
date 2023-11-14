@@ -21,12 +21,13 @@
     &__item {
       &__a {
         font-size: 1.3rem;
-        transition: color .3s;
-        will-change: color;
+        transition: color, font-size .3s;
+        will-change: color, font-size;
 
       }
       &__a:hover {
-        color: #147efb;
+        color: rgba(167, 142, 221);
+        font-size: 1.35rem;
       }
     }
   }
@@ -42,11 +43,12 @@
       &__a {
         font-weight: bold;
         font-size: 1.5rem;
-        transition: color .3s;
-        will-change: color;
+        transition: color, font-size .3s;
+        will-change: color, font-size;
       }
       &__a:hover {
-        color: #147efb;
+        color: rgba(167, 142, 221);
+        font-size: 1.35rem
       }
     }
   }

@@ -1,0 +1,51 @@
+@import '../../sass/settings.scss';
+
+.aboutContainer {
+    margin-bottom: 5rem;
+    padding: 3rem;
+    padding-top: 10rem;
+    @include d-flex-column;
+    background-color: $dark-background-color;
+    &__span {
+        color: rgba(167, 142, 221);
+        animation: colorAnimate 3s infinite ease-in-out;
+    }
+    &__header {
+        @include d-flex-column;
+        gap: 2rem;
+        &__title__h2 {
+            @include header-small;
+        }
+        &__title__button {
+            @include buttonWrapper;
+            width: 13rem;
+            &__btn {
+                @include button;
+            }
+            &__btn:hover {
+                @include buttonHover;
+            }
+        }
+    }
+}
+
+@keyframes colorAnimate {
+    0% {
+        color: rgba(167, 142, 221);
+    }
+    20% {
+        color: rgba(193, 160, 230);
+    }
+    40% {
+        color: rgba(167, 142, 221);
+    }
+    60% {
+        color: rgba(130, 107, 177);
+    }
+    80% {
+        color: rgba(200, 180, 230);
+    }
+    100% {
+        color: rgba(167, 142, 221);
+    }
+}

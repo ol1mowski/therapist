@@ -13,6 +13,53 @@ $box-shadow: 0 0.275rem 0.75rem -0.0625rem rgba(11, 15, 25, 0.06), 0 0.125rem 0.
 
 //mixins
 
+@mixin header-small() {
+  font-size: 2.5rem;
+  color: $dark-text-color;
+  text-align: center;
+
+  @media screen and (min-width: 560px) {
+    font-size: 4rem;
+  }
+
+  @media screen and (min-width: 1700px) {
+    font-size: 5rem;
+  }
+}
+
+@mixin buttonWrapper() {
+  width: 10rem;
+  height: 3rem;
+
+  @media screen and (min-width: 560px) {
+      width: 13rem;
+      height: 3.5rem;
+  }
+}
+
+@mixin button() {
+  border-radius: .7rem;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 1.5rem;
+  box-shadow: 1px 5px 1px 4px rgba(244, 239, 255, 0.9);
+  will-change: box-shadow, transform;
+  transition: box-shadow, transform .7s;
+
+  @media screen and (min-width: 560px) {
+      font-size: 1.7rem;
+  }
+}
+
+@mixin buttonHover() {
+  cursor: pointer;
+  transform: translateY(-1vh);
+  box-shadow: 1px 5px 10px 4px rgba(167, 142, 221, 0.3);
+}
+
+
 @mixin d-flex-row() {
   display: flex;
   justify-content: center;

@@ -1,12 +1,10 @@
-import Home from "./components/Home/Home"
-import Header from "./components/header/header"
+import PageLayout from "./PageLayout/PageLayout"
 
 function App() {
 
   return (
     <>
-     <Header />
-     <Home />
+     <PageLayout />
     </>
   )
 }
