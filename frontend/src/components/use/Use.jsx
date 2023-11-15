@@ -4,7 +4,7 @@ import ai from '../../assets/icons/ai_icon.png';
 const Use = () => {
     return (
         <>
-            <section className={style.useContainer}>
+            <section id='use' className={style.useContainer}>
                 <div className={style.useContainer__header}>
                     <h2 className={style.useContainer__header__h2}>
                         How to use?

@@ -11,7 +11,7 @@ const About = () => {
                         </h2>
                     </div>
                     <div className={style.aboutContainer__header__title__button}>
-                        <a href='#docs'>
+                        <a href='#use'>
                             <button className={style.aboutContainer__header__title__button__btn}>
                                 How to use <span className={style.aboutContainer__span}>Alice</span> ?
                             </button>

@@ -2,7 +2,7 @@
 
 .useContainer {
     width: 90vw;
-    margin: 2rem auto;
+    margin: 5rem auto;
     @include d-flex-column;
 
     @media screen and (min-width: 768px) {
@@ -10,11 +10,19 @@
         gap: 3rem;
     }
 
+    @media screen and (min-width: 1200px) {
+        width: 70rem;
+    }
+
     &__header {
         @include d-flex-column;
 
         @media screen and (min-width: 768px) {
             width: 55%;
+        }
+
+        @media screen and (min-width: 1200px) {
+            padding: 0 5rem;
         }
 
         &__h2 {
@@ -92,6 +100,9 @@
         font-weight: bold;
         font-size: 1.3rem;
         margin-bottom: .5rem;
+        @media screen and (min-width: 1200px) {
+            font-size: 1.5rem;
+        }
     }
 }
 

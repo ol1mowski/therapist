@@ -79,7 +79,7 @@ const Header = () => {
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a href="#">Docs</a>
+                <a href="#">Use</a>
               </div>
               <div
                 className={style.headerContainer__navSection__items__nav__item}

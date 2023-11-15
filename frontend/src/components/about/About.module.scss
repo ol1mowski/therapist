@@ -22,7 +22,7 @@
 
     @media screen and (min-width: 1200px) {
         width: 70rem;
-        margin: 15rem auto;
+        margin: 5rem auto;
     }
 
     &__span {
@@ -82,10 +82,6 @@
             &__text__p {
                @include article;
                 position: relative;
-
-                @media screen and (min-width: 1200px) {
-                    font-size: 1.5rem;
-                }
             }
         }
     }
