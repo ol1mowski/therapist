@@ -2,11 +2,20 @@
 
 .useContainer {
     width: 90vw;
-    margin: 0 auto;
+    margin: 2rem auto;
     @include d-flex-column;
+
+    @media screen and (min-width: 768px) {
+        @include d-flex-row;
+        gap: 3rem;
+    }
 
     &__header {
         @include d-flex-column;
+
+        @media screen and (min-width: 768px) {
+            width: 55%;
+        }
 
         &__h2 {
             @include header-small;
@@ -39,20 +48,42 @@
         &__wrapper {
             @include d-flex-column;
             gap: 3rem;
+
             &__question {
                 @include d-flex-column;
+
                 &__p {
                     @include article;
                     text-align: left;
                     padding-left: 1rem;
                 }
             }
+
+            &__button {
+                @include buttonWrapper;
+                width: 13rem;
+
+                @media screen and (min-width: 560px) {
+                    width: 14rem;
+                    height: 4rem;
+                }
+
+                &__btn {
+                    @include button;
+                }
+
+                &__btn:hover {
+                    @include buttonHover;
+                }
+            }
         }
     }
+
     &__svg {
         transform: rotate(180deg);
         margin-right: .5rem;
     }
+
     &__aliceSpan {
         @include aliceTextStarting;
     }
@@ -60,7 +91,7 @@
     &__boldSpan {
         font-weight: bold;
         font-size: 1.3rem;
-        margin-bottom: .5rem; 
+        margin-bottom: .5rem;
     }
 }
 

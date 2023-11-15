@@ -66,8 +66,6 @@
 
             &__btn {
                 @include button;
-
-                @media screen and (min-width: 560px) {}
             }
 
             &__btn:hover {

@@ -30,6 +30,11 @@ const Use = () => {
                                 <span className={style.useContainer__aliceSpan}>Alice</span> has AI and she can talking with you!
                             </p>
                         </div>
+                        <div className={style.useContainer__questionsPart__wrapper__button}>
+                            <button className={style.useContainer__questionsPart__wrapper__button__btn}>
+                                Read More
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section >
