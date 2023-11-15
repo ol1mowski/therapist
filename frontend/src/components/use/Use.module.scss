@@ -44,11 +44,15 @@
                 &__p {
                     @include article;
                     text-align: left;
+                    padding-left: 1rem;
                 }
             }
         }
     }
-
+    &__svg {
+        transform: rotate(180deg);
+        margin-right: .5rem;
+    }
     &__aliceSpan {
         @include aliceTextStarting;
     }
