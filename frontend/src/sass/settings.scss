@@ -13,6 +13,12 @@ $box-shadow: 0 0.275rem 0.75rem -0.0625rem rgba(11, 15, 25, 0.06), 0 0.125rem 0.
 
 //mixins
 
+@mixin article() {
+  font-size: 1.3rem;
+  opacity: .8;
+  text-align: center;
+}
+
 @mixin header-small() {
   font-size: 2.5rem;
   color: $dark-text-color;
@@ -74,32 +80,37 @@ $box-shadow: 0 0.275rem 0.75rem -0.0625rem rgba(11, 15, 25, 0.06), 0 0.125rem 0.
   flex-direction: column;
 }
 
+@mixin aliceTextStarting() {
+  color: rgba(167, 142, 221);
+  animation: colorAnimate 3s infinite ease-in-out;
+}
+
 @mixin colorAnimation() {
   @keyframes colorAnimate {
     0% {
-        color: rgba(167, 142, 221);
+      color: rgba(167, 142, 221);
     }
 
     20% {
-        color: rgba(193, 160, 230);
+      color: rgba(193, 160, 230);
     }
 
     40% {
-        color: rgba(167, 142, 221);
+      color: rgba(167, 142, 221);
     }
 
     60% {
-        color: rgba(130, 107, 177);
+      color: rgba(130, 107, 177);
     }
 
     80% {
-        color: rgba(200, 180, 230);
+      color: rgba(200, 180, 230);
     }
 
     100% {
-        color: rgba(167, 142, 221);
+      color: rgba(167, 142, 221);
     }
-}
+  }
 }
 
 //breakpoints

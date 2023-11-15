@@ -20,7 +20,7 @@
     &__title {
       &__h2 {
         font-size: 2rem;
-        color: $dark-text-color;
+        @include aliceTextStarting;
       }
     }
   }
@@ -75,3 +75,5 @@
 #svg {
   margin-bottom: 1rem;
 }
+
+@include colorAnimation;

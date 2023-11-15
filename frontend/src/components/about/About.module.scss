@@ -26,8 +26,7 @@
     }
 
     &__span {
-        color: rgba(167, 142, 221);
-        animation: colorAnimate 3s infinite ease-in-out;
+       @include aliceTextStarting;
     }
 
     &__header {
@@ -83,8 +82,7 @@
             gap: 2rem;
 
             &__text__p {
-                font-size: 1.3rem;
-                opacity: .8;
+               @include article;
                 position: relative;
 
                 @media screen and (min-width: 1200px) {

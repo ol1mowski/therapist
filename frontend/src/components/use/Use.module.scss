@@ -1,0 +1,43 @@
+@import '../../sass/settings.scss';
+
+.useContainer {
+    width: 90vw;
+    margin: 0 auto;
+    @include d-flex-column;
+
+    &__header {
+        @include d-flex-column;
+
+        &__h2 {
+            @include header-small;
+            margin-bottom: 1rem;
+            @media screen and (min-width: 768px) {
+                font-size: 3rem;
+                width: 120%;
+            }
+            @media screen and (min-width: 1200px) {
+                font-size: 3.5rem;
+            }
+        }
+
+        &__p {
+            @include article;
+        }
+
+        &__img {
+            width: 12rem;
+            transform: rotate(20deg);
+        }
+
+    }
+
+    &__aliceSpan {
+        @include aliceTextStarting;
+    }
+
+    &__boldSpan {
+        font-weight: bold;
+    }
+}
+
+@include colorAnimation;

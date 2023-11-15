@@ -48,7 +48,7 @@
 
             &__h1 {
                 font-size: 4rem;
-                color: $dark-text-color;
+                @include aliceTextStarting;
 
                 @media screen and (min-width: 560px) {
                     font-size: 5rem;
@@ -103,3 +103,5 @@
         }
     }
 }
+
+@include colorAnimation;
