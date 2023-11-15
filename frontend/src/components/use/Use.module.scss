@@ -11,10 +11,12 @@
         &__h2 {
             @include header-small;
             margin-bottom: 1rem;
+
             @media screen and (min-width: 768px) {
                 font-size: 3rem;
                 width: 120%;
             }
+
             @media screen and (min-width: 1200px) {
                 font-size: 3.5rem;
             }
@@ -31,12 +33,30 @@
 
     }
 
+    &__questionsPart {
+        @include d-flex-column;
+
+        &__wrapper {
+            @include d-flex-column;
+            gap: 3rem;
+            &__question {
+                @include d-flex-column;
+                &__p {
+                    @include article;
+                    text-align: left;
+                }
+            }
+        }
+    }
+
     &__aliceSpan {
         @include aliceTextStarting;
     }
 
     &__boldSpan {
         font-weight: bold;
+        font-size: 1.3rem;
+        margin-bottom: .5rem; 
     }
 }
 

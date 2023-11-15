@@ -15,7 +15,20 @@ const Use = () => {
                     <img src={ai} alt='ai icon' className={style.useContainer__header__img} />
                 </div>
                 <div className={style.useContainer__questionsPart}>
-                    
+                    <div className={style.useContainer__questionsPart__wrapper}>
+                        <div className={style.useContainer__questionsPart__wrapper__question}>
+                            <span className={style.useContainer__boldSpan}>Tell ?</span>
+                            <p className={style.useContainer__questionsPart__wrapper__question__p}>
+                                Yes, <span className={style.useContainer__aliceSpan}>Alice</span> understand a human speech!
+                            </p>
+                        </div>
+                        <div className={style.useContainer__questionsPart__wrapper__question}>
+                            <span className={style.useContainer__boldSpan}>How it’s possible ?</span>
+                            <p className={style.useContainer__questionsPart__wrapper__question__p}>
+                                <span className={style.useContainer__aliceSpan}>Alice</span> has AI and she can talking with you!
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section >
         </>
