@@ -38,13 +38,14 @@ $box-shadow: 0 0.275rem 0.75rem -0.0625rem rgba(11, 15, 25, 0.06), 0 0.125rem 0.
 }
 
 @mixin buttonWrapper() {
-  width: 10rem;
   height: 3rem;
+  width: 13rem;
 
   @media screen and (min-width: 560px) {
-    width: 13rem;
-    height: 3.5rem;
+    width: 14rem;
+    height: 4rem;
   }
+
 }
 
 @mixin button() {

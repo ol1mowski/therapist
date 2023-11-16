@@ -1,2 +1,33 @@
 @import '../../sass/settings.scss';
 
+.technoContainer {
+    width: 90vw;
+    margin: 0 auto;
+    &__span {
+        @include aliceTextStarting;
+    }
+    &__content {
+        @include d-flex-column;
+        gap: 2rem;
+        &__header {
+            @include header-small;
+        }
+        &__p {
+            @include article;
+            padding: 0 1rem;
+        }
+        &__button {
+            @include buttonWrapper;
+
+            &__btn {
+                @include button;
+            }
+
+            &__btn:hover {
+                @include buttonHover;
+            }
+        }
+    }
+}
+
+@include colorAnimation;

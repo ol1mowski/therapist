@@ -70,12 +70,6 @@
 
             &__button {
                 @include buttonWrapper;
-                width: 13rem;
-
-                @media screen and (min-width: 560px) {
-                    width: 14rem;
-                    height: 4rem;
-                }
 
                 &__btn {
                     @include button;

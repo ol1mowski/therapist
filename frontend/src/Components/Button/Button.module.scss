@@ -1,0 +1,13 @@
+@import '../../sass/settings.scss';
+
+.button {
+    @include buttonWrapper;
+
+    &__btn {
+        @include button;
+    }
+
+    &__btn:hover {
+        @include buttonHover;
+    }
+}
