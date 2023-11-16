@@ -10,6 +10,10 @@
         @include d-flex-row;
     }
 
+    @media screen and (min-width: 1200px) {
+        gap: 20%;
+    }
+
     &__span {
         @include aliceTextStarting;
     }
@@ -20,6 +24,9 @@
 
         @media screen and (min-width: $tablet) {
             width: 40%;
+        }
+        @media screen and (min-width: 1200px){
+            width: 30rem;
         }
 
         &__header {
@@ -36,9 +43,13 @@
         }
 
         &__button {
-            
-            @media screen and (min-width: $tablet) {      
+
+            @media screen and (min-width: $tablet) {
                 width: 15rem;
+            }
+
+            @media screen and (min-width: $desktop) {
+                margin-top: 3rem;
             }
 
             &__btn {
@@ -55,8 +66,18 @@
     &__image {
         width: 100%;
 
+
         @media screen and (min-width: $tablet) {
             width: 40%;
+        }
+
+        @media screen and (min-width: $desktop) {
+            width: 40%;
+            margin-top: 10%;
+        }
+
+        @media screen and (min-width: 1200px){
+            width: 30rem;
         }
 
         &__imgWrapper {

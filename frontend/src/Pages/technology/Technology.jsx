@@ -12,7 +12,7 @@ import node from '../../assets/icons/techno/node.svg';
 
 const Technology = () => {
     return (
-        <section className={s.technoContainer}>
+        <section id='technologies' className={s.technoContainer}>
             <div className={s.technoContainer__content}>
                 <h2 className={s.technoContainer__content__header}>
                     Technologies

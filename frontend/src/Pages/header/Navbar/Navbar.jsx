@@ -23,7 +23,7 @@ const Navbar = () => {
           <div
             className={style.navbar__navigation__item}
           >
-            <a className={style.navbar__navigation__item__a} href="#">Technologies</a>
+            <a className={style.navbar__navigation__item__a} href="#technologies">Technologies</a>
           </div>
         </section>
 

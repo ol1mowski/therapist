@@ -69,22 +69,22 @@ const Header = () => {
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a href="#">Home</a>
+                <a href="#home">Home</a>
               </div>
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a href="#">About</a>
+                <a href="#about">About</a>
               </div>
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a href="#">Use</a>
+                <a href="#use">Use</a>
               </div>
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a href="#">Technologies</a>
+                <a href="#technologies">Technologies</a>
               </div>
             </div>
 

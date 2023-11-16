@@ -12,7 +12,11 @@
 
     @media screen and (min-width: 1200px) {
         width: 70rem;
-        gap: 15vw;
+        gap: 20%;
+    }
+
+    @media screen and (min-width: 1600px) {
+        gap: 30%;
     }
 
     &__header {
