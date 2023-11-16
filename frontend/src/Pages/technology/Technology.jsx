@@ -22,7 +22,7 @@ const Technology = () => {
                 </p>
                 <div className={s.technoContainer__content__button}>
                     <button className={s.technoContainer__content__button__btn}>
-                        Who create <span className={s.technoContainer__span}>Alice</span> ?
+                        Who created <span className={s.technoContainer__span}>Alice</span> ?
                     </button>
                 </div>
             </div>

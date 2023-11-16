@@ -32,10 +32,19 @@ $box-shadow: 0 0.275rem 0.75rem -0.0625rem rgba(11, 15, 25, 0.06), 0 0.125rem 0.
     font-size: 4rem;
   }
 
-  @media screen and (min-width: 1700px) {
-    font-size: 5rem;
+  @media screen and (min-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 3.5rem;
+  }
+
+  @media screen and (min-width: 1600px) {
+    font-size: 4rem;
   }
 }
+
 
 @mixin buttonWrapper() {
   height: 3rem;
@@ -120,9 +129,8 @@ $box-shadow: 0 0.275rem 0.75rem -0.0625rem rgba(11, 15, 25, 0.06), 0 0.125rem 0.
 
 //breakpoints
 
-$breakpoints: (
-  mobile: 560px,
-  tablet: 768px,
-  big-tablets: 900px,
-  desktop: 1200px,
-);
+$mobile: 560px;
+$tablet: 768px;
+$big-tablets: 900px;
+$desktop: 1200px;
+$big-desktop: 1600px;

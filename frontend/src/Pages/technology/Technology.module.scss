@@ -2,27 +2,48 @@
 
 .technoContainer {
     width: 90vw;
-    margin: 0 auto;
+    margin: 10rem auto;
     @include d-flex-column;
     gap: 5rem;
+
+    @media screen and (min-width: $tablet) {
+        @include d-flex-row;
+    }
+
     &__span {
         @include aliceTextStarting;
     }
+
     &__content {
         @include d-flex-column;
         gap: 2rem;
+
+        @media screen and (min-width: $tablet) {
+            width: 40%;
+        }
+
         &__header {
             @include header-small;
         }
+
         &__p {
             @include article;
             padding: 0 1rem;
+
+            @media screen and (min-width: $tablet) {
+                padding: 0;
+            }
         }
+
         &__button {
-            @include buttonWrapper;
+            
+            @media screen and (min-width: $tablet) {      
+                width: 15rem;
+            }
 
             &__btn {
                 @include button;
+                padding: .4rem;
             }
 
             &__btn:hover {
@@ -30,17 +51,26 @@
             }
         }
     }
+
     &__image {
         width: 100%;
+
+        @media screen and (min-width: $tablet) {
+            width: 40%;
+        }
+
         &__imgWrapper {
             @include d-flex-row;
             gap: 3rem;
+
             &__img {
                 width: 15%;
             }
+
             &__imgM {
                 width: 80%;
             }
+
             &__imgN {
                 width: 30%;
             }

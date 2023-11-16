@@ -46,18 +46,6 @@
 
         &__title__h2 {
             @include header-small;
-
-            @media screen and (min-width: 768px) {
-                font-size: 3rem;
-            }
-
-            @media screen and (min-width: 1200px) {
-                font-size: 3.5rem;
-            }
-
-            @media screen and (min-width: 1600px) {
-                font-size: 4rem;
-            }
         }
 
         &__title__button {
