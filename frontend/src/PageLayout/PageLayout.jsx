@@ -1,7 +1,8 @@
-import Home from "../components/Home/Home"
-import About from "../components/about/About"
-import Header from "../components/header/header"
-import Use from "../components/use/Use";
+import Home from "../Pages/Home/Home"
+import About from "../Pages/about/About"
+import Header from "../Pages/header/header"
+import Technology from "../Pages/technology/Technology";
+import Use from "../Pages/use/Use";
 
 function PageLayout() {
 
@@ -11,6 +12,7 @@ function PageLayout() {
      <Home />
      <About />
      <Use />
+     <Technology />
     </>
   );
 };
