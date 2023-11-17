@@ -99,4 +99,18 @@
     }
 }
 
+#react {
+    animation: reactSpin 7s infinite linear;
+}
+
 @include colorAnimation;
+
+
+@keyframes reactSpin {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

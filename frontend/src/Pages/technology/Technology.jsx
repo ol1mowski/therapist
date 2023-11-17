@@ -29,7 +29,7 @@ const Technology = () => {
             <div className={s.technoContainer__image}>
                 <div className={s.technoContainer__image__imgWrapper}>
                     <img src={redux} alt='redux icon' className={s.technoContainer__image__imgWrapper__img} />
-                    <img src={react} alt='redux icon' className={s.technoContainer__image__imgWrapper__img} />
+                    <img src={react} alt='redux icon' id={s.react} className={s.technoContainer__image__imgWrapper__img} />
                     <img src={js} alt='redux icon' className={s.technoContainer__image__imgWrapper__img} />
                 </div>
                 <div className={s.technoContainer__image__imgWrapper}>

@@ -1,0 +1,57 @@
+@import '../../sass/settings.scss';
+
+.authorsContainer {
+    width: 90vw;
+    margin: 5rem auto;
+    @include d-flex-column;
+    gap: 3rem;
+
+
+    @media screen and (min-width: $tablet) {
+        @include d-flex-row;
+        gap: 5rem;
+    }
+
+    &__authorsSection {
+        @include d-flex-column;
+        gap: 3rem;
+        @media screen and (min-width: $tablet) {
+            gap: 2rem;
+        }
+        &__header {
+            @include d-flex-row;
+            width: 100%;
+            justify-content: flex-start;
+            &__h2 {
+                @include header-small;
+            }
+        }
+        &__author__name {
+            @include d-flex-row;
+            gap: 1rem;
+            &__a {
+                @include d-flex-row;
+                width: 4rem;
+            }
+            &__p {
+                font-size: 1.3rem;
+                padding-top: 1rem;
+            }
+            &__icon {
+                width: 60%;
+            }
+        }
+    }
+    &__image {
+        height: 60%;
+        @include d-flex-row;
+        &__img {
+            width: 90%;
+            border-radius: 1.7rem;
+            box-shadow: $box-shadow;
+            @media screen and (min-width: $mobile) {
+                height: 20rem;
+            }
+        }
+    }
+}
