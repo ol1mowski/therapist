@@ -10,6 +10,11 @@
     @media screen and (min-width: $tablet) {
         @include d-flex-row;
         gap: 0;
+        // width: 45rem;
+    }
+
+    @media screen and (min-width: 1024px) {
+        gap: 3rem;
     }
 
     &__authorsSection {
@@ -23,6 +28,9 @@
             @include d-flex-row;
             width: 100%;
             justify-content: flex-start;
+            @media screen and (min-width: $tablet) {
+                width: 70%;
+            }
             &__h2 {
                 @include header-small;
             }
@@ -56,6 +64,10 @@
             @media screen and (min-width: $tablet) {
                 width: 20rem;
                 margin-top: 5rem;
+            }
+
+            @media screen and (min-width: 1024px) {
+                width: 25rem;
             }
         }
     }
