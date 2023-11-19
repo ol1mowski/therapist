@@ -5,17 +5,25 @@
     color: $white-text-color;
     @include d-flex-column;
     gap: 2rem;
-    padding-top: 2.5rem;
+    padding: 2.5rem 0;
 
     &__upper {
         @include d-flex-column;
         padding: 0 1rem;
         gap: 2rem;
 
+        @media screen and (min-width: $tablet) {
+            @include d-flex-row;
+            gap: 15vw;
+        }
+
         &__name {
             &__title {
                 @include header-small;
                 color: $white-text-color;
+                @media screen and (min-width: $tablet) {
+                    font-size: 2rem;
+                }
             }
 
             &__span {
@@ -34,10 +42,14 @@
                     @include article;
                     opacity: 1;
                     padding-top: .5rem;
+                    @media screen and (min-width: $tablet) {
+                        padding-top: 1rem;
+                    }
                 }
 
-                &__icon {
+                &__icon, #svg {
                     width: 2rem;
+                    height: 2rem;
                     display: block;
                 }
             }
@@ -49,25 +61,43 @@
         justify-content: flex-start;
         width: 90vw;
         gap: 2rem;
+
+        @media screen and (min-width: $tablet) {
+            @include d-flex-row;
+            gap: 5vw;
+        }
+
         &__navigation {
             @include d-flex-column;
             justify-content: flex-start;
-            width: 100%;
             padding: 0 2rem;
+
             &__header {
                 width: 100%;
+                @include article;
+                opacity: 1;
+                text-align: left;
             }
 
             &__list {
                 width: 100%;
+
                 &__a {
                     color: $white-text-color;
+                    @include article;
+                    opacity: 1;
+                    text-align: left;
                 }
             }
         }
+
         &__copyright {
             @include article;
+            font-weight: bold;
             opacity: 1;
+            @media screen and (min-width: $tablet) {
+                margin-top: 8rem;
+            }
         }
     }
 }
