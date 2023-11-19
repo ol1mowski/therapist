@@ -9,6 +9,27 @@ const Header = () => {
   const navSection = useRef(null);
   const closeMenu = useRef(null);
 
+  const closeElement1 = useRef(null);
+  const closeElement2 = useRef(null);
+  const closeElement3 = useRef(null);
+  const closeElement4 = useRef(null);
+
+  const elements = [closeElement1, closeElement2, closeElement3, closeElement4];
+
+
+  useEffect(() => {
+
+    const closeHandler = () => {
+      navSection.current.style.display = "none";
+    }
+
+    elements.forEach(item => item.current.addEventListener('click', closeHandler))
+
+    return () => {
+      elements.forEach(item => item.current.removeEventListener('click', closeHandler))
+    };
+  }, [elements])
+
   useEffect(() => {
     const showMenuHandler = () => {
       navSection.current.style.display = "block";
@@ -69,22 +90,22 @@ const Header = () => {
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a href="#home">Home</a>
+                <a ref={closeElement1} href="#home">Home</a>
               </div>
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a href="#about">About</a>
+                <a ref={closeElement2} href="#about">About</a>
               </div>
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a href="#use">Use</a>
+                <a ref={closeElement3} href="#use">Use</a>
               </div>
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a href="#technologies">Technologies</a>
+                <a ref={closeElement4} href="#technologies">Technologies</a>
               </div>
             </div>
 
