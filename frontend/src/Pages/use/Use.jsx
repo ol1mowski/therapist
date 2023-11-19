@@ -1,5 +1,5 @@
 import s from './Use.module.scss';
-import ai from '../../assets/icons/ai_icon.png';
+import ai from '../../assets/icons/ai_icon.svg';
 
 const Use = () => {
     return (
