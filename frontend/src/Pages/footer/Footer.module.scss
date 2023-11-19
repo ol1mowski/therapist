@@ -1,2 +1,73 @@
 @import '../../sass/settings.scss';
 
+.footerContainer {
+    background-color: $dark-text-color;
+    color: $white-text-color;
+    @include d-flex-column;
+    gap: 2rem;
+    padding-top: 2.5rem;
+
+    &__upper {
+        @include d-flex-column;
+        padding: 0 1rem;
+        gap: 2rem;
+
+        &__name {
+            &__title {
+                @include header-small;
+                color: $white-text-color;
+            }
+
+            &__span {
+                font-size: 1rem;
+            }
+        }
+
+        &__tools {
+            @include d-flex-column;
+
+            &__tool {
+                @include d-flex-row;
+                gap: .5rem;
+
+                &__text {
+                    @include article;
+                    opacity: 1;
+                    padding-top: .5rem;
+                }
+
+                &__icon {
+                    width: 2rem;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &__down {
+        @include d-flex-column;
+        justify-content: flex-start;
+        width: 90vw;
+        gap: 2rem;
+        &__navigation {
+            @include d-flex-column;
+            justify-content: flex-start;
+            width: 100%;
+            padding: 0 2rem;
+            &__header {
+                width: 100%;
+            }
+
+            &__list {
+                width: 100%;
+                &__a {
+                    color: $white-text-color;
+                }
+            }
+        }
+        &__copyright {
+            @include article;
+            opacity: 1;
+        }
+    }
+}
