@@ -12,12 +12,14 @@ const Footer = () => {
                     </h2>
                 </div>
                 <div className={s.footerContainer__upper__tools}>
-                    <div className={s.footerContainer__upper__tools__tool}>
-                        <p className={s.footerContainer__upper__tools__tool__text}>
-                            See project on Github
-                        </p>
-                        <img src={gitHub} alt="gitHub icons" className={s.footerContainer__upper__tools__tool__icon} />
-                    </div>
+                    <a href='qq' target='_blank'>
+                        <div className={s.footerContainer__upper__tools__tool}>
+                            <p className={s.footerContainer__upper__tools__tool__text}>
+                                See project on Github
+                            </p>
+                            <img src={gitHub} alt="gitHub icons" className={s.footerContainer__upper__tools__tool__icon} />
+                        </div>
+                    </a>
                     <div className={s.footerContainer__upper__tools__tool}>
                         <p className={s.footerContainer__upper__tools__tool__text}>
                             See live project

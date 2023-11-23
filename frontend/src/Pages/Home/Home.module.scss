@@ -5,6 +5,8 @@
     width: 90vw;
     margin: 5rem auto;
     gap: 3rem;
+    scroll-margin: 10rem;
+
 
     @media screen and (min-width: 768px) {
         @include d-flex-row;
@@ -74,11 +76,11 @@
             @include buttonWrapper;
 
             &__btn {
-               @include button;
+                @include button;
             }
 
             &__btn:hover {
-               @include buttonHover;
+                @include buttonHover;
             }
         }
     }
