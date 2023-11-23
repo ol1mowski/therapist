@@ -28,24 +28,31 @@ const Footer = () => {
                     </div>
                 </div>
             </section>
-            <section className={s.footerContainer__down}>
+            <menu className={s.footerContainer__down}>
                 <div className={s.footerContainer__down__navigation}>
                     <h3 className={s.footerContainer__down__navigation__header}>
                         Navigation
                     </h3>
                     <ul className={s.footerContainer__down__navigation__list}>
-                        <a className={s.footerContainer__down__navigation__list__a} href="#home">
-                            <li>Home Page</li>
-                        </a>
-                        <a className={s.footerContainer__down__navigation__list__a} href="#about">
-                            <li>About Project</li>
-                        </a>
-                        <a className={s.footerContainer__down__navigation__list__a} href="#use">
-                            <li>How use it ?</li>
-                        </a>
-                        <a className={s.footerContainer__down__navigation__list__a} href="#technologies">
-                            <li>Technologiest used</li>
-                        </a>
+                        <li>
+                            <a className={s.footerContainer__down__navigation__list__a} href="#home">
+                                Home Page
+                            </a>
+                        </li>
+                        <li>
+                            <a className={s.footerContainer__down__navigation__list__a} href="#about">
+                                About Project
+                            </a>
+                        </li> <li>
+                            <a className={s.footerContainer__down__navigation__list__a} href="#use">
+                                How to use ?
+                            </a>
+                        </li> <li>
+                            <a className={s.footerContainer__down__navigation__list__a} href="#technologies">
+                                Technologies used
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
                 <div className={s.footerContainer__down__copyright}>
@@ -53,7 +60,7 @@ const Footer = () => {
                         Copyright © 2023. All rights are reserved
                     </p>
                 </div>
-            </section>
+            </menu>
         </section>
     )
 }

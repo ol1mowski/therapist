@@ -1,5 +1,5 @@
 import style from './Home.module.scss';
-import img from '../../assets/background_image.svg';
+import img from '../../assets/alice.webp';
 
 const Home = () => {
     return (

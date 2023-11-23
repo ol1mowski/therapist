@@ -4,7 +4,7 @@ import gitHub from '../../assets/icons/authors/github.svg';
 import linkedin from '../../assets/icons/authors/linkedin.svg';
 
 
-import developer from '../../assets/authors.jpg';
+import developer from '../../assets/authors_2.webp';
 
 const Authors = () => {
     return (
