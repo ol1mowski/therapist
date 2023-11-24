@@ -35,6 +35,7 @@ const Header = () => {
 
     const closeHandler = () => {
       navSection.current.style.display = "none";
+      hamburgerMenu.current.style.display = "flex";
     }
 
     elements.forEach(item => item.current.addEventListener('click', closeHandler))
