@@ -1,11 +1,8 @@
 import style from "./header.module.scss";
-import hamburger from "../../assets/icons/hamburger.svg";
-import hamburger_x from "../../assets/icons/hamburger_x.svg";
 import { useEffect, useRef } from "react";
 import Navbar from "./Navbar/Navbar";
 
-import { Link } from "react-scroll";
-import { motion } from "framer-motion";
+import HamburgerNav from "./Hamburger/HamburgerNav";
 
 const Header = () => {
 
@@ -23,6 +20,8 @@ const Header = () => {
   const hamburgerBtn = useRef(null);
   const navSection = useRef(null);
   const closeMenu = useRef(null);
+  const hamburgerMenu = useRef(null);
+  const hamburgerItems = useRef(null);
 
   const closeElement1 = useRef(null);
   const closeElement2 = useRef(null);
@@ -45,9 +44,14 @@ const Header = () => {
     };
   }, [elements])
 
+
+
+
   useEffect(() => {
     const showMenuHandler = () => {
       navSection.current.style.display = "block";
+      hamburgerMenu.current.style.display = "none";
+      hamburgerItems.current.style.display = "flex";
     };
 
     hamburgerBtn.current.addEventListener("click", showMenuHandler);
@@ -61,6 +65,9 @@ const Header = () => {
 
     const closeMenuHandler = () => {
       navSection.current.style.display = "none";
+      hamburgerMenu.current.style.display = "flex";
+      hamburgerItems.current.style.display = "none";
+
     };
 
     closeMenu.current.addEventListener("click", closeMenuHandler);
@@ -77,142 +84,9 @@ const Header = () => {
 
         <Navbar />
 
-
-
         {/* hamburger menu  */}
 
-        <nav className={style.headerContainer__hamburgerNav}>
-          <div className={style.headerContainer__hamburgerNav__title}>
-            <h2 className={style.headerContainer__hamburgerNav__title__h2}>
-              Alice
-            </h2>
-          </div>
-          <div
-            ref={hamburgerBtn}
-            className={style.headerContainer__hamburgerNav__iconSection}
-          >
-            <img src={hamburger} alt="hamburger icon" />
-          </div>
-        </nav>
-
-        <nav ref={navSection} className={style.headerContainer__navSection}>
-          <section className={style.headerContainer__navSection__closeMenu}>
-            <img ref={closeMenu} src={hamburger_x} alt="Close menu icon" />
-          </section>
-
-          <section className={style.headerContainer__navSection__items}>
-            <div className={style.headerContainer__navSection__items__nav}>
-              <div
-                className={style.headerContainer__navSection__items__nav__item}
-              >
-                <Link
-                  activeClass="active"
-                  to="home"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={1200}
-                >
-                  <motion.a
-                    ref={closeElement1}
-                    variants={buttonVariants}
-                    whileHover="hover"
-                  >
-                    Home
-                  </motion.a>
-                </Link>
-              </div>
-              <div
-                className={style.headerContainer__navSection__items__nav__item}
-              >
-                <Link
-                  activeClass="active"
-                  to="about"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={1200}
-                >
-                  <motion.a
-                    ref={closeElement2}
-                    variants={buttonVariants}
-                    whileHover="hover"
-                  >
-                    About
-                  </motion.a>
-                </Link>
-              </div>
-              <div
-                className={style.headerContainer__navSection__items__nav__item}
-              >
-                <Link
-                  activeClass="active"
-                  to="use"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={1200}
-                >
-                  <motion.a
-                    ref={closeElement3}
-                    variants={buttonVariants}
-                    whileHover="hover"
-                  >
-                    Use
-                  </motion.a>
-                </Link>
-              </div>
-              <div
-                className={style.headerContainer__navSection__items__nav__item}
-              >
-                <Link
-                  activeClass="active"
-                  to="technologies"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={1200}
-                >
-                  <motion.a
-                    ref={closeElement4}
-                    variants={buttonVariants}
-                    whileHover="hover"
-                  >
-                    Technologies
-                  </motion.a>
-                </Link>
-              </div>
-            </div>
-
-            <div className={style.headerContainer__navSection__items__log}>
-              <div
-                className={style.headerContainer__navSection__items__log__item}
-              >
-                <a
-                  className={
-                    style.headerContainer__navSection__items__log__item__a
-                  }
-                  href="#"
-                >
-                  Login
-                </a>
-              </div>
-              <div
-                className={style.headerContainer__navSection__items__log__item}
-              >
-                <a
-                  className={
-                    style.headerContainer__navSection__items__log__item__a
-                  }
-                  href="#"
-                >
-                  Try
-                </a>
-                <svg id={style.svg} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="tabler-icon tabler-icon-external-link"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path><path d="M11 13l9 -9"></path><path d="M15 4h5v5"></path></svg>
-              </div>
-            </div>
-          </section>
-        </nav>
+        <HamburgerNav hamburgerItems={hamburgerItems} hamburgerMenu={hamburgerMenu} hamburgerBtn={hamburgerBtn} navSection={navSection} closeElement1={closeElement1} closeElement2={closeElement2} closeElement3={closeElement3} closeElement4={closeElement4} buttonVariants={buttonVariants} closeMenu={closeMenu} />
       </header>
     </>
   );
