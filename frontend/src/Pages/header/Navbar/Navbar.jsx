@@ -1,6 +1,21 @@
 import style from './Navbar.module.scss';
 
+import { Link } from "react-scroll";
+import { motion } from "framer-motion";
+
 const Navbar = () => {
+
+
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.3,
+        yoyo: Infinity,
+      },
+    },
+  };
+
   return (
     <>
       <nav className={style.navbar}>
@@ -8,22 +23,83 @@ const Navbar = () => {
           <div
             className={style.navbar__navigation__item}
           >
-            <a className={style.navbar__navigation__item__a} href="#home">Home</a>
+            <Link
+              activeClass="active"
+              to="home"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={1200}
+            >
+              <motion.a
+                className={style.navbar__navigation__item__a}
+                variants={buttonVariants}
+                whileHover="hover"
+              >
+                Home
+              </motion.a>
+            </Link>
           </div>
           <div
             className={style.navbar__navigation__item}
           >
-            <a className={style.navbar__navigation__item__a} href="#about">About</a>
+            <Link
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={1200}
+            >
+              <motion.a
+                className={style.navbar__navigation__item__a}
+                variants={buttonVariants}
+                whileHover="hover"
+              >
+                About
+              </motion.a>
+            </Link>
           </div>
           <div
             className={style.navbar__navigation__item}
           >
-            <a className={style.navbar__navigation__item__a} href="#use">Use</a>
+            <Link
+
+              activeClass="active"
+              to="use"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={1200}
+            >
+              <motion.a
+                className={style.navbar__navigation__item__a}
+                variants={buttonVariants}
+                whileHover="hover"
+              >
+                Use
+              </motion.a>
+            </Link>
           </div>
           <div
             className={style.navbar__navigation__item}
           >
-            <a className={style.navbar__navigation__item__a} href="#technologies">Technologies</a>
+            <Link
+              activeClass="active"
+              to="technologies"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={1200}
+            >
+              <motion.a
+                className={style.navbar__navigation__item__a}
+                variants={buttonVariants}
+                whileHover="hover"
+              >
+                Technologies
+              </motion.a>
+            </Link>
           </div>
         </section>
 

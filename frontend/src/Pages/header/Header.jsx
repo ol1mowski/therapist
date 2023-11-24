@@ -125,17 +125,62 @@ const Header = () => {
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a ref={closeElement2} href="#about">About</a>
+                <Link
+                  activeClass="active"
+                  to="about"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={1200}
+                >
+                  <motion.a
+                    ref={closeElement2}
+                    variants={buttonVariants}
+                    whileHover="hover"
+                  >
+                    About
+                  </motion.a>
+                </Link>
               </div>
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a ref={closeElement3} href="#use">Use</a>
+                <Link
+                  activeClass="active"
+                  to="use"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={1200}
+                >
+                  <motion.a
+                    ref={closeElement3}
+                    variants={buttonVariants}
+                    whileHover="hover"
+                  >
+                    Use
+                  </motion.a>
+                </Link>
               </div>
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a ref={closeElement4} href="#technologies">Technologies</a>
+                <Link
+                  activeClass="active"
+                  to="technologies"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={1200}
+                >
+                  <motion.a
+                    ref={closeElement4}
+                    variants={buttonVariants}
+                    whileHover="hover"
+                  >
+                    Technologies
+                  </motion.a>
+                </Link>
               </div>
             </div>
 
