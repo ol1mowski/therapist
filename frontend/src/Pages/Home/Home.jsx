@@ -24,7 +24,7 @@ const Home = () => {
                 </section>
                 <section className={style.homeContainer__imageSection}>
                     <div className={style.homeContainer__imageSection__imgWrapper}>
-                        <img src={img} alt='Therapist give some advices your client' className={style.homeContainer__imageSection__imgWrapper__img} />
+                        <img loading='lazy' src={img} alt='Therapist give some advices your client' className={style.homeContainer__imageSection__imgWrapper__img} />
                     </div>
                 </section>
             </section>

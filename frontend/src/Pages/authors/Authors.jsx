@@ -24,10 +24,10 @@ const Authors = () => {
                             Oliwer Markiewicz
                         </p>
                         <a href='https://www.linkedin.com/in/oliwier-markiewicz-47857228a/' className={s.authorsContainer__authorsSection__author__name__a} target='_blank'>
-                            <img src={linkedin} alt='linkedIn' className={s.authorsContainer__authorsSection__author__name__icon} />
+                            <img loading='lazy' src={linkedin} alt='linkedIn' className={s.authorsContainer__authorsSection__author__name__icon} />
                         </a>
                         <a href='https://github.com/ol1mowski' className={s.authorsContainer__authorsSection__author__name__a} target='_blank'>
-                            <img src={gitHub} alt='gitHub' className={s.authorsContainer__authorsSection__author__name__icon} />
+                            <img loading='lazy' src={gitHub} alt='gitHub' className={s.authorsContainer__authorsSection__author__name__icon} />
                         </a>
                     </div>
                 </div>
@@ -40,10 +40,10 @@ const Authors = () => {
                             Kacper Pędziwiatr
                         </p>
                         <a href='https://www.linkedin.com/' className={s.authorsContainer__authorsSection__author__name__a} target='_blank'>
-                            <img src={linkedin} alt='linkedIn' className={s.authorsContainer__authorsSection__author__name__icon} />
+                            <img loading='lazy' src={linkedin} alt='linkedIn' className={s.authorsContainer__authorsSection__author__name__icon} />
                         </a>
                         <a href='https://github.com/deszaaa' className={s.authorsContainer__authorsSection__author__name__a} target='_blank'>
-                            <img src={gitHub} alt='gitHub' className={s.authorsContainer__authorsSection__author__name__icon} />
+                            <img loading='lazy' src={gitHub} alt='gitHub' className={s.authorsContainer__authorsSection__author__name__icon} />
                         </a>
                     </div>
                 </div>

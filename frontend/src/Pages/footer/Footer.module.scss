@@ -101,6 +101,7 @@
                     text-align: left;
                     transition: color 0.7s;
                     will-change: color;
+                    cursor: pointer;
                 }
                 &__a:hover {
                     color: $hoverColor;

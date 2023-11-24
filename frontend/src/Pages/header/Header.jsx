@@ -4,7 +4,22 @@ import hamburger_x from "../../assets/icons/hamburger_x.svg";
 import { useEffect, useRef } from "react";
 import Navbar from "./Navbar/Navbar";
 
+import { Link } from "react-scroll";
+import { motion } from "framer-motion";
+
 const Header = () => {
+
+
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.3,
+        yoyo: Infinity,
+      },
+    },
+  };
+
   const hamburgerBtn = useRef(null);
   const navSection = useRef(null);
   const closeMenu = useRef(null);
@@ -90,7 +105,22 @@ const Header = () => {
               <div
                 className={style.headerContainer__navSection__items__nav__item}
               >
-                <a ref={closeElement1} href="#home">Home</a>
+                <Link
+                  activeClass="active"
+                  to="home"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={1200}
+                >
+                  <motion.a
+                    ref={closeElement1}
+                    variants={buttonVariants}
+                    whileHover="hover"
+                  >
+                    Home
+                  </motion.a>
+                </Link>
               </div>
               <div
                 className={style.headerContainer__navSection__items__nav__item}

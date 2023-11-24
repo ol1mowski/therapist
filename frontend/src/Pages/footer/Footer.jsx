@@ -1,8 +1,21 @@
 import s from './Footer.module.scss';
 
+import { Link } from "react-scroll";
+import { motion } from "framer-motion";
+
 import gitHub from '../../assets/icons/gitHub_white.svg';
 
 const Footer = () => {
+
+    const buttonVariants = {
+        hover: {
+            scale: 1.05,
+            transition: {
+                duration: 0.3,
+                yoyo: Infinity,
+            },
+        },
+    };
 
     return (
         <section className={s.footerContainer}>
@@ -18,7 +31,7 @@ const Footer = () => {
                             <p className={s.footerContainer__upper__tools__tool__text}>
                                 See project on Github
                             </p>
-                            <img src={gitHub} alt="gitHub icons" className={s.footerContainer__upper__tools__tool__icon} />
+                            <img loading='lazy' src={gitHub} alt="gitHub icons" className={s.footerContainer__upper__tools__tool__icon} />
                         </div>
                     </a>
                     <div className={s.footerContainer__upper__tools__tool}>
@@ -36,22 +49,76 @@ const Footer = () => {
                     </h3>
                     <ul className={s.footerContainer__down__navigation__list}>
                         <li>
-                            <a className={s.footerContainer__down__navigation__list__a} href="#home">
-                                Home Page
-                            </a>
+                            <Link
+                                activeClass="active"
+                                to="home"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={1200}
+                            >
+                                <motion.a
+                                    className={s.footerContainer__down__navigation__list__a}
+                                    variants={buttonVariants}
+                                    whileHover="hover"
+                                >
+                                    Home
+                                </motion.a>
+                            </Link>
                         </li>
                         <li>
-                            <a className={s.footerContainer__down__navigation__list__a} href="#about">
-                                About Project
-                            </a>
-                        </li> <li>
-                            <a className={s.footerContainer__down__navigation__list__a} href="#use">
-                                How to use ?
-                            </a>
-                        </li> <li>
-                            <a className={s.footerContainer__down__navigation__list__a} href="#technologies">
-                                Technologies used
-                            </a>
+                            <Link
+                                activeClass="active"
+                                to="about"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={1200}
+                            >
+                                <motion.a
+                                    className={s.footerContainer__down__navigation__list__a}
+                                    variants={buttonVariants}
+                                    whileHover="hover"
+                                >
+                                    About Project
+                                </motion.a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                activeClass="active"
+                                to="use"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={1200}
+                            >
+                                <motion.a
+                                    className={s.footerContainer__down__navigation__list__a}
+                                    variants={buttonVariants}
+                                    whileHover="hover"
+                                >
+                                    How to use ?
+                                </motion.a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                activeClass="active"
+                                to="technologies"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={1200}
+                            >
+                                <motion.a
+                                    className={s.footerContainer__down__navigation__list__a}
+                                    variants={buttonVariants}
+                                    whileHover="hover"
+                                >
+                                    Technologies used
+                                </motion.a>
+                            </Link>
                         </li>
 
                     </ul>

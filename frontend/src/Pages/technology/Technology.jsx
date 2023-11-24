@@ -30,17 +30,17 @@ const Technology = () => {
             </div>
             <div className={s.technoContainer__image}>
                 <div className={s.technoContainer__image__imgWrapper}>
-                    <img src={redux} alt='redux icon' className={s.technoContainer__image__imgWrapper__img} />
-                    <img src={react} alt='redux icon' id={s.react} className={s.technoContainer__image__imgWrapper__img} />
-                    <img src={js} alt='redux icon' className={s.technoContainer__image__imgWrapper__img} />
+                    <img loading='lazy' src={redux} alt='redux icon' className={s.technoContainer__image__imgWrapper__img} />
+                    <img loading='lazy' src={react} alt='redux icon' id={s.react} className={s.technoContainer__image__imgWrapper__img} />
+                    <img loading='lazy' src={js} alt='redux icon' className={s.technoContainer__image__imgWrapper__img} />
                 </div>
                 <div className={s.technoContainer__image__imgWrapper}>
-                    <img src={mongo} alt='mongoDb icon' className={s.technoContainer__image__imgWrapper__imgM} />
+                    <img loading='lazy' src={mongo} alt='mongoDb icon' className={s.technoContainer__image__imgWrapper__imgM} />
                 </div>
                 <div className={s.technoContainer__image__imgWrapper}>
-                    <img src={sass} alt='sass icon' className={s.technoContainer__image__imgWrapper__img} />
-                    <img src={ai} alt='ai icon' className={s.technoContainer__image__imgWrapper__img} />
-                    <img src={node} alt='node icon' className={s.technoContainer__image__imgWrapper__imgN} />
+                    <img loading='lazy' src={sass} alt='sass icon' className={s.technoContainer__image__imgWrapper__img} />
+                    <img loading='lazy' src={ai} alt='ai icon' className={s.technoContainer__image__imgWrapper__img} />
+                    <img loading='lazy' src={node} alt='node icon' className={s.technoContainer__image__imgWrapper__imgN} />
                 </div>
             </div>
         </section>
