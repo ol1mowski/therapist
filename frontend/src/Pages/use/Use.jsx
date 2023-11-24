@@ -30,9 +30,11 @@ const Use = () => {
                         </p>
                     </div>
                     <div className={s.useContainer__questionsPart__wrapper__button}>
-                        <button className={s.useContainer__questionsPart__wrapper__button__btn}>
-                            Read More
-                        </button>
+                        <a href="#technologies">
+                            <button className={s.useContainer__questionsPart__wrapper__button__btn}>
+                                Read More
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@ import developer from '../../assets/authors_2.webp';
 
 const Authors = () => {
     return (
-        <section className={s.authorsContainer}>
+        <section id='authors' className={s.authorsContainer}>
             <div className={s.authorsContainer__authorsSection}>
                 <div className={s.authorsContainer__authorsSection__header}>
                     <h2 className={s.authorsContainer__authorsSection__header__h2}>

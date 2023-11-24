@@ -21,9 +21,11 @@ const Technology = () => {
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
                 </p>
                 <div className={s.technoContainer__content__button}>
-                    <button className={s.technoContainer__content__button__btn}>
-                        Who created <span className={s.technoContainer__span}>Alice</span> ?
-                    </button>
+                    <a href="#authors">
+                        <button className={s.technoContainer__content__button__btn}>
+                            Who created <span className={s.technoContainer__span}>Alice</span> ?
+                        </button>
+                    </a>
                 </div>
             </div>
             <div className={s.technoContainer__image}>
