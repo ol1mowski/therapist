@@ -1,6 +1,20 @@
 import style from './About.module.scss';
 
+import { Link } from "react-scroll";
+import { motion } from "framer-motion";
+
 const About = () => {
+
+    const buttonVariants = {
+        hover: {
+            scale: 1.05,
+            transition: {
+                duration: 0.3,
+                yoyo: Infinity,
+            },
+        },
+    };
+
     return (
         <>
             <section id='about' className={style.aboutContainer}>
@@ -11,11 +25,23 @@ const About = () => {
                         </h2>
                     </div>
                     <div className={style.aboutContainer__header__title__button}>
-                        <a href='#use'>
-                            <button className={style.aboutContainer__header__title__button__btn}>
-                                How to use <span className={style.aboutContainer__span}>Alice</span> ?
-                            </button>
-                        </a>
+
+                            <Link
+                                activeClass="active"
+                                to="use"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={1200}
+                            >
+                                <motion.button
+                                    className={style.aboutContainer__header__title__button__btn}
+                                    variants={buttonVariants}
+                                    whileHover="hover"
+                                >
+                                    How to use <span className={style.aboutContainer__span}>Alice</span> ?
+                                </motion.button>
+                            </Link>
                     </div>
                 </section>
                 <section className={style.aboutContainer__header__content}>

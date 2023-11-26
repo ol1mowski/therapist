@@ -1,7 +1,21 @@
 import s from './Use.module.scss';
 import ai from '../../assets/icons/ai_icon_50.webp';
 
+import { Link } from "react-scroll";
+import { motion } from "framer-motion";
+
 const Use = () => {
+
+    const buttonVariants = {
+        hover: {
+            scale: 1.05,
+            transition: {
+                duration: 0.3,
+                yoyo: Infinity,
+            },
+        },
+    };
+
     return (
         <section id='use' className={s.useContainer}>
             <div className={s.useContainer__header}>
@@ -30,11 +44,23 @@ const Use = () => {
                         </p>
                     </div>
                     <div className={s.useContainer__questionsPart__wrapper__button}>
-                        <a href="#technologies">
-                            <button className={s.useContainer__questionsPart__wrapper__button__btn}>
-                                Read More
-                            </button>
-                        </a>
+
+                            <Link
+                                activeClass="active"
+                                to="technologies"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={1200}
+                            >
+                                <motion.button
+                                    className={s.useContainer__questionsPart__wrapper__button__btn}
+                                    variants={buttonVariants}
+                                    whileHover="hover"
+                                >
+                                    Read More
+                                </motion.button>
+                            </Link>
                     </div>
                 </div>
             </div>
