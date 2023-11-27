@@ -2,9 +2,10 @@
 
 .authorsContainer {
     width: 90vw;
-    margin: 5rem auto;
+    margin: 10rem auto;
     @include d-flex-column;
     gap: 3rem;
+    scroll-margin: 10rem;
 
 
     @media screen and (min-width: $tablet) {

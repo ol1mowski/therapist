@@ -26,7 +26,7 @@
 
       }
       &__a:hover {
-        color: rgba(167, 142, 221);
+        color: $hoverColor;
         font-size: 1.35rem;
       }
     }
@@ -47,7 +47,7 @@
         will-change: color, font-size;
       }
       &__a:hover {
-        color: rgba(167, 142, 221);
+        color: $hoverColor;
         font-size: 1.35rem
       }
     }

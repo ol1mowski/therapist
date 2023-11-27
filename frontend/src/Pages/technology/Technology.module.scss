@@ -6,6 +6,7 @@
     @include d-flex-column;
     gap: 5rem;
     background-color: $dark-background-color;
+    scroll-margin: 10rem;
 
     @media screen and (min-width: $tablet) {
         @include d-flex-row;

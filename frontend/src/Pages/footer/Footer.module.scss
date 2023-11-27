@@ -5,17 +5,29 @@
     color: $white-text-color;
     @include d-flex-column;
     gap: 2rem;
-    padding-top: 2.5rem;
+    margin-top: 20rem;
+    padding: 2.5rem 0;
 
     &__upper {
         @include d-flex-column;
         padding: 0 1rem;
         gap: 2rem;
 
+        @media screen and (min-width: $tablet) {
+            @include d-flex-row;
+            gap: 15vw;
+        }
+
         &__name {
+            width: 50vw;
+            @include d-flex-row;
+            justify-content: flex-start;
             &__title {
                 @include header-small;
                 color: $white-text-color;
+                @media screen and (min-width: $tablet) {
+                    font-size: 2rem;
+                }
             }
 
             &__span {
@@ -27,6 +39,7 @@
             @include d-flex-column;
 
             &__tool {
+                cursor: pointer;
                 @include d-flex-row;
                 gap: .5rem;
 
@@ -34,40 +47,78 @@
                     @include article;
                     opacity: 1;
                     padding-top: .5rem;
+                    color: $white-text-color;
+                    transition: color .7s;
+                    will-change: color;
+                    @media screen and (min-width: $tablet) {
+                        padding-top: 1rem;
+                    }
+                }
+                &__text:hover {
+                    color: $hoverColor;
                 }
 
-                &__icon {
+                &__icon, #svg {
                     width: 2rem;
+                    height: 2rem;
                     display: block;
                 }
             }
         }
     }
 
+
     &__down {
         @include d-flex-column;
         justify-content: flex-start;
         width: 90vw;
         gap: 2rem;
+
+        @media screen and (min-width: $tablet) {
+            @include d-flex-row;
+            gap: 5vw;
+        }
+
         &__navigation {
             @include d-flex-column;
             justify-content: flex-start;
-            width: 100%;
             padding: 0 2rem;
+
             &__header {
                 width: 100%;
+                @include article;
+                opacity: 1;
+                text-align: left;
             }
 
             &__list {
                 width: 100%;
+
                 &__a {
                     color: $white-text-color;
+                    @include article;
+                    opacity: 1;
+                    text-align: left;
+                    transition: color 0.7s;
+                    will-change: color;
+                    cursor: pointer;
+                }
+                &__a:hover {
+                    color: $hoverColor;
                 }
             }
         }
+
         &__copyright {
             @include article;
+            font-weight: bold;
             opacity: 1;
+            @include d-flex-row;
+            justify-content: flex-end;
+            width: 70%;
+            @media screen and (min-width: $tablet) {
+                margin-top: 8rem;
+            }
         }
     }
 }

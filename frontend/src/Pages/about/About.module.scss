@@ -5,6 +5,8 @@
     @include d-flex-column;
     gap: 5rem;
     background-color: $dark-background-color;
+    scroll-margin: 10rem;
+
 
     @media screen and (min-width: 768px) {
         @include d-flex-row;

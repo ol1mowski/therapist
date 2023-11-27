@@ -1,7 +1,23 @@
 import style from './Home.module.scss';
-import img from '../../assets/background_image.svg';
+import img from '../../assets/alice.webp';
+
+import { Link } from "react-scroll";
+import { motion } from "framer-motion";
+
+// ... (import statements remain unchanged)
 
 const Home = () => {
+
+    const buttonVariants = {
+        hover: {
+            scale: 1.05,
+            transition: {
+                duration: 0.3,
+                yoyo: Infinity,
+            },
+        },
+    };
+
     return (
         <>
             <section id='home' className={style.homeContainer}>
@@ -15,16 +31,27 @@ const Home = () => {
                         </h2>
                     </div>
                     <div className={style.homeContainer__titleSection__button}>
-                        <a href='#about'>
-                            <button className={style.homeContainer__titleSection__button__btn}>
-                                Learn More
-                            </button>
-                        </a>
+                        <Link
+                            activeClass="active"
+                            to="about"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={1200}
+                        >
+                            <motion.button
+                                className={style.homeContainer__titleSection__button__btn}
+                                variants={buttonVariants}
+                                whileHover="hover"
+                            >
+                                Read more
+                            </motion.button>
+                        </Link>
                     </div>
                 </section>
                 <section className={style.homeContainer__imageSection}>
                     <div className={style.homeContainer__imageSection__imgWrapper}>
-                        <img src={img} alt='Therapist give some advices your client' className={style.homeContainer__imageSection__imgWrapper__img} />
+                        <img loading='lazy' src={img} alt='Therapist giving advice to a client' className={style.homeContainer__imageSection__imgWrapper__img} />
                     </div>
                 </section>
             </section>
