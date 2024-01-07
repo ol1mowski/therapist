@@ -1,75 +1,84 @@
-@import '../../../sass/settings.scss';
+@import "../../../sass/settings.scss";
 
 .hamburgerNav {
-    @include d-flex-row;
-    gap: 50vw;
-    z-index: 1000;
-    position: sticky;
-    top: 0;
-    background-color: $white-background-color;
+  @include d-flex-row;
+  gap: 50vw;
+  z-index: -1;
+  position: sticky;
+  top: 0;
+  background-color: $white-background-color;
 
-    @media screen and (min-width: 768px) {
-        display: none;
-    }
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 
-    &__title {
-        &__h2 {
-            font-size: 2rem;
-            @include aliceTextStarting;
-        }
+  &__title {
+    &__h2 {
+      font-size: 2rem;
+      @include aliceTextStarting;
     }
+  }
 }
 
 .navSection {
+  display: none;
+  z-index: -1;
+  width: 100vw;
+  position: absolute;
+  animation: showHamburgerMenu 1s linear forwards;
+  background-color: $white-background-color;
+  color: $dark-text-color;
+  top: 0;
+  height: 100vh;
+  overflow: scroll;
+
+  &__closeMenu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 3rem 3rem 0 0;
+    cursor: pointer;
+  }
+
+  &__items {
+    @include d-flex-column;
     display: none;
-    z-index: 300;
-    width: 100vw;
-    position: fixed;
-    background-color: $white-background-color;
+    justify-content: flex-start;
+    margin-top: 4rem;
+    font-size: 2.5rem;
+    gap: 3rem;
+    text-align: center;
     color: $dark-text-color;
-    top: 0;
-    height: 100vh;
-    overflow: scroll;
 
-    &__closeMenu {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin: 3rem 3rem 0 0;
-        cursor: pointer;
-    }
+    &__log {
+      @include d-flex-column;
 
-    &__items {
-        @include d-flex-column;
-        display: none;
-        justify-content: flex-start;
-        margin-top: 4rem;
-        font-size: 2.5rem;
-        gap: 3rem;
-        text-align: center;
-        color: $dark-text-color;
+      &__item {
+        @include d-flex-row;
+        gap: 1rem;
 
-        &__log {
-            @include d-flex-column;
-
-            &__item {
-                @include d-flex-row;
-                gap: 1rem;
-
-                &__a {
-                    font-weight: 700;
-                    //   margin-top: 2rem;
-                    font-size: 2.5rem;
-                    display: block;
-                }
-            }
+        &__a {
+          font-weight: 700;
+          //   margin-top: 2rem;
+          font-size: 2.5rem;
+          display: block;
         }
+      }
     }
+  }
 }
 
-
 #svg {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 @include colorAnimation;
+
+@keyframes showHamburgerMenu {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
