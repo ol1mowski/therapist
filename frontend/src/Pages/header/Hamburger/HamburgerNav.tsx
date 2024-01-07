@@ -7,7 +7,6 @@ type HamburgerMenuProps = {
     closeMenuHandler: () => void;
     showMenuHandler: () => void;
     navSection: React.RefObject<HTMLDivElement>;
-    hamburgerMenu: React.RefObject<HTMLDivElement>;
     hamburgerItems: React.RefObject<HTMLDivElement>;
 };
 
@@ -36,10 +35,10 @@ const LINKS: LinksType = [
     },
 ];
 
-const HamburgerNav = ({ closeMenuHandler, showMenuHandler, navSection, hamburgerMenu, hamburgerItems }: HamburgerMenuProps) => {
+const HamburgerNav = ({ closeMenuHandler, showMenuHandler, navSection, hamburgerItems }: HamburgerMenuProps) => {
     return (
         <>
-            <nav ref={hamburgerMenu} className={style.hamburgerNav}>
+            <nav className={style.hamburgerNav}>
                 <div className={style.hamburgerNav__title}>
                     <h2 className={style.hamburgerNav__title__h2}>
                         Alice
