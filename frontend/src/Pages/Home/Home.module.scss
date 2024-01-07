@@ -71,18 +71,6 @@
                 }
             }
         }
-
-        &__button {
-            @include buttonWrapper;
-
-            &__btn {
-                @include button;
-            }
-
-            &__btn:hover {
-                @include buttonHover;
-            }
-        }
     }
 
     &__imageSection {
