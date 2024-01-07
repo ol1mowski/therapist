@@ -1,14 +1,15 @@
+import { type ReactNode } from 'react';
 import s from './Button.module.scss';
 
 type ButtonProps = {
-    content: string,
+    children: ReactNode,
 }
 
-const Button = ({ content }: ButtonProps) => {
+const Button = ({ children }: ButtonProps) => {
     return (
         <div className={s.button}>
             <button className={s.button__btn}>
-                { content }
+                { children }
             </button>
         </div>
     );
