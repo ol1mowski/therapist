@@ -1,4 +1,6 @@
 import Button from "../../Components/Button/Button";
+import HeaderOfArticle from "../../Components/HeaderOfArticle/HeaderOfArticle";
+import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
 import style from "./About.module.scss";
 
 import { Link } from "react-scroll";
@@ -6,13 +8,13 @@ import { Link } from "react-scroll";
 const About = () => {
   return (
     <>
-      <section id="about" className={style.aboutContainer}>
+      <SectionWrapper id={"about"} classes={style.aboutContainer}>
         <section className={style.aboutContainer__header}>
           <div className={style.aboutContainer__header__title}>
-            <h2 className={style.aboutContainer__header__title__h2}>
+            <HeaderOfArticle>
               Why <span className={style.aboutContainer__span}>Alice</span> was
               created ?
-            </h2>
+            </HeaderOfArticle>
           </div>
           <div className={style.aboutContainer__header__title__button}>
             <Link
@@ -63,7 +65,7 @@ const About = () => {
             </p>
           </article>
         </section>
-      </section>
+      </SectionWrapper>
     </>
   );
 };
