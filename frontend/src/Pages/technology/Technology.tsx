@@ -13,12 +13,13 @@ import node from "../../assets/icons/techno/node.svg";
 import { Link } from "react-scroll";
 import Button from "../../Components/Button/Button";
 import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
+import HeaderOfArticle from "../../Components/HeaderOfArticle/HeaderOfArticle";
 
 const Technology = () => {
   return (
     <SectionWrapper id={'technologies'} classes={s.technoContainer}>
       <div className={s.technoContainer__content}>
-        <h2 className={s.technoContainer__content__header}>Technologies</h2>
+        <HeaderOfArticle>Technologies</HeaderOfArticle>
         <p className={s.technoContainer__content__p}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever

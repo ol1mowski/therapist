@@ -1,13 +1,14 @@
-@import '../../sass/settings.scss';
+@import "../../sass/settings.scss";
 
 .button {
-    @include buttonWrapper;
+  @include buttonWrapper;
 
-    &__btn {
-        @include button;
-    }
+  &__btn {
+    @include button;
+    width: 120%;
+  }
 
-    &__btn:hover {
-        @include buttonHover;
-    }
+  &__btn:hover {
+    @include buttonHover;
+  }
 }
