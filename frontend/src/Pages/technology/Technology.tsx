@@ -12,10 +12,11 @@ import node from "../../assets/icons/techno/node.svg";
 
 import { Link } from "react-scroll";
 import Button from "../../Components/Button/Button";
+import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
 
 const Technology = () => {
   return (
-    <section id="technologies" className={s.technoContainer}>
+    <SectionWrapper>
       <div className={s.technoContainer__content}>
         <h2 className={s.technoContainer__content__header}>Technologies</h2>
         <p className={s.technoContainer__content__p}>
@@ -91,7 +92,7 @@ const Technology = () => {
           />
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

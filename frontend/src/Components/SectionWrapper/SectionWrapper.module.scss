@@ -1,0 +1,17 @@
+@import "../../sass/settings.scss";
+
+.container {
+  @include d-flex-column;
+  width: 90vw;
+  margin: 5rem auto;
+  gap: 3rem;
+  scroll-margin: 10rem;
+  background-color: $dark-background-color;
+  @media screen and (min-width: $tablet) {
+    @include d-flex-row;
+  }
+
+  @media screen and (min-width: 1200px) {
+    gap: 20%;
+  }
+}
