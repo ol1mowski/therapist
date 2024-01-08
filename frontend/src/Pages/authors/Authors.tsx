@@ -5,15 +5,16 @@ import linkedin from "../../assets/icons/authors/linkedin.svg";
 
 import developer from "../../assets/authors_2.webp";
 import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
+import HeaderOfArticle from "../../Components/HeaderOfArticle/HeaderOfArticle";
 
 const Authors = () => {
   return (
     <SectionWrapper id={"authors"} classes={s.authorsContainer}>
       <div className={s.authorsContainer__authorsSection}>
         <div className={s.authorsContainer__authorsSection__header}>
-          <h2 className={s.authorsContainer__authorsSection__header__h2}>
+          <HeaderOfArticle>
             Authors
-          </h2>
+          </HeaderOfArticle>
         </div>
         <div className={s.authorsContainer__authorsSection__author}>
           <h3>Frontend</h3>

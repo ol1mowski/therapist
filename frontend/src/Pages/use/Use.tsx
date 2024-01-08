@@ -4,12 +4,13 @@ import ai from "../../assets/icons/ai_icon_50.webp";
 import { Link } from "react-scroll";
 import Button from "../../Components/Button/Button";
 import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
+import HeaderOfArticle from "../../Components/HeaderOfArticle/HeaderOfArticle";
 
 const Use = () => {
   return (
     <SectionWrapper id={"use"} classes={s.useContainer}>
       <div className={s.useContainer__header}>
-        <h2 className={s.useContainer__header__h2}>How to use?</h2>
+        <HeaderOfArticle>How to use?</HeaderOfArticle>
         <p className={s.useContainer__header__p}>
           It's simple, all you have to do is{" "}
           <span className={s.useContainer__boldSpan}>tell</span>{" "}
