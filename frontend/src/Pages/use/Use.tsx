@@ -3,10 +3,11 @@ import ai from "../../assets/icons/ai_icon_50.webp";
 
 import { Link } from "react-scroll";
 import Button from "../../Components/Button/Button";
+import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
 
 const Use = () => {
   return (
-    <section id="use" className={s.useContainer}>
+    <SectionWrapper id={"use"} classes={s.useContainer}>
       <div className={s.useContainer__header}>
         <h2 className={s.useContainer__header__h2}>How to use?</h2>
         <p className={s.useContainer__header__p}>
@@ -69,7 +70,7 @@ const Use = () => {
           </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

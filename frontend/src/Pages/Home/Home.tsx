@@ -3,15 +3,12 @@ import img from "../../assets/alice.webp";
 
 import { Link } from "react-scroll";
 import Button from "../../Components/Button/Button";
-
-// ... (import statements remain unchanged)
+import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
 
 const Home = () => {
-
-
   return (
     <>
-      <section id="home" className={style.homeContainer}>
+      <SectionWrapper id={"home"} classes={style.homeContainer}>
         <section className={style.homeContainer__titleSection}>
           <div className={style.homeContainer__titleSection__text}>
             <h1 className={style.homeContainer__titleSection__text__h1}>
@@ -44,7 +41,7 @@ const Home = () => {
             />
           </div>
         </section>
-      </section>
+      </SectionWrapper>
     </>
   );
 };

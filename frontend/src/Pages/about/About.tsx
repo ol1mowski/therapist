@@ -1,4 +1,5 @@
 import Button from "../../Components/Button/Button";
+import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
 import style from "./About.module.scss";
 
 import { Link } from "react-scroll";
@@ -6,7 +7,7 @@ import { Link } from "react-scroll";
 const About = () => {
   return (
     <>
-      <section id="about" className={style.aboutContainer}>
+      <SectionWrapper id={"about"} classes={style.aboutContainer}>
         <section className={style.aboutContainer__header}>
           <div className={style.aboutContainer__header__title}>
             <h2 className={style.aboutContainer__header__title__h2}>
@@ -63,7 +64,7 @@ const About = () => {
             </p>
           </article>
         </section>
-      </section>
+      </SectionWrapper>
     </>
   );
 };

@@ -1,16 +1,17 @@
-import { ReactNode } from 'react';
-import s from './SectionWrapper.module.scss';
+import { ReactNode } from "react";
 
 type SectionWrapperProps = {
-    children: ReactNode,
-}
+  children: ReactNode;
+  id: string;
+  classes: string,
+};
 
-const SectionWrapper = ({ children}: SectionWrapperProps) => {
+const SectionWrapper = ({ children, id, classes }: SectionWrapperProps) => {
   return (
-    <section className={s.container}>
-        { children }
+    <section id={id} className={classes}>
+      {children}
     </section>
-  )
-}
+  );
+};
 
-export default SectionWrapper
+export default SectionWrapper;
