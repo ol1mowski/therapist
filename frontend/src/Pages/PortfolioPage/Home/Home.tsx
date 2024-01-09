@@ -1,9 +1,9 @@
 import style from "./Home.module.scss";
-import img from "../../assets/alice.webp";
+import img from "../../../assets/alice.webp";
 
 import { Link } from "react-scroll";
-import Button from "../../Components/Button/Button";
-import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
+import Button from "../../../Components/Button/Button";
+import SectionWrapper from "../../../Components/SectionWrapper/SectionWrapper";
 
 const Home = () => {
   return (

@@ -1,11 +1,11 @@
 import s from "./Authors.module.scss";
 
-import gitHub from "../../assets/icons/authors/github.svg";
-import linkedin from "../../assets/icons/authors/linkedin.svg";
+import gitHub from "../../../assets/icons/authors/github.svg";
+import linkedin from "../../../assets/icons/authors/linkedin.svg";
 
-import developer from "../../assets/authors_2.webp";
-import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
-import HeaderOfArticle from "../../Components/HeaderOfArticle/HeaderOfArticle";
+import developer from "../../../assets/authors_2.webp";
+import SectionWrapper from "../../../Components/SectionWrapper/SectionWrapper";
+import HeaderOfArticle from "../../../Components/HeaderOfArticle/HeaderOfArticle";
 
 const Authors = () => {
   return (

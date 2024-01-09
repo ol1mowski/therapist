@@ -3,7 +3,7 @@ import s from './Footer.module.scss';
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 
-import gitHub from '../../assets/icons/gitHub_white.svg';
+import gitHub from '../../../assets/icons/gitHub_white.svg';
 
 const Footer = () => {
 

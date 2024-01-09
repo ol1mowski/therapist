@@ -1,19 +1,19 @@
 import s from "./Technology.module.scss";
 
-import redux from "../../assets/icons/techno/redux.svg";
-import react from "../../assets/icons/techno/react.svg";
-import js from "../../assets/icons/techno/js.svg";
+import redux from "../../../assets/icons/techno/redux.svg";
+import react from "../../../assets/icons/techno/react.svg";
+import js from "../../../assets/icons/techno/js.svg";
 
-import mongo from "../../assets/icons/techno/mongoDb.svg";
+import mongo from "../../../assets/icons/techno/mongoDb.svg";
 
-import sass from "../../assets/icons/techno/sass.svg";
-import ai from "../../assets/icons/techno/ai.svg";
-import node from "../../assets/icons/techno/node.svg";
+import sass from "../../../assets/icons/techno/sass.svg";
+import ai from "../../../assets/icons/techno/ai.svg";
+import node from "../../../assets/icons/techno/node.svg";
 
 import { Link } from "react-scroll";
-import Button from "../../Components/Button/Button";
-import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
-import HeaderOfArticle from "../../Components/HeaderOfArticle/HeaderOfArticle";
+import Button from "../../../Components/Button/Button";
+import SectionWrapper from "../../../Components/SectionWrapper/SectionWrapper";
+import HeaderOfArticle from "../../../Components/HeaderOfArticle/HeaderOfArticle";
 
 const Technology = () => {
   return (
