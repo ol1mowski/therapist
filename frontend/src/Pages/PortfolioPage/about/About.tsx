@@ -1,6 +1,6 @@
-import Button from "../../Components/Button/Button";
-import HeaderOfArticle from "../../Components/HeaderOfArticle/HeaderOfArticle";
-import SectionWrapper from "../../Components/SectionWrapper/SectionWrapper";
+import Button from "../../../Components/Button/Button";
+import HeaderOfArticle from "../../../Components/HeaderOfArticle/HeaderOfArticle";
+import SectionWrapper from "../../../Components/SectionWrapper/SectionWrapper";
 import style from "./About.module.scss";
 
 import { Link } from "react-scroll";

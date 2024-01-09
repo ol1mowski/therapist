@@ -1,6 +1,6 @@
 import style from './HamburgerNav.module.scss';
-import hamburger from "../../../assets/icons/hamburger.svg";
-import hamburger_x from "../../../assets/icons/hamburger_x.svg";
+import hamburger from "../../../../assets/icons/hamburger.svg";
+import hamburger_x from "../../../../assets/icons/hamburger_x.svg";
 import LinkComponent from '../LinkComponents/LinkComponent';
 
 type HamburgerMenuProps = {
