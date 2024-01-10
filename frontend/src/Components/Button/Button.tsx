@@ -3,12 +3,13 @@ import s from './Button.module.scss';
 
 type ButtonProps = {
     children: ReactNode,
+    small?: boolean,
 }
 
-const Button = ({ children }: ButtonProps) => {
+const Button = ({ children, small }: ButtonProps) => {
     return (
         <div className={s.button}>
-            <button className={s.button__btn}>
+            <button className={ small ? s.button__btn_small : s.button__btn }>
                 { children }
             </button>
         </div>
