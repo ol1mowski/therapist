@@ -3,6 +3,8 @@ import s from "../LoginPage.module.scss";
 import { type RefObject } from "react";
 import Button from "../../../Components/Button/Button";
 
+// import img from "../../../assets/alice.webp";
+
 type LoginFormProps = {
   email: string;
   password: string;
@@ -119,6 +121,7 @@ const LoginForm = ({
             </div>
           </Form>
         </div>
+        
       </div>
     </section>
   );

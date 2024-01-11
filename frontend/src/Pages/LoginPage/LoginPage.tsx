@@ -7,6 +7,9 @@ const LoginPage = () => {
   const emailInput: RefObject<HTMLInputElement> =
     useRef<HTMLInputElement>(null);
 
+  // const [isValidatePassword, setIsValidatePassword] = useState<boolean>(false);
+  // const [errorInfoPassword, setErrorInfoPassword] = useState<string>('');
+
   const [email, setEmail] = useState<string>("");
 
   const [isValidateEmail, setIsValidateEmail] = useState<boolean>(false);
