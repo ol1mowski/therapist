@@ -1,10 +1,14 @@
 import { Form } from "react-router-dom";
 import s from "../LoginPage.module.scss";
+import { type RefObject } from "react";
 import Button from "../../../Components/Button/Button";
 
 type LoginFormProps = {
   email: string;
   password: string;
+  isValidateEmail: boolean;
+  errorInfoEmail: string;
+  emailElement: RefObject<HTMLInputElement>;
   setPassword: (value: string) => void;
   setEmail: (value: string) => void;
   loginFormValidation: (value: Event) => void;
@@ -15,13 +19,20 @@ const LoginForm = ({
   setEmail,
   password,
   setPassword,
-  loginFormValidation
+  loginFormValidation,
+  isValidateEmail,
+  errorInfoEmail,
+  emailElement,
 }: LoginFormProps) => {
   return (
     <section className={s.loginContainer}>
       <div className={s.loginContainer__wrapper}>
         <div className={s.loginContainer__wrapper__loginFormContainer}>
-          <Form onSubmit={loginFormValidation} className={s.loginContainer__wrapper__loginFormContainer__form}>
+          <Form
+            method={"post"}
+            onSubmit={loginFormValidation}
+            className={s.loginContainer__wrapper__loginFormContainer__form}
+          >
             <h3
               className={s.loginContainer__wrapper__loginFormContainer__header}
             >
@@ -50,6 +61,7 @@ const LoginForm = ({
                 Enter your email:
               </label>
               <input
+                ref={emailElement}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className={
@@ -59,6 +71,9 @@ const LoginForm = ({
                 name="email"
                 id="email"
               />{" "}
+              {!isValidateEmail ? (
+                <p className={s.errorInfo}>{errorInfoEmail}</p>
+              ) : null}
               <br />
               <label
                 className={
