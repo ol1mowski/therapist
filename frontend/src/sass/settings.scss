@@ -33,10 +33,6 @@ $hoverColor: rgba(167, 142, 221);
   color: $dark-text-color;
   text-align: center;
 
-  @media screen and (min-width: 560px) {
-    font-size: 4rem;
-  }
-
   @media screen and (min-width: 768px) {
     font-size: 3rem;
   }
