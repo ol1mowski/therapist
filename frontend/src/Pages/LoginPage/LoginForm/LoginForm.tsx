@@ -3,7 +3,7 @@ import s from "../LoginPage.module.scss";
 import { type RefObject } from "react";
 import Button from "../../../Components/Button/Button";
 
-// import img from "../../../assets/alice.webp";
+import img from "../../../assets/alice.webp";
 
 type LoginFormProps = {
   email: string;
@@ -121,7 +121,10 @@ const LoginForm = ({
             </div>
           </Form>
         </div>
-        
+      </div>
+
+      <div className={s.loginContainer__wrapper}>
+        <img src={img} alt="Therapiest with client photo" />
       </div>
     </section>
   );

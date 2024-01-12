@@ -7,8 +7,8 @@
 }
 
 .loginContainer {
-  @include d-flex-row;
-  height: 100vh;
+  @include d-flex-column;
+  gap: 9rem;
   &__wrapper {
     background-color: $dark-background-color;
     padding: 2rem;
