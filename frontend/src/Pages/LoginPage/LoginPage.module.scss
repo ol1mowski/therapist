@@ -7,7 +7,7 @@
 }
 
 .loginContainer {
-  @include d-flex-column;
+  @include d-flex-row;
   gap: 3rem;
   &__wrapper {
     background-color: $dark-background-color;
@@ -17,13 +17,20 @@
     &__loginFormContainer {
       width: 100%;
       height: 100%;
-      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      box-shadow: -10px 10px 10px 0px rgba(0, 0, 0, 0.25);
       border-radius: 0.7rem;
       @include d-flex-row;
       justify-content: flex-start;
       padding: 1rem;
       @media screen and (min-width: $mobile) {
         padding: 3rem;
+      }
+      @media screen and (min-width: $desktop) {
+        width: 25rem;
+      }
+
+      @media screen and (min-width: $big-desktop) {
+        width: 30rem;
       }
 
       &__header {
@@ -58,6 +65,7 @@
         &__other {
           @include d-flex-column;
           &__content {
+            cursor: pointer;
             text-decoration: underline;
             color: #0275d8;
           }
@@ -68,6 +76,9 @@
       display: none;
       width: 90%;
       margin: 0 auto;
+      @media screen and (min-width: $desktop) {
+        display: block;
+      }
     }
   }
 }
