@@ -124,7 +124,11 @@ const LoginForm = ({
       </div>
 
       <div className={s.loginContainer__wrapper}>
-        <img src={img} alt="Therapiest with client photo" />
+        <img
+          className={s.loginContainer__wrapper__img}
+          src={img}
+          alt="Therapiest with client photo"
+        />
       </div>
     </section>
   );

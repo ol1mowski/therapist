@@ -8,11 +8,10 @@
 
 .loginContainer {
   @include d-flex-column;
-  gap: 9rem;
+  gap: 3rem;
   &__wrapper {
     background-color: $dark-background-color;
-    padding: 2rem;
-    width: 25rem;
+    padding: 4rem 2rem;
     @include d-flex-row;
     gap: 5rem;
     &__loginFormContainer {
@@ -23,6 +22,9 @@
       @include d-flex-row;
       justify-content: flex-start;
       padding: 1rem;
+      @media screen and (min-width: $mobile) {
+        padding: 3rem;
+      }
 
       &__header {
         @include header-small;
@@ -36,12 +38,15 @@
         gap: 2rem;
         &__inputsWrapper {
           @include d-flex-column;
+          justify-content: flex-start;
+          width: 100%;
           &__label {
-            width: 100%;
             font-size: 1.3rem;
+            width: 100%;
+            padding-left: 1rem;
           }
           &__input {
-            width: 100%;
+            width: 90%;
             padding: 3% 10%;
             border-radius: 0.3rem;
             border: 2px solid #e4ccff;
@@ -59,24 +64,29 @@
         }
       }
     }
+    &__img {
+      display: none;
+      width: 90%;
+      margin: 0 auto;
+    }
   }
 }
 .unvalid {
-    border: 1px solid $red-color;
-    animation: unvalidAnimation 0.3s linear;
+  border: 1px solid $red-color;
+  animation: unvalidAnimation 0.3s linear;
+}
+
+@keyframes unvalidAnimation {
+  0% {
+    transform: translateX(0.5vw);
   }
-  
-  @keyframes unvalidAnimation {
-    0% {
-      transform: translateX(0.5vw);
-    }
-    50% {
-      transform: translateX(-0.5vw);
-    }
-    75% {
-      transform: translateX(0.5vw);
-    }
-    100% {
-      transform: translateX(0);
-    }
+  50% {
+    transform: translateX(-0.5vw);
   }
+  75% {
+    transform: translateX(0.5vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
