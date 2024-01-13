@@ -1,4 +1,4 @@
-import { useRef, useState, type RefObject } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import LoginForm from "./LoginForm/LoginForm";
 
 import s from "./LoginPage.module.scss";
@@ -9,16 +9,16 @@ const LoginPage = () => {
 
   // const [isValidatePassword, setIsValidatePassword] = useState<boolean>(false);
   // const [errorInfoPassword, setErrorInfoPassword] = useState<string>('');
-
   const [email, setEmail] = useState<string>("");
-
   const [isValidateEmail, setIsValidateEmail] = useState<boolean>(false);
   const [errorInfoEmail, setErrorInfoEmail] = useState<string>("");
-
   const [password, setPassword] = useState<string>("");
 
-  const loginFormValidate = (e: Event) => {
-    e.preventDefault();
+  const validateEmail = (email: string) => {
+    return email.length >= 8 && email.includes("@");
+  };
+
+  const loginFormValidate = () => {
     if (validateEmail(email)) {
       setIsValidateEmail(true);
       setErrorInfoEmail("");
@@ -39,13 +39,19 @@ const LoginPage = () => {
     }
   };
 
-  const validateEmail = (email: string) => {
-    return email.length >= 8 && email.includes("@");
-  };
+  useEffect(() => {
+    if (email.trim() !== "") {
+      const debounceTimer = setTimeout(() => {
+        loginFormValidate();
+      }, 300);
+
+      return () => clearTimeout(debounceTimer);
+    }
+  }, [email]);
 
   return (
     <LoginForm
-      loginFormValidation={(e: Event) => loginFormValidate(e)}
+      loginFormValidation={loginFormValidate}
       email={email}
       isValidateEmail={isValidateEmail}
       errorInfoEmail={errorInfoEmail}
