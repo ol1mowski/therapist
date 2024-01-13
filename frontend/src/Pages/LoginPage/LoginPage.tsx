@@ -22,6 +22,9 @@ const LoginPage = () => {
     if (validateEmail(email)) {
       setIsValidateEmail(true);
       setErrorInfoEmail("");
+      if (emailInput.current) {
+        emailInput.current.classList.remove(s.unvalid);
+      }
     } else {
       setIsValidateEmail(false);
       if (email.indexOf("@") === -1) {
