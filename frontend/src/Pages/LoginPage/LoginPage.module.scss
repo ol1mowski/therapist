@@ -1,0 +1,103 @@
+@import "../../sass/settings.scss";
+
+.errorInfo {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: $red-color;
+}
+
+.loginContainer {
+  @include d-flex-row;
+  gap: 3rem;
+  &__wrapper {
+    background-color: $dark-background-color;
+    padding: 4rem 2rem;
+    @include d-flex-row;
+    gap: 5rem;
+    &__loginFormContainer {
+      width: 100%;
+      height: 100%;
+      box-shadow: -10px 10px 10px 0px rgba(0, 0, 0, 0.25);
+      border-radius: 0.7rem;
+      @include d-flex-row;
+      justify-content: flex-start;
+      padding: 1rem;
+      @media screen and (min-width: $mobile) {
+        padding: 3rem;
+      }
+      @media screen and (min-width: $desktop) {
+        width: 25rem;
+      }
+
+      @media screen and (min-width: $big-desktop) {
+        width: 30rem;
+      }
+
+      &__header {
+        @include header-small;
+        &__alice {
+          @include aliceTextStarting;
+        }
+      }
+      &__form {
+        height: 100%;
+        @include d-flex-column;
+        gap: 2rem;
+        &__inputsWrapper {
+          @include d-flex-column;
+          justify-content: flex-start;
+          width: 100%;
+          &__label {
+            font-size: 1.3rem;
+            width: 100%;
+            padding-left: 1rem;
+          }
+          &__input {
+            width: 90%;
+            padding: 3% 10%;
+            border-radius: 0.3rem;
+            border: 2px solid #e4ccff;
+          }
+        }
+        &__buttonWrapper {
+          width: 2rem;
+        }
+        &__other {
+          @include d-flex-column;
+          &__content {
+            cursor: pointer;
+            text-decoration: underline;
+            color: #0275d8;
+          }
+        }
+      }
+    }
+    &__img {
+      display: none;
+      width: 90%;
+      margin: 0 auto;
+      @media screen and (min-width: $desktop) {
+        display: block;
+      }
+    }
+  }
+}
+.unvalid {
+  border: 2px solid $red-color;
+  animation: unvalidAnimation 0.3s linear;
+}
+
+@keyframes unvalidAnimation {
+  0% {
+    transform: translateX(0.5vw);
+  }
+  50% {
+    transform: translateX(-0.5vw);
+  }
+  75% {
+    transform: translateX(0.5vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

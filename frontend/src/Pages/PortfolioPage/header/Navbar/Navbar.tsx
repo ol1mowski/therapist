@@ -1,11 +1,11 @@
-import style from './Navbar.module.scss';
+import style from "./Navbar.module.scss";
 
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 
+import { Link as NavigateLink } from "react-router-dom";
+
 const Navbar = () => {
-
-
   const buttonVariants = {
     hover: {
       scale: 1.05,
@@ -20,9 +20,7 @@ const Navbar = () => {
     <>
       <nav className={style.navbar}>
         <section className={style.navbar__navigation}>
-          <div
-            className={style.navbar__navigation__item}
-          >
+          <div className={style.navbar__navigation__item}>
             <Link
               activeClass="active"
               to="home"
@@ -40,9 +38,7 @@ const Navbar = () => {
               </motion.a>
             </Link>
           </div>
-          <div
-            className={style.navbar__navigation__item}
-          >
+          <div className={style.navbar__navigation__item}>
             <Link
               activeClass="active"
               to="about"
@@ -60,11 +56,8 @@ const Navbar = () => {
               </motion.a>
             </Link>
           </div>
-          <div
-            className={style.navbar__navigation__item}
-          >
+          <div className={style.navbar__navigation__item}>
             <Link
-
               activeClass="active"
               to="use"
               spy={true}
@@ -81,9 +74,7 @@ const Navbar = () => {
               </motion.a>
             </Link>
           </div>
-          <div
-            className={style.navbar__navigation__item}
-          >
+          <div className={style.navbar__navigation__item}>
             <Link
               activeClass="active"
               to="technologies"
@@ -104,26 +95,35 @@ const Navbar = () => {
         </section>
 
         <section className={style.navbar__action}>
-          <div
-            className={style.navbar__action__item}
-          >
-            <a
+          <div className={style.navbar__action__item}>
+            <NavigateLink
               className={style.navbar__action__item__a}
-              href="#"
+              to={"/login"}
             >
               Login
-            </a>
+            </NavigateLink>
           </div>
-          <div
-            className={style.navbar__action__item}
-          >
-            <a
-              className={style.navbar__action__item__a}
-              href="#"
-            >
+          <div className={style.navbar__action__item}>
+            <a className={style.navbar__action__item__a} href="#">
               Try
             </a>
-            <svg id={style.svg} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="tabler-icon tabler-icon-external-link"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path><path d="M11 13l9 -9"></path><path d="M15 4h5v5"></path></svg>
+            <svg
+              id={style.svg}
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="tabler-icon tabler-icon-external-link"
+            >
+              <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
+              <path d="M11 13l9 -9"></path>
+              <path d="M15 4h5v5"></path>
+            </svg>
           </div>
         </section>
       </nav>
