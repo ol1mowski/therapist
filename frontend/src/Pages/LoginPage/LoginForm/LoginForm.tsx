@@ -4,7 +4,7 @@ import { type RefObject } from "react";
 import img from "../../../assets/alice.webp";
 import { FormComponent } from "../../../Components/Form/Form-component";
 
-type LoginFormProps = {
+export type LoginFormProps = {
   email: string;
   password: string;
   isValidateEmail: boolean;

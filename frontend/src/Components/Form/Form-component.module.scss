@@ -1,4 +1,4 @@
-@import '../../sass/settings.scss';
+@import "../../sass/settings.scss";
 
 .loginContainer__wrapper__loginFormContainer__header {
   @include header-small;
@@ -7,35 +7,61 @@
   }
 }
 
+.errorInfo {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: $red-color;
+}
+
 .loginContainer__wrapper__loginFormContainer__form {
-    height: 100%;
+  height: 100%;
+  @include d-flex-column;
+  gap: 2rem;
+  &__inputsWrapper {
     @include d-flex-column;
-    gap: 2rem;
-    &__inputsWrapper {
-      @include d-flex-column;
-      justify-content: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    &__label {
+      font-size: 1.3rem;
       width: 100%;
-      &__label {
-        font-size: 1.3rem;
-        width: 100%;
-        padding-left: 1rem;
-      }
-      &__input {
-        width: 90%;
-        padding: 3% 10%;
-        border-radius: 0.3rem;
-        border: 2px solid #e4ccff;
-      }
+      padding-left: 1rem;
     }
-    &__buttonWrapper {
-      width: 2rem;
-    }
-    &__other {
-      @include d-flex-column;
-      &__content {
-        cursor: pointer;
-        text-decoration: underline;
-        color: #0275d8;
-      }
+    &__input {
+      width: 90%;
+      padding: 3% 10%;
+      border-radius: 0.3rem;
+      border: 2px solid #e4ccff;
     }
   }
+  &__buttonWrapper {
+    width: 2rem;
+  }
+  &__other {
+    @include d-flex-column;
+    &__content {
+      cursor: pointer;
+      text-decoration: underline;
+      color: #0275d8;
+    }
+  }
+}
+
+.unvalid {
+  border: 2px solid $red-color;
+  animation: unvalidAnimation 0.3s linear;
+}
+
+@keyframes unvalidAnimation {
+  0% {
+    transform: translateX(0.5vw);
+  }
+  50% {
+    transform: translateX(-0.5vw);
+  }
+  75% {
+    transform: translateX(0.5vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

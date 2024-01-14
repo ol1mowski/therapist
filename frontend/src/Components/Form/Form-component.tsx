@@ -1,18 +1,8 @@
-import { type RefObject } from "react";
 import s from "./Form-component.module.scss";
 import { Form } from "react-router-dom";
 import ButtonComponent from "../Button-component/Button-component";
-
-type FormComponentProps = {
-  email: string;
-  password: string;
-  isValidateEmail: boolean;
-  errorInfoEmail: string;
-  emailElement: RefObject<HTMLInputElement>;
-  setPassword: (value: string) => void;
-  setEmail: (value: string) => void;
-  loginFormValidation: (value: Event) => void;
-};
+import { InputComponent } from "./Input-component/Input-component";
+import { LoginFormProps } from "../../Pages/LoginPage/LoginForm/LoginForm";
 
 export const FormComponent = ({
   email,
@@ -23,7 +13,7 @@ export const FormComponent = ({
   isValidateEmail,
   errorInfoEmail,
   emailElement,
-}: FormComponentProps) => {
+}: LoginFormProps) => {
   return (
     <Form
       method={"post"}
@@ -55,16 +45,13 @@ export const FormComponent = ({
         >
           Enter your email:
         </label>
-        <input
-          ref={emailElement}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
-          }
-          type="text"
-          name="email"
-          id="email"
+        <InputComponent
+          inputType={'text'}
+          name={'email'}
+          id={'id'}
+          email={email}
+          setEmail={setEmail}
+          emailElement={emailElement}
         />{" "}
         {!isValidateEmail ? (
           <p className={s.errorInfo}>{errorInfoEmail}</p>
