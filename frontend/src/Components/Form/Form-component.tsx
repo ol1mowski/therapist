@@ -48,10 +48,10 @@ export const FormComponent = ({
         <InputComponent
           inputType={'text'}
           name={'email'}
-          id={'id'}
-          email={email}
-          setEmail={setEmail}
-          emailElement={emailElement}
+          id={'email'}
+          element={email}
+          setElement={setEmail}
+          hrefToElement={emailElement}
         />{" "}
         {!isValidateEmail ? (
           <p className={s.errorInfo}>{errorInfoEmail}</p>
@@ -65,16 +65,15 @@ export const FormComponent = ({
         >
           Enter your password:
         </label>
-        <input
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
-          }
-          type="password"
-          name="password"
-          id="password"
+        <InputComponent
+          inputType={'password'}
+          name={'password'}
+          id={'password'}
+          element={password}
+          setElement={setPassword}
+          hrefToElement={emailElement}
         />
+        
       </div>
 
       <ButtonComponent small={true}>Login</ButtonComponent>
