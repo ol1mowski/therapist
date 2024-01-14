@@ -4,9 +4,6 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import RootPage from "./Pages/RootPage/RootPage";
 
 function App() {
-
-  
-
   const router = createBrowserRouter([
     {
       path: "/",
