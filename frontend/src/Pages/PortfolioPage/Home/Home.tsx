@@ -2,7 +2,7 @@ import style from "./Home.module.scss";
 import img from "../../../assets/alice.webp";
 
 import { Link } from "react-scroll";
-import Button from "../../../Components/Button/Button";
+import Button from "../../../Components/Button-component/Button-component";
 import SectionWrapper from "../../../Components/SectionWrapper/SectionWrapper";
 
 const Home = () => {

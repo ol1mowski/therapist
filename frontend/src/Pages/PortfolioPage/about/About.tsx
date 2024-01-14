@@ -1,4 +1,4 @@
-import Button from "../../../Components/Button/Button";
+import Button from "../../../Components/Button-component/Button-component";
 import HeaderOfArticle from "../../../Components/HeaderOfArticle/HeaderOfArticle";
 import SectionWrapper from "../../../Components/SectionWrapper/SectionWrapper";
 import style from "./About.module.scss";

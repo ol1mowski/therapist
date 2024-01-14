@@ -2,7 +2,7 @@ import s from "./Use.module.scss";
 import ai from "../../../assets/icons/ai_icon_50.webp";
 
 import { Link } from "react-scroll";
-import Button from "../../../Components/Button/Button";
+import Button from "../../../Components/Button-component/Button-component";
 import SectionWrapper from "../../../Components/SectionWrapper/SectionWrapper";
 import HeaderOfArticle from "../../../Components/HeaderOfArticle/HeaderOfArticle";
 

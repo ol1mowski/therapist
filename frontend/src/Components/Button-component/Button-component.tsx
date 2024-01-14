@@ -6,7 +6,7 @@ type ButtonProps = {
     small?: boolean,
 }
 
-const Button = ({ children, small }: ButtonProps) => {
+const ButtonComponent = ({ children, small }: ButtonProps) => {
     return (
         <div className={s.button}>
             <button className={ small ? s.button__btn_small : s.button__btn }>
@@ -16,4 +16,4 @@ const Button = ({ children, small }: ButtonProps) => {
     );
 };
 
-export default Button;
+export default ButtonComponent;
