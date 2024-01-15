@@ -19,8 +19,12 @@
   gap: 2rem;
   &__inputsWrapper {
     @include d-flex-column;
-    justify-content: flex-start;
     width: 100%;
+    &__inputWrapper {
+      margin-bottom: 1rem;
+      width: 100%;
+      padding: .5rem;
+    }
     &__label {
       font-size: 1.3rem;
       width: 100%;

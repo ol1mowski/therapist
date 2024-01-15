@@ -27,8 +27,10 @@ export const FormComponent = ({
 }: FormContainerProps) => {
   const [singup, setSingup] = useState<boolean>(false);
 
+  const [name, setName] = useState<string>('');
+
   const changeFormHandler = () => {
-    return setSingup(true);
+    return setSingup(prev => !prev);
   };
 
   return (
@@ -68,7 +70,7 @@ export const FormComponent = ({
           s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper
         }
       >
-        { singup ?  <><label
+        { singup ?  <> <div className={s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper}><label
           className={
             s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
           }
@@ -80,11 +82,12 @@ export const FormComponent = ({
           inputType={"text"}
           name={"name"}
           id={"name"}
-          element={email}
-          setElement={setEmail}
+          element={name}
+          setElement={setName}
           hrefToElement={emailElement}
-        />{" "} </>: null}
+        />{" "} </div> </>: null}
         
+        <div className={s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper}>
         <label
           className={
             s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
@@ -100,11 +103,11 @@ export const FormComponent = ({
           element={email}
           setElement={setEmail}
           hrefToElement={emailElement}
-        />{" "}
+        /></div>{" "}
         {!isValidateEmail ? (
           <p className={s.errorInfo}>{errorInfoEmail}</p>
         ) : null}
-        <br />
+        <div className={s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper}>
         <label
           className={
             s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
@@ -121,6 +124,7 @@ export const FormComponent = ({
           setElement={setPassword}
           hrefToElement={emailElement}
         />
+        </div>
       </div>
 
       <ButtonComponent small={true}>Login</ButtonComponent>
@@ -135,14 +139,22 @@ export const FormComponent = ({
         >
           Do you forgot your password ?
         </p>
-        <p
+        { !singup ?   <p
           onClick={changeFormHandler}
           className={
             s.loginContainer__wrapper__loginFormContainer__form__other__content
           }
         >
           Create new account
-        </p>
+        </p> :  <p
+          onClick={changeFormHandler}
+          className={
+            s.loginContainer__wrapper__loginFormContainer__form__other__content
+          }
+        >
+          Login to Alice account
+        </p>}
+       
       </div>
     </Form>
   );
