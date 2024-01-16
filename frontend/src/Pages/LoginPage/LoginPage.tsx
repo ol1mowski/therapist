@@ -7,8 +7,13 @@ const LoginPage = () => {
   const emailInput: RefObject<HTMLInputElement> =
     useRef<HTMLInputElement>(null);
 
+    const passwordInput: RefObject<HTMLInputElement> =
+    useRef<HTMLInputElement>(null);
+
   // const [isValidatePassword, setIsValidatePassword] = useState<boolean>(false);
   // const [errorInfoPassword, setErrorInfoPassword] = useState<string>('');
+
+  const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>("");
   const [isValidateEmail, setIsValidateEmail] = useState<boolean>(false);
   const [errorInfoEmail, setErrorInfoEmail] = useState<string>("");
@@ -19,6 +24,7 @@ const LoginPage = () => {
   };
 
   const loginFormValidate = () => {
+
     if (validateEmail(email)) {
       setIsValidateEmail(true);
       setErrorInfoEmail("");
@@ -51,6 +57,8 @@ const LoginPage = () => {
 
   return (
     <LoginForm
+      name={name}
+      setName={setName}
       loginFormValidation={loginFormValidate}
       email={email}
       isValidateEmail={isValidateEmail}
@@ -59,6 +67,7 @@ const LoginPage = () => {
       password={password}
       setPassword={setPassword}
       emailElement={emailInput}
+      passwordElement={passwordInput}
     />
   );
 };

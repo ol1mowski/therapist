@@ -10,9 +10,12 @@ type FormContainerProps = {
   isValidateEmail: boolean;
   errorInfoEmail: string;
   emailElement: RefObject<HTMLInputElement>;
+  passwordElement: RefObject<HTMLInputElement>;
   setPassword: (value: string) => void;
   setEmail: (value: string) => void;
   loginFormValidation: (value: Event) => void;
+  name: string;
+  setName: (value: string) => void;
 };
 
 export const FormComponent = ({
@@ -24,10 +27,12 @@ export const FormComponent = ({
   isValidateEmail,
   errorInfoEmail,
   emailElement,
+  passwordElement,
+  name,
+  setName,
 }: FormContainerProps) => {
   const [singup, setSingup] = useState<boolean>(false);
 
-  const [name, setName] = useState<string>('');
 
   const changeFormHandler = () => {
     return setSingup(prev => !prev);
@@ -122,7 +127,7 @@ export const FormComponent = ({
           id={"password"}
           element={password}
           setElement={setPassword}
-          hrefToElement={emailElement}
+          hrefToElement={passwordElement}
         />
         </div>
       </div>
