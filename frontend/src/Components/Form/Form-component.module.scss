@@ -15,24 +15,26 @@
 
 .loginContainer__wrapper__loginFormContainer__form {
   height: 100%;
+  width: 90%;
   @include d-flex-column;
   gap: 2rem;
+  margin: 0 auto;
   &__inputsWrapper {
     @include d-flex-column;
     width: 100%;
+    margin-left: 15%;
     &__inputWrapper {
       margin-top: 1rem;
       width: 100%;
-      padding: .5rem;
+      padding: 0.5rem;
     }
     &__label {
       font-size: 1.3rem;
       width: 100%;
-      padding-left: 1rem;
     }
     &__input {
       width: 90%;
-      padding: 3% 10%;
+      padding: 3%;
       border-radius: 0.3rem;
       border: 2px solid #e4ccff;
     }
