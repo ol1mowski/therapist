@@ -3,7 +3,7 @@ import { useState } from "react";
 import s from './LoginPage.module.scss';
 
 import img from "../../assets/alice.webp";
-import { FormComponent } from '../../Components/Form/Form-component';
+import { FormComponent } from '../../Components/Form/Form-component.component';
 
 
 const LoginPage = () => {
