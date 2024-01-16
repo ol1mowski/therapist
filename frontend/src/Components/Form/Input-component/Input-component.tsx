@@ -1,10 +1,8 @@
-import { type RefObject } from "react";
 import s from "../Form-component.module.scss";
 
 type InputComponentProps = {
   element: string;
   setElement: (value: string) => void;
-  hrefToElement: RefObject<HTMLInputElement>;
   inputType: string;
   name: string;
   id: string;
@@ -13,14 +11,12 @@ type InputComponentProps = {
 export const InputComponent = ({
   element,
   setElement,
-  hrefToElement,
   inputType,
   name,
   id,
 }: InputComponentProps) => {
   return (
     <input
-      ref={hrefToElement}
       value={element}
       onChange={(e) => setElement(e.target.value)}
       className={
