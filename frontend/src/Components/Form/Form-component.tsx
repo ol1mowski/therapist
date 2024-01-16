@@ -2,6 +2,7 @@ import s from "./Form-component.module.scss";
 import { Form } from "react-router-dom";
 import ButtonComponent from "../Button-component/Button-component";
 import { InputComponent } from "./Input-component/Input-component";
+import FormHeader from "./Form-header-component/FormHeader.component";
 
 type FormContainerProps = {
   email: string;
@@ -21,17 +22,7 @@ export const FormComponent = ({
       method={"post"}
       className={s.loginContainer__wrapper__loginFormContainer__form}
     >
-      <h3 className={s.loginContainer__wrapper__loginFormContainer__header}>
-        Create new{" "}
-        <span
-          className={
-            s.loginContainer__wrapper__loginFormContainer__header__alice
-          }
-        >
-          Alice
-        </span>{" "}
-        account
-      </h3>
+      <FormHeader title={'Create new'}/>
 
       <div
         className={
