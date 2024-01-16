@@ -10,6 +10,9 @@
   @include d-flex-row;
   gap: 3rem;
   margin: 0 auto;
+  @media screen and (min-width: $big-desktop)  {
+    gap: 10rem;
+  }
   &__wrapper {
     background-color: $dark-background-color;
     padding: 4rem 1rem;
