@@ -4,16 +4,22 @@ import s from './LoginPage.module.scss';
 
 import img from "../../assets/alice.webp";
 import { FormComponent } from '../../Components/Form/Form-component.component';
+import { useParams } from "react-router-dom";
 
 
 const LoginPage = () => {
+
+  const { id } = useParams();
+
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   useEffect(() => {
     console.log(email, password);
+    console.log(id);
     
-  }, [email, password]);
+    
+  }, [email, password, id])
 
   return (
     <section className={s.loginContainer}>
