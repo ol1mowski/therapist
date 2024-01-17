@@ -1,4 +1,4 @@
-import s from '../Form-component.module.scss';
+import s from '../Forms/Login/Form-component.module.scss';
 
 type FormHeaderProps = {
     title: string;

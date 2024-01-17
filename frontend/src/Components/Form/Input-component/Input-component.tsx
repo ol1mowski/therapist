@@ -1,4 +1,4 @@
-import s from "../Form-component.module.scss";
+import s from "../Form-sass/FormStyle.module.scss";
 
 type InputComponentProps = {
   element: string;

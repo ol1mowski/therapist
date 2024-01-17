@@ -1,9 +1,9 @@
 import s from "./Form-component.module.scss";
 import { Form } from "react-router-dom";
-import ButtonComponent from "../Button-component/Button-component";
-import { InputComponent } from "./Input-component/Input-component";
-import FormHeader from "./Form-header-component/FormHeader.component";
 import { Link } from "react-router-dom";
+import FormHeader from "../../Form-header-component/FormHeader.component";
+import { InputComponent } from "../../Input-component/Input-component";
+import ButtonComponent from "../../../Button-component/Button-component";
 
 type FormContainerProps = {
   email: string;
