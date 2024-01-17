@@ -11,9 +11,10 @@ type FormContainerProps = {
   secondFeature: string;
   secondFeatureLink: string;
   children: ReactNode;
+  buttonName: string;
 };
 
-export const FormWrapper = ({ title, firstFeature, firstFeatureLink, secondFeature, secondFeatureLink, children }: FormContainerProps) => {
+export const FormWrapper = ({ title, firstFeature, firstFeatureLink, secondFeature, secondFeatureLink, children, buttonName }: FormContainerProps) => {
   return (
     <Form
       method={"post"}
@@ -33,7 +34,7 @@ export const FormWrapper = ({ title, firstFeature, firstFeatureLink, secondFeatu
 
       { children }
 
-      <ButtonComponent small={true}>Login</ButtonComponent>
+      <ButtonComponent small={true}>{ buttonName }</ButtonComponent>
 
       <div
         className={s.loginContainer__wrapper__loginFormContainer__form__other}

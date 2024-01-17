@@ -14,6 +14,7 @@ export const Login = () => {
       firstFeatureLink="/form/reset"
       secondFeature="Create new account"
       secondFeatureLink="/form/signup"
+      buttonName="Login"
     >
       <div
         className={
