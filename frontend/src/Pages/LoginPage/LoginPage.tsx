@@ -3,17 +3,28 @@ import s from "./LoginPage.module.scss";
 
 import img from "../../assets/alice.webp";
 import { Login } from "../../Components/Form/Forms/Login/Login.component";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { Signup } from "../../Components/Form/Forms/Singup/Form.component";
 
 const LoginPage = () => {
-  // const { id } = useParams();
+  const { id } = useParams();
 
+  const [form, setForm] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+
+    setForm(id)
+  
+  }, [id]);
 
   return (
     <section className={s.loginContainer}>
       <div className={s.loginContainer__wrapper}>
         <div className={s.loginContainer__wrapper__loginFormContainer}>
-          <Login />
+           { form === 'login' && <Login /> }
+           { form === 'signup' && <Signup /> }
         </div>
       </div>
 
