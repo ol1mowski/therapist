@@ -3,6 +3,7 @@ import { Form } from "react-router-dom";
 import ButtonComponent from "../Button-component/Button-component";
 import { InputComponent } from "./Input-component/Input-component";
 import FormHeader from "./Form-header-component/FormHeader.component";
+import { Link } from "react-router-dom";
 
 type FormContainerProps = {
   email: string;
@@ -22,7 +23,7 @@ export const FormComponent = ({
       method={"post"}
       className={s.loginContainer__wrapper__loginFormContainer__form}
     >
-      <FormHeader title={'Create new'}/>
+      <FormHeader title={"Create new"} />
 
       <div
         className={
@@ -78,27 +79,30 @@ export const FormComponent = ({
       <div
         className={s.loginContainer__wrapper__loginFormContainer__form__other}
       >
-        <p
+        <Link
+          to="/form/reset"
           className={
             s.loginContainer__wrapper__loginFormContainer__form__other__content
           }
         >
           Do you forgot your password ?
-        </p>
-        <p
+        </Link>
+        <Link
+        to={"/form/singup"}
           className={
             s.loginContainer__wrapper__loginFormContainer__form__other__content
           }
         >
           Create new account
-        </p>
-        <p
+        </Link>
+        {/* <Link
+        to={"/form/login"}
           className={
             s.loginContainer__wrapper__loginFormContainer__form__other__content
           }
         >
           Login to Alice account
-        </p>
+        </Link> */}
       </div>
     </Form>
   );
