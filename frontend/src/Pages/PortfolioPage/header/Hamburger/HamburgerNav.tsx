@@ -80,7 +80,7 @@ const HamburgerNav = ({
             <div className={style.navSection__items__log__item}>
               <NavigateLink
                 className={style.navSection__items__log__item__a}
-                to={"/login"}
+                to={"/form/login"}
               >
                 Login
               </NavigateLink>

@@ -10,7 +10,7 @@ function App() {
       element: <RootPage />,
       children: [
         { path: "/", element: <PageLayout /> },
-        { path: "/login", element: <LoginPage /> },
+        { path: "/form/:id", element: <LoginPage /> },
       ],
     },
   ]);

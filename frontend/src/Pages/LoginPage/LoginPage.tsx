@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import s from './LoginPage.module.scss';
 
@@ -9,6 +9,11 @@ import { FormComponent } from '../../Components/Form/Form-component.component';
 const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  useEffect(() => {
+    console.log(email, password);
+    
+  }, [email, password]);
 
   return (
     <section className={s.loginContainer}>
