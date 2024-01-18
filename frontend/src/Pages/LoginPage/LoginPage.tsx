@@ -6,7 +6,8 @@ import { Login } from "../../Components/Form/Forms/Login/Login.component";
 import { useParams } from "react-router-dom";
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Signup } from "../../Components/Form/Forms/Singup/Form.component";
+import { Signup } from "../../Components/Form/Forms/Singup/Singup";
+import { Reset } from "../../Components/Form/Forms/Reset/Reset.component";
 
 const LoginPage = () => {
   const { id } = useParams();
@@ -25,6 +26,7 @@ const LoginPage = () => {
         <div className={s.loginContainer__wrapper__loginFormContainer}>
            { form === 'login' && <Login /> }
            { form === 'signup' && <Signup /> }
+           { form === 'reset' && <Reset /> }
         </div>
       </div>
 
