@@ -1,6 +1,5 @@
 import { MouseEvent, useState } from "react";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
-
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
 
@@ -23,7 +22,6 @@ export const Reset = () => {
     e.preventDefault();
     errorValidate(email);
     error ? console.log(error) : null;
-    
   };
 
   return (

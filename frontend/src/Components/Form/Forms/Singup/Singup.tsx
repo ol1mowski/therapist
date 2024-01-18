@@ -3,12 +3,14 @@ import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
+import validator  from 'validator';
 
 export const Signup = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string>("");
 
 
   const errorValidate = (values: string) => {
@@ -20,10 +22,28 @@ export const Signup = () => {
 
   };
 
+  const passwordValidate = (value: string) => {
+    if (
+      validator.isStrongPassword(value, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+    ) {
+      setPasswordError("Is Strong Password");
+    } else {
+      setPasswordError("Is Not Strong Password");
+    }
+  };
+
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     errorValidate(email);
     error ? console.log(error) : null;
+    passwordValidate(password);
+    passwordError ? console.log(passwordError) : null;
     
   };
 

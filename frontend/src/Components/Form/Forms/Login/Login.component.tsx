@@ -3,14 +3,14 @@ import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
-
+import validator from 'validator';
 import { type MouseEvent } from "react";
 
 export const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
+  const [passwordError, setPasswordError] = useState<string>("");
 
   const errorValidate = (values: string) => {
     if (!values) {
@@ -18,13 +18,31 @@ export const Login = () => {
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
       setError("Invalid email address");
     }
+  };
 
+  const passwordValidate = (value: string) => {
+    if (
+      validator.isStrongPassword(value, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+    ) {
+      setPasswordError("Is Strong Password");
+    } else {
+      setPasswordError("Is Not Strong Password");
+    }
   };
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     errorValidate(email);
     error ? console.log(error) : null;
+    passwordValidate(password);
+    passwordError ? console.log(passwordError) : null;
+    
   };
 
   return (
