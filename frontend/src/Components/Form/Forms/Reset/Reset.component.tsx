@@ -1,16 +1,43 @@
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useRef, useState } from "react";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
-
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
 
-
 export const Reset = () => {
+
+  type ValidateObject = {
+    isError: boolean;
+    errorMessage: string | null;
+  };
+
+  const emailElement = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState<string>("");
+  const [emailError, setEmailError] = useState<ValidateObject>({
+    isError: false,
+    errorMessage: null,
+  });
+
+  const emailValidate = (values: string) => {
+    if (!values) {
+      setEmailError({ isError: true, errorMessage: "required" });
+      emailElement.current?.classList.add(s.unvalid);
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
+      setEmailError({ isError: true, errorMessage: "invalid email" });
+      emailElement.current?.classList.add(s.unvalid);
+    } else {
+      setEmailError({ isError: false, errorMessage: null });
+
+      if (emailElement.current?.classList) {
+        emailElement.current?.classList.remove(s.unvalide);
+      }
+    }
+  };
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-  }
+    emailValidate(email);
+    emailError.isError ? console.log(emailError.errorMessage) : null;
+  };
 
   return (
     <FormWrapper
@@ -45,6 +72,7 @@ export const Reset = () => {
             id={"email"}
             element={email}
             setElement={setEmail}
+            hrefToElement={emailElement}
           />
         </div>{" "}
       </div>
@@ -56,7 +84,6 @@ export const Reset = () => {
           Next step
         </button>
       </div>
-
     </FormWrapper>
   );
 };
