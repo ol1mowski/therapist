@@ -7,10 +7,24 @@ import { InputComponent } from "../../Input-component/Input-component";
 
 export const Reset = () => {
   const [email, setEmail] = useState<string>("");
+  const [error, setError] = useState<string>("");
+
+
+  const errorValidate = (values: string) => {
+    if (!values) {
+      setError("Require");
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
+      setError("Invalid email address");
+    }
+
+  };
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-  }
+    errorValidate(email);
+    error ? console.log(error) : null;
+    
+  };
 
   return (
     <FormWrapper
