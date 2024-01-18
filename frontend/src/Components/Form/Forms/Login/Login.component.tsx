@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 
 import s from "../../Form-sass/FormStyle.module.scss";
@@ -7,20 +7,29 @@ import validator from 'validator';
 import { type MouseEvent } from "react";
 
 export const Login = () => {
+  const emailElement = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState<string>("");
-  const [error, setError] = useState<string>("");
+  const [emailError, setEmailError] = useState<boolean>(false);
+
+  const passwordElement = useRef<HTMLInputElement>(null);
   const [password, setPassword] = useState<string>("");
-  const [passwordError, setPasswordError] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<boolean>(false);
 
   const errorValidate = (values: string) => {
+    console.log(emailElement);
+    
     if (!values) {
-      setError("Require");
+      setEmailError(true);
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
-      setError("Invalid email address");
+      setEmailError(true);
+    }
+    else {
+      setEmailError(false);
     }
   };
 
   const passwordValidate = (value: string) => {
+    console.log(passwordElement);
     if (
       validator.isStrongPassword(value, {
         minLength: 8,
@@ -30,16 +39,16 @@ export const Login = () => {
         minSymbols: 1,
       })
     ) {
-      setPasswordError("Is Strong Password");
+      setPasswordError(false);
     } else {
-      setPasswordError("Is Not Strong Password");
+      setPasswordError(true);
     }
   };
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     errorValidate(email);
-    error ? console.log(error) : null;
+    emailError ? console.log(emailError) : null;
     passwordValidate(password);
     passwordError ? console.log(passwordError) : null;
     
@@ -78,6 +87,7 @@ export const Login = () => {
             id={"email"}
             element={email}
             setElement={setEmail}
+            hrefToElement={emailElement}
           />
         </div>{" "}
         <div
@@ -99,6 +109,7 @@ export const Login = () => {
             id={"password"}
             element={password}
             setElement={setPassword}
+            hrefToElement={passwordElement}
           />
         </div>
       </div>
