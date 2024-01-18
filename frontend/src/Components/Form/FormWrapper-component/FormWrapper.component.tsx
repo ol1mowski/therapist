@@ -1,7 +1,6 @@
 import s from "../Form-sass/FormStyle.module.scss";
 import { Form } from "react-router-dom";
 import { Link } from "react-router-dom";
-import ButtonComponent from "../../Button-component/Button-component";
 import { type ReactNode } from "react";
 
 type FormContainerProps = {
@@ -14,7 +13,7 @@ type FormContainerProps = {
   buttonName: string;
 };
 
-export const FormWrapper = ({ title, firstFeature, firstFeatureLink, secondFeature, secondFeatureLink, children, buttonName }: FormContainerProps) => {
+export const FormWrapper = ({ title, firstFeature, firstFeatureLink, secondFeature, secondFeatureLink, children }: FormContainerProps) => {
   return (
     <Form
       method={"post"}
@@ -34,7 +33,6 @@ export const FormWrapper = ({ title, firstFeature, firstFeatureLink, secondFeatu
 
       { children }
 
-      <ButtonComponent small={true}>{ buttonName }</ButtonComponent>
 
       <div
         className={s.loginContainer__wrapper__loginFormContainer__form__other}

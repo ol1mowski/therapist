@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
+import ButtonComponent from "../../../Button-component/Button-component";
 
 export const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  useEffect(() => {
+    console.log(email, password);
+    
+  }, [email, password])
+
   return (
     <FormWrapper
       title="Create new"
@@ -64,6 +71,7 @@ export const Login = () => {
           />
         </div>
       </div>
+      <ButtonComponent small={true}>Login</ButtonComponent>
     </FormWrapper>
   );
 };

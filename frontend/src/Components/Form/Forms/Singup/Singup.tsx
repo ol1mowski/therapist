@@ -3,6 +3,7 @@ import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
+import ButtonComponent from "../../../Button-component/Button-component";
 
 export const Signup = () => {
   const [email, setEmail] = useState<string>("");
@@ -86,6 +87,8 @@ export const Signup = () => {
           />
         </div>
       </div>
+      <ButtonComponent small={true}>Singup</ButtonComponent>
+
     </FormWrapper>
   );
 };
