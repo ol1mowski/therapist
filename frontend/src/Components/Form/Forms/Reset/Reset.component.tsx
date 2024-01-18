@@ -1,27 +1,32 @@
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useRef, useState } from "react";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
 
-
 export const Reset = () => {
+  const emailElement = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState<string>("");
-  const [error, setError] = useState<string>("");
-
+  const [emailError, setEmailError] = useState<boolean>(false);
 
   const errorValidate = (values: string) => {
     if (!values) {
-      setError("Require");
+      emailElement.current?.classList.add(s.unvalid);
+      setEmailError(true);
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
-      setError("Invalid email address");
+      setEmailError(true);
+      emailElement.current?.classList.add(s.unvalid);
+    } else {
+      setEmailError(false);
+      if (emailElement.current?.classList) {
+        emailElement.current?.classList.remove(s.unvalide);
+      }
     }
-
   };
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     errorValidate(email);
-    error ? console.log(error) : null;
+    emailError ? console.log(emailError) : null;
   };
 
   return (
@@ -57,6 +62,7 @@ export const Reset = () => {
             id={"email"}
             element={email}
             setElement={setEmail}
+            hrefToElement={emailElement}
           />
         </div>{" "}
       </div>
@@ -68,7 +74,6 @@ export const Reset = () => {
           Next step
         </button>
       </div>
-
     </FormWrapper>
   );
 };
