@@ -1,28 +1,42 @@
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useRef, useState } from "react";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
-import validator  from 'validator';
+import validator from "validator";
 
 export const Signup = () => {
+  const emailElement = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [name, setName] = useState<string>("");
-  const [error, setError] = useState<string>("");
-  const [passwordError, setPasswordError] = useState<string>("");
+  const [emailError, setEmailError] = useState<boolean>(false);
 
+  const passwordElement = useRef<HTMLInputElement>(null);
+  const [password, setPassword] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<boolean>(false);
+
+  const nameElement = useRef<HTMLInputElement>(null);
+  const [name, setName] = useState<string>("");
+  const [nameError, setNameError] = useState<boolean>(false);
 
   const errorValidate = (values: string) => {
-    if (!values) {
-      setError("Require");
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
-      setError("Invalid email address");
-    }
+    console.log(emailElement);
 
+    if (!values) {
+      setEmailError(true);
+      emailElement.current?.classList.add(s.unvalid);
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
+      setEmailError(true);
+      emailElement.current?.classList.add(s.unvalid);
+    } else {
+      setEmailError(false);
+      if (emailElement.current?.classList) {
+        emailElement.current?.classList.remove(s.unvalide);
+      }
+    }
   };
 
   const passwordValidate = (value: string) => {
+    console.log(passwordElement);
     if (
       validator.isStrongPassword(value, {
         minLength: 8,
@@ -32,19 +46,36 @@ export const Signup = () => {
         minSymbols: 1,
       })
     ) {
-      setPasswordError("Is Strong Password");
+      setPasswordError(false);
+      if (passwordElement.current?.classList) {
+        passwordElement.current?.classList.remove(s.unvalide);
+      }
     } else {
-      setPasswordError("Is Not Strong Password");
+      setPasswordError(true);
+      passwordElement.current?.classList.add(s.unvalid);
+    }
+  };
+
+  const nameValidate = (value: string) => {
+    if (value.length < 3) {
+      setNameError(true);
+      nameElement.current?.classList.add(s.unvalid);
+    } else {
+      setNameError(false);
+      if (nameElement.current?.classList) {
+        nameElement.current?.classList.remove(s.unvalide);
+      }
     }
   };
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     errorValidate(email);
-    error ? console.log(error) : null;
+    emailError ? console.log(emailError) : null;
     passwordValidate(password);
     passwordError ? console.log(passwordError) : null;
-    
+    nameValidate(name);
+    nameError ? console.log(nameError) : null;
   };
 
   return (
@@ -80,6 +111,7 @@ export const Signup = () => {
             id={"name"}
             element={name}
             setElement={setName}
+            hrefToElement={nameElement}
           />
         </div>{" "}
         <div
@@ -101,6 +133,7 @@ export const Signup = () => {
             id={"email"}
             element={email}
             setElement={setEmail}
+            hrefToElement={emailElement}
           />
         </div>{" "}
         <div
@@ -122,6 +155,7 @@ export const Signup = () => {
             id={"password"}
             element={password}
             setElement={setPassword}
+            hrefToElement={passwordElement}
           />
         </div>
       </div>

@@ -6,7 +6,7 @@ import { Login } from "../../Components/Form/Forms/Login/Login.component";
 import { useParams } from "react-router-dom";
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Signup } from "../../Components/Form/Forms/Singup/Singup";
+import { Signup } from "../../Components/Form/Forms/Singup/Singup.component";
 import { Reset } from "../../Components/Form/Forms/Reset/Reset.component";
 
 const LoginPage = () => {
