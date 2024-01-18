@@ -7,6 +7,27 @@
   }
 }
 
+.button {
+  @include buttonWrapper;
+
+  &__btn {
+    @include button;
+    width: 120%;
+  }
+
+  &__btn_small {
+    @include button;
+    margin-left: 12%;
+    width: 70%;
+    height: 80%;
+  }
+
+  &__btn:hover,
+  &__btn_small:hover {
+    @include buttonHover;
+  }
+}
+
 .errorInfo {
   margin-top: 1rem;
   font-size: 1rem;

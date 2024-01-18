@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
-import ButtonComponent from "../../../Button-component/Button-component";
+
+import { type MouseEvent } from "react";
 
 export const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  useEffect(() => {
+  const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     console.log(email, password);
-    
-  }, [email, password])
+  };
 
   return (
     <FormWrapper
@@ -71,7 +72,14 @@ export const Login = () => {
           />
         </div>
       </div>
-      <ButtonComponent small={true}>Login</ButtonComponent>
+      <div className={s.button}>
+        <button
+          onClick={(e) => buttonSubmitHandler(e)}
+          className={s.button__btn_small}
+        >
+          Login
+        </button>
+      </div>
     </FormWrapper>
   );
 };

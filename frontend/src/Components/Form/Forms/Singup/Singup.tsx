@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
-import ButtonComponent from "../../../Button-component/Button-component";
 
 export const Signup = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
+
+  const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <FormWrapper
       title="Register new"
@@ -87,8 +91,14 @@ export const Signup = () => {
           />
         </div>
       </div>
-      <ButtonComponent small={true}>Singup</ButtonComponent>
-
+      <div className={s.button}>
+        <button
+          onClick={(e) => buttonSubmitHandler(e)}
+          className={s.button__btn_small}
+        >
+          Sign up
+        </button>
+      </div>
     </FormWrapper>
   );
 };
