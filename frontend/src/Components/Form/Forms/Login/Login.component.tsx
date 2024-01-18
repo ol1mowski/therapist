@@ -20,11 +20,17 @@ export const Login = () => {
     
     if (!values) {
       setEmailError(true);
+      emailElement.current?.classList.add(s.unvalid);
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
       setEmailError(true);
+      emailElement.current?.classList.add(s.unvalid);
     }
     else {
       setEmailError(false);
+      if(emailElement.current?.classList) {
+      emailElement.current?.classList.remove(s.unvalide);
+      }
+      
     }
   };
 
@@ -40,8 +46,13 @@ export const Login = () => {
       })
     ) {
       setPasswordError(false);
+      if(passwordElement.current?.classList) {
+        passwordElement.current?.classList.remove(s.unvalide);
+        }
+        
     } else {
       setPasswordError(true);
+      passwordElement.current?.classList.add(s.unvalid);
     }
   };
 
