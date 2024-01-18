@@ -1,65 +1,43 @@
-import { useEffect, useRef, useState, type RefObject } from "react";
-import LoginForm from "./LoginForm/LoginForm";
 
 import s from "./LoginPage.module.scss";
 
+import img from "../../assets/alice.webp";
+import { Login } from "../../Components/Form/Forms/Login/Login.component";
+import { useParams } from "react-router-dom";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { Signup } from "../../Components/Form/Forms/Singup/Singup";
+import { Reset } from "../../Components/Form/Forms/Reset/Reset.component";
+
 const LoginPage = () => {
-  const emailInput: RefObject<HTMLInputElement> =
-    useRef<HTMLInputElement>(null);
+  const { id } = useParams();
 
-  // const [isValidatePassword, setIsValidatePassword] = useState<boolean>(false);
-  // const [errorInfoPassword, setErrorInfoPassword] = useState<string>('');
-  const [email, setEmail] = useState<string>("");
-  const [isValidateEmail, setIsValidateEmail] = useState<boolean>(false);
-  const [errorInfoEmail, setErrorInfoEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-
-  const validateEmail = (email: string) => {
-    return email.length >= 8 && email.includes("@");
-  };
-
-  const loginFormValidate = () => {
-    if (validateEmail(email)) {
-      setIsValidateEmail(true);
-      setErrorInfoEmail("");
-      if (emailInput.current) {
-        emailInput.current.classList.remove(s.unvalid);
-      }
-    } else {
-      setIsValidateEmail(false);
-      if (email.indexOf("@") === -1) {
-        setErrorInfoEmail("Your email address must include a @");
-      } else if (email.length < 8) {
-        setErrorInfoEmail("Email must be at least 8 characters long");
-      }
-
-      if (emailInput.current) {
-        emailInput.current.classList.add(s.unvalid);
-      }
-    }
-  };
+  const [form, setForm] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    if (email.trim() !== "") {
-      const debounceTimer = setTimeout(() => {
-        loginFormValidate();
-      }, 300);
 
-      return () => clearTimeout(debounceTimer);
-    }
-  }, [email]);
+    setForm(id)
+  
+  }, [id]);
 
   return (
-    <LoginForm
-      loginFormValidation={loginFormValidate}
-      email={email}
-      isValidateEmail={isValidateEmail}
-      errorInfoEmail={errorInfoEmail}
-      setEmail={setEmail}
-      password={password}
-      setPassword={setPassword}
-      emailElement={emailInput}
-    />
+    <section className={s.loginContainer}>
+      <div className={s.loginContainer__wrapper}>
+        <div className={s.loginContainer__wrapper__loginFormContainer}>
+           { form === 'login' && <Login /> }
+           { form === 'signup' && <Signup /> }
+           { form === 'reset' && <Reset /> }
+        </div>
+      </div>
+
+      <div className={s.loginContainer__wrapper_img}>
+        <img
+          className={s.loginContainer__wrapper__img}
+          src={img}
+          alt="Therapiest with client photo"
+        />
+      </div>
+    </section>
   );
 };
 

@@ -98,7 +98,7 @@ const Navbar = () => {
           <div className={style.navbar__action__item}>
             <NavigateLink
               className={style.navbar__action__item__a}
-              to={"/login"}
+              to={"/form/login"}
             >
               Login
             </NavigateLink>

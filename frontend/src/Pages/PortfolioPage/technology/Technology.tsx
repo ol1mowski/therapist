@@ -11,7 +11,7 @@ import ai from "../../../assets/icons/techno/ai.svg";
 import node from "../../../assets/icons/techno/node.svg";
 
 import { Link } from "react-scroll";
-import Button from "../../../Components/Button/Button";
+import Button from "../../../Components/Button-component/Button-component";
 import SectionWrapper from "../../../Components/SectionWrapper/SectionWrapper";
 import HeaderOfArticle from "../../../Components/HeaderOfArticle/HeaderOfArticle";
 

@@ -4,16 +4,13 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import RootPage from "./Pages/RootPage/RootPage";
 
 function App() {
-
-  
-
   const router = createBrowserRouter([
     {
       path: "/",
       element: <RootPage />,
       children: [
         { path: "/", element: <PageLayout /> },
-        { path: "/login", element: <LoginPage /> },
+        { path: "/form/:id", element: <LoginPage /> },
       ],
     },
   ]);
