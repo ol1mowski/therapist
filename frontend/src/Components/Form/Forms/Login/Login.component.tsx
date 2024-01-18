@@ -3,39 +3,46 @@ import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
-import validator from 'validator';
+import validator from "validator";
 import { type MouseEvent } from "react";
 
 export const Login = () => {
+  type ValidateObject = {
+    isError: boolean;
+    errorMessage: string | null;
+  };
+
   const emailElement = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState<string>("");
-  const [emailError, setEmailError] = useState<boolean>(false);
+  const [emailError, setEmailError] = useState<ValidateObject>({
+    isError: false,
+    errorMessage: null,
+  });
 
   const passwordElement = useRef<HTMLInputElement>(null);
   const [password, setPassword] = useState<string>("");
-  const [passwordError, setPasswordError] = useState<boolean>(false);
+  const [passwordError, setPasswordError] = useState<ValidateObject>({
+    isError: false,
+    errorMessage: null,
+  });
 
-  const errorValidate = (values: string) => {
-    console.log(emailElement);
-    
+  const emailValidate = (values: string) => {
     if (!values) {
-      setEmailError(true);
+      setEmailError({ isError: true, errorMessage: "required" });
       emailElement.current?.classList.add(s.unvalid);
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
-      setEmailError(true);
+      setEmailError({ isError: true, errorMessage: "invalid email" });
       emailElement.current?.classList.add(s.unvalid);
-    }
-    else {
-      setEmailError(false);
-      if(emailElement.current?.classList) {
-      emailElement.current?.classList.remove(s.unvalide);
+    } else {
+      setEmailError({ isError: false, errorMessage: null });
+
+      if (emailElement.current?.classList) {
+        emailElement.current?.classList.remove(s.unvalide);
       }
-      
     }
   };
 
   const passwordValidate = (value: string) => {
-    console.log(passwordElement);
     if (
       validator.isStrongPassword(value, {
         minLength: 8,
@@ -45,24 +52,23 @@ export const Login = () => {
         minSymbols: 1,
       })
     ) {
-      setPasswordError(false);
-      if(passwordElement.current?.classList) {
+      setPasswordError({ isError: false, errorMessage: null });
+      if (passwordElement.current?.classList) {
         passwordElement.current?.classList.remove(s.unvalide);
-        }
-        
+      }
     } else {
-      setPasswordError(true);
+      setPasswordError({ isError: true, errorMessage: "too weak password" });
+
       passwordElement.current?.classList.add(s.unvalid);
     }
   };
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    errorValidate(email);
-    emailError ? console.log(emailError) : null;
+    emailValidate(email);
+    emailError.isError ? console.log(emailError.errorMessage) : null;
     passwordValidate(password);
-    passwordError ? console.log(passwordError) : null;
-    
+    passwordError.isError ? console.log(passwordError.errorMessage) : null;
   };
 
   return (

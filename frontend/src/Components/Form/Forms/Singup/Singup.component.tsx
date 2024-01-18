@@ -5,30 +5,34 @@ import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
 import validator from "validator";
 
+type ValidateObject = {
+  isError: boolean;
+  errorMessage: string | null;
+}
+
 export const Signup = () => {
   const emailElement = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState<string>("");
-  const [emailError, setEmailError] = useState<boolean>(false);
+  const [emailError, setEmailError] = useState<ValidateObject>({ isError: false, errorMessage: null });
 
   const passwordElement = useRef<HTMLInputElement>(null);
   const [password, setPassword] = useState<string>("");
-  const [passwordError, setPasswordError] = useState<boolean>(false);
+  const [passwordError, setPasswordError] = useState<ValidateObject>({ isError: false, errorMessage: null });
 
   const nameElement = useRef<HTMLInputElement>(null);
   const [name, setName] = useState<string>("");
-  const [nameError, setNameError] = useState<boolean>(false);
+  const [nameError, setNameError] = useState<ValidateObject>({ isError: false, errorMessage: null });
 
-  const errorValidate = (values: string) => {
-    console.log(emailElement);
-
+  const emailValidate = (values: string) => {
     if (!values) {
-      setEmailError(true);
+      setEmailError({ isError: true, errorMessage: "required" });
       emailElement.current?.classList.add(s.unvalid);
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
-      setEmailError(true);
+      setEmailError({ isError: true, errorMessage: "invalid email" });
       emailElement.current?.classList.add(s.unvalid);
     } else {
-      setEmailError(false);
+      setEmailError({ isError: false, errorMessage: null });
+
       if (emailElement.current?.classList) {
         emailElement.current?.classList.remove(s.unvalide);
       }
@@ -36,7 +40,6 @@ export const Signup = () => {
   };
 
   const passwordValidate = (value: string) => {
-    console.log(passwordElement);
     if (
       validator.isStrongPassword(value, {
         minLength: 8,
@@ -46,22 +49,23 @@ export const Signup = () => {
         minSymbols: 1,
       })
     ) {
-      setPasswordError(false);
+      setPasswordError({ isError: false, errorMessage: null });
       if (passwordElement.current?.classList) {
         passwordElement.current?.classList.remove(s.unvalide);
       }
     } else {
-      setPasswordError(true);
+      setPasswordError({ isError: true, errorMessage: "too weak password" });
+
       passwordElement.current?.classList.add(s.unvalid);
     }
   };
 
   const nameValidate = (value: string) => {
     if (value.length < 3) {
-      setNameError(true);
+      setNameError({ isError: true, errorMessage: "name is too short" });
       nameElement.current?.classList.add(s.unvalid);
     } else {
-      setNameError(false);
+      setNameError({ isError: false, errorMessage: null });
       if (nameElement.current?.classList) {
         nameElement.current?.classList.remove(s.unvalide);
       }
@@ -70,12 +74,12 @@ export const Signup = () => {
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    errorValidate(email);
-    emailError ? console.log(emailError) : null;
+    emailValidate(email);
+    emailError.isError ? console.log(emailError.errorMessage) : null;
     passwordValidate(password);
-    passwordError ? console.log(passwordError) : null;
+    passwordError.isError ? console.log(passwordError.errorMessage) : null;
     nameValidate(name);
-    nameError ? console.log(nameError) : null;
+    nameError.isError ? console.log(nameError.errorMessage) : null;
   };
 
   return (
