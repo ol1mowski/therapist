@@ -85,50 +85,24 @@ export const Login = () => {
           s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper
         }
       >
-        <div
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
-          }
-        >
-          <label
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
-            }
-            htmlFor="email"
-          >
-            Enter your email:
-          </label>
-          <InputComponent
-            inputType={"text"}
-            name={"email"}
-            id={"email"}
-            element={email}
-            setElement={setEmail}
-            hrefToElement={emailElement}
-          />
-        </div>{" "}
-        <div
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
-          }
-        >
-          <label
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
-            }
-            htmlFor="password"
-          >
-            Enter your password:
-          </label>
-          <InputComponent
-            inputType={"password"}
-            name={"password"}
-            id={"password"}
-            element={password}
-            setElement={setPassword}
-            hrefToElement={passwordElement}
-          />
-        </div>
+        <InputComponent
+          labelTitle="Enter your email:"
+          inputType={"text"}
+          name={"email"}
+          id={"email"}
+          element={email}
+          setElement={setEmail}
+          hrefToElement={emailElement}
+        />
+        <InputComponent
+          labelTitle={"Enter your password:"}
+          inputType={"password"}
+          name={"password"}
+          id={"password"}
+          element={password}
+          setElement={setPassword}
+          hrefToElement={passwordElement}
+        />
       </div>
       <div className={s.button}>
         <button

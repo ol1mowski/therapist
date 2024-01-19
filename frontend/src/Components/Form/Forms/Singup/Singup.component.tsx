@@ -8,20 +8,29 @@ import validator from "validator";
 type ValidateObject = {
   isError: boolean;
   errorMessage: string | null;
-}
+};
 
 export const Signup = () => {
   const emailElement = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState<string>("");
-  const [emailError, setEmailError] = useState<ValidateObject>({ isError: false, errorMessage: null });
+  const [emailError, setEmailError] = useState<ValidateObject>({
+    isError: false,
+    errorMessage: null,
+  });
 
   const passwordElement = useRef<HTMLInputElement>(null);
   const [password, setPassword] = useState<string>("");
-  const [passwordError, setPasswordError] = useState<ValidateObject>({ isError: false, errorMessage: null });
+  const [passwordError, setPasswordError] = useState<ValidateObject>({
+    isError: false,
+    errorMessage: null,
+  });
 
   const nameElement = useRef<HTMLInputElement>(null);
   const [name, setName] = useState<string>("");
-  const [nameError, setNameError] = useState<ValidateObject>({ isError: false, errorMessage: null });
+  const [nameError, setNameError] = useState<ValidateObject>({
+    isError: false,
+    errorMessage: null,
+  });
 
   const emailValidate = (values: string) => {
     if (!values) {
@@ -96,72 +105,34 @@ export const Signup = () => {
           s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper
         }
       >
-        <div
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
-          }
-        >
-          <label
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
-            }
-            htmlFor="email"
-          >
-            Enter your name:
-          </label>
-          <InputComponent
-            inputType={"text"}
-            name={"name"}
-            id={"name"}
-            element={name}
-            setElement={setName}
-            hrefToElement={nameElement}
-          />
-        </div>{" "}
-        <div
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
-          }
-        >
-          <label
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
-            }
-            htmlFor="email"
-          >
-            Enter your email:
-          </label>
-          <InputComponent
-            inputType={"text"}
-            name={"email"}
-            id={"email"}
-            element={email}
-            setElement={setEmail}
-            hrefToElement={emailElement}
-          />
-        </div>{" "}
-        <div
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
-          }
-        >
-          <label
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
-            }
-            htmlFor="password"
-          >
-            Enter your password:
-          </label>
-          <InputComponent
-            inputType={"password"}
-            name={"password"}
-            id={"password"}
-            element={password}
-            setElement={setPassword}
-            hrefToElement={passwordElement}
-          />
-        </div>
+        <InputComponent
+          inputType={"text"}
+          name={"name"}
+          id={"name"}
+          element={name}
+          setElement={setName}
+          hrefToElement={nameElement}
+          labelTitle="Enter your name:"
+        />
+
+        <InputComponent
+          labelTitle="Enter your email:"
+          inputType={"text"}
+          name={"email"}
+          id={"email"}
+          element={email}
+          setElement={setEmail}
+          hrefToElement={emailElement}
+        />
+        <InputComponent
+          labelTitle={"Enter your password:"}
+          inputType={"password"}
+          name={"password"}
+          id={"password"}
+          element={password}
+          setElement={setPassword}
+          hrefToElement={passwordElement}
+        />
       </div>
       <div className={s.button}>
         <button
