@@ -37,7 +37,7 @@ export const Login = () => {
       setEmailError({ isError: false, errorMessage: null });
 
       if (emailElement.current?.classList) {
-        emailElement.current?.classList.remove(s.unvalide);
+        emailElement.current?.classList.remove(s.unvalid);
       }
     }
   };
@@ -54,7 +54,7 @@ export const Login = () => {
     ) {
       setPasswordError({ isError: false, errorMessage: null });
       if (passwordElement.current?.classList) {
-        passwordElement.current?.classList.remove(s.unvalide);
+        passwordElement.current?.classList.remove(s.unvalid);
       }
     } else {
       setPasswordError({ isError: true, errorMessage: "too weak password" });

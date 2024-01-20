@@ -43,7 +43,7 @@ export const Signup = () => {
       setEmailError({ isError: false, errorMessage: null });
 
       if (emailElement.current?.classList) {
-        emailElement.current?.classList.remove(s.unvalide);
+        emailElement.current?.classList.remove(s.unvalid);
       }
     }
   };
@@ -60,7 +60,7 @@ export const Signup = () => {
     ) {
       setPasswordError({ isError: false, errorMessage: null });
       if (passwordElement.current?.classList) {
-        passwordElement.current?.classList.remove(s.unvalide);
+        passwordElement.current?.classList.remove(s.unvalid);
       }
     } else {
       setPasswordError({ isError: true, errorMessage: "too weak password" });
@@ -76,7 +76,7 @@ export const Signup = () => {
     } else {
       setNameError({ isError: false, errorMessage: null });
       if (nameElement.current?.classList) {
-        nameElement.current?.classList.remove(s.unvalide);
+        nameElement.current?.classList.remove(s.unvalid);
       }
     }
   };

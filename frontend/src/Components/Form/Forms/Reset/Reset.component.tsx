@@ -27,7 +27,7 @@ export const Reset = () => {
       setEmailError({ isError: false, errorMessage: null });
 
       if (emailElement.current?.classList) {
-        emailElement.current?.classList.remove(s.unvalide);
+        emailElement.current?.classList.remove(s.unvalid);
       }
     }
   };
