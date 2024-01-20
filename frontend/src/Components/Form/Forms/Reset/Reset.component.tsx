@@ -4,7 +4,6 @@ import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
 
 export const Reset = () => {
-
   type ValidateObject = {
     isError: boolean;
     errorMessage: string | null;
@@ -28,7 +27,7 @@ export const Reset = () => {
       setEmailError({ isError: false, errorMessage: null });
 
       if (emailElement.current?.classList) {
-        emailElement.current?.classList.remove(s.unvalide);
+        emailElement.current?.classList.remove(s.unvalid);
       }
     }
   };
@@ -53,28 +52,16 @@ export const Reset = () => {
           s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper
         }
       >
-        <div
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
-          }
-        >
-          <label
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
-            }
-            htmlFor="email"
-          >
-            Enter your email:
-          </label>
-          <InputComponent
-            inputType={"text"}
-            name={"email"}
-            id={"email"}
-            element={email}
-            setElement={setEmail}
-            hrefToElement={emailElement}
-          />
-        </div>{" "}
+        <InputComponent
+          elementError={emailError}
+          labelTitle="Enter your email:"
+          inputType={"text"}
+          name={"email"}
+          id={"email"}
+          element={email}
+          setElement={setEmail}
+          hrefToElement={emailElement}
+        />
       </div>
       <div className={s.button}>
         <button

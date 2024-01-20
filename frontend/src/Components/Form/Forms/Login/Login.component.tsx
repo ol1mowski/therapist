@@ -37,7 +37,7 @@ export const Login = () => {
       setEmailError({ isError: false, errorMessage: null });
 
       if (emailElement.current?.classList) {
-        emailElement.current?.classList.remove(s.unvalide);
+        emailElement.current?.classList.remove(s.unvalid);
       }
     }
   };
@@ -54,7 +54,7 @@ export const Login = () => {
     ) {
       setPasswordError({ isError: false, errorMessage: null });
       if (passwordElement.current?.classList) {
-        passwordElement.current?.classList.remove(s.unvalide);
+        passwordElement.current?.classList.remove(s.unvalid);
       }
     } else {
       setPasswordError({ isError: true, errorMessage: "too weak password" });
@@ -85,50 +85,26 @@ export const Login = () => {
           s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper
         }
       >
-        <div
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
-          }
-        >
-          <label
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
-            }
-            htmlFor="email"
-          >
-            Enter your email:
-          </label>
-          <InputComponent
-            inputType={"text"}
-            name={"email"}
-            id={"email"}
-            element={email}
-            setElement={setEmail}
-            hrefToElement={emailElement}
-          />
-        </div>{" "}
-        <div
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
-          }
-        >
-          <label
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
-            }
-            htmlFor="password"
-          >
-            Enter your password:
-          </label>
-          <InputComponent
-            inputType={"password"}
-            name={"password"}
-            id={"password"}
-            element={password}
-            setElement={setPassword}
-            hrefToElement={passwordElement}
-          />
-        </div>
+        <InputComponent
+          elementError={emailError}
+          labelTitle="Enter your email:"
+          inputType={"text"}
+          name={"email"}
+          id={"email"}
+          element={email}
+          setElement={setEmail}
+          hrefToElement={emailElement}
+        />
+        <InputComponent
+          elementError={passwordError}
+          labelTitle={"Enter your password:"}
+          inputType={"password"}
+          name={"password"}
+          id={"password"}
+          element={password}
+          setElement={setPassword}
+          hrefToElement={passwordElement}
+        />
       </div>
       <div className={s.button}>
         <button
