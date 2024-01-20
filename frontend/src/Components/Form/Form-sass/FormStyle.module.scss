@@ -76,6 +76,11 @@
 .unvalid {
   border: 2px solid $red-color;
   animation: unvalidAnimation 0.3s linear;
+  &__message {
+    font-size: 1.2rem;
+    color: red;
+    margin: .5rem;
+  }
 }
 
 @keyframes unvalidAnimation {

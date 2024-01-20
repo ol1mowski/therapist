@@ -48,7 +48,7 @@ export const InputComponent = ({
         name={name}
         id={id}
       />
-      { elementError.isError ? <p>{ elementError.errorMessage }</p> : null}
+      { elementError.isError ? <p className={s.unvalid__message}>{ elementError.errorMessage }</p> : null}
     </div>
   );
 };
