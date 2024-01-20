@@ -86,6 +86,7 @@ export const Login = () => {
         }
       >
         <InputComponent
+          elementError={emailError}
           labelTitle="Enter your email:"
           inputType={"text"}
           name={"email"}
@@ -95,6 +96,7 @@ export const Login = () => {
           hrefToElement={emailElement}
         />
         <InputComponent
+          elementError={passwordError}
           labelTitle={"Enter your password:"}
           inputType={"password"}
           name={"password"}
