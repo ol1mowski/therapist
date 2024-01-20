@@ -5,7 +5,7 @@ import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
 import validator from "validator";
 
-type ValidateObject = {
+export type ValidateObject = {
   isError: boolean;
   errorMessage: string | null;
 };
@@ -106,6 +106,7 @@ export const Signup = () => {
         }
       >
         <InputComponent
+          elementError={nameError}
           inputType={"text"}
           name={"name"}
           id={"name"}
@@ -116,6 +117,7 @@ export const Signup = () => {
         />
 
         <InputComponent
+          elementError={emailError}
           labelTitle="Enter your email:"
           inputType={"text"}
           name={"email"}
@@ -125,6 +127,7 @@ export const Signup = () => {
           hrefToElement={emailElement}
         />
         <InputComponent
+          elementError={passwordError}
           labelTitle={"Enter your password:"}
           inputType={"password"}
           name={"password"}

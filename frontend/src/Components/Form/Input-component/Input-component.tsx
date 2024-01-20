@@ -1,5 +1,6 @@
 import { LegacyRef } from "react";
 import s from "../Form-sass/FormStyle.module.scss";
+import { ValidateObject } from "../Forms/Singup/Singup.component";
 
 type InputComponentProps = {
   labelTitle: string;
@@ -9,6 +10,7 @@ type InputComponentProps = {
   name: string;
   id: string;
   hrefToElement: LegacyRef<HTMLInputElement>;
+  elementError: ValidateObject;
 };
 
 export const InputComponent = ({
@@ -19,6 +21,7 @@ export const InputComponent = ({
   id,
   hrefToElement,
   labelTitle,
+  elementError,
 }: InputComponentProps) => {
   return (
     <div
@@ -45,7 +48,7 @@ export const InputComponent = ({
         name={name}
         id={id}
       />
-      {/* { emailError.isError ? <p>{ emailError.errorMessage }</p> : null} */}
+      { elementError.isError ? <p>{ elementError.errorMessage }</p> : null}
     </div>
   );
 };
