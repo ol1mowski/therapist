@@ -53,6 +53,7 @@ export const Reset = () => {
         }
       >
         <InputComponent
+          elementError={emailError}
           labelTitle="Enter your email:"
           inputType={"text"}
           name={"email"}
