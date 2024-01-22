@@ -1,8 +1,10 @@
 import { MouseEvent, useRef, useState } from "react";
+
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
+import { InputComponent } from "../../Input-component/Input-component";
 
 import s from "../../Form-sass/FormStyle.module.scss";
-import { InputComponent } from "../../Input-component/Input-component";
+
 import validator from "validator";
 
 export type ValidateObject = {

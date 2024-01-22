@@ -1,4 +1,4 @@
-import { LegacyRef } from "react";
+import { type LegacyRef } from "react";
 import s from "../Form-sass/FormStyle.module.scss";
 import { ValidateObject } from "../Forms/Singup/Singup.component";
 

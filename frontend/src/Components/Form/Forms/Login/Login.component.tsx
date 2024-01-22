@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
+import { useRef, useState, type MouseEvent  } from "react";
+
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
+import { InputComponent } from "../../Input-component/Input-component";
 
 import s from "../../Form-sass/FormStyle.module.scss";
-import { InputComponent } from "../../Input-component/Input-component";
+
 import validator from "validator";
-import { type MouseEvent } from "react";
 
 export const Login = () => {
   type ValidateObject = {

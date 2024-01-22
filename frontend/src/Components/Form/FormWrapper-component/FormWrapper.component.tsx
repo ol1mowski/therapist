@@ -1,6 +1,5 @@
 import s from "../Form-sass/FormStyle.module.scss";
-import { Form } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 import { type ReactNode } from "react";
 
 type FormContainerProps = {
