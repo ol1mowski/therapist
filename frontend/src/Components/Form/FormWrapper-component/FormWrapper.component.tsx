@@ -9,7 +9,7 @@ type FormContainerProps = {
   secondFeature: string;
   secondFeatureLink: string;
   children: ReactNode;
-  buttonName: string;
+  buttonName?: string;
 };
 
 export const FormWrapper = ({ title, firstFeature, firstFeatureLink, secondFeature, secondFeatureLink, children }: FormContainerProps) => {

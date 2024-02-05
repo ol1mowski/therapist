@@ -73,6 +73,17 @@
   }
 }
 
+.sucess {
+  color: green;
+  font-size: 3rem;
+}
+
+.content {
+  @include article;
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+
 .unvalid {
   border: 2px solid $red-color;
   animation: unvalidAnimation 0.3s linear;
