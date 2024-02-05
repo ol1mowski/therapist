@@ -74,7 +74,7 @@ export const Login = () => {
 
   return (
     <FormWrapper
-      title="Create new"
+      title="Login to "
       firstFeature="Do you forgot your password ?"
       firstFeatureLink="/form/reset"
       secondFeature="Create new account"
