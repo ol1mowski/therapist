@@ -1,4 +1,4 @@
-import { MouseEvent, useRef, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
@@ -11,7 +11,8 @@ export const Reset = () => {
   };
 
   const emailElement = useRef<HTMLInputElement>(null);
-  const [step, setStep] = useState<number>(1);
+  const [check, setCheck] = useState<boolean>(false);
+  const [next, setNext] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [emailError, setEmailError] = useState<ValidateObject>({
     isError: false,
@@ -37,12 +38,20 @@ export const Reset = () => {
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     emailValidate(email);
-    emailError.isError ? console.log(emailError.errorMessage) : setStep(2);
+    setCheck(true);
   };
+
+  useEffect(() => {
+    if (check) {
+      if (!emailError.isError) {
+        setNext(true);
+      }
+    }
+  }, [email, emailError]);
 
   return (
     <>
-      {step === 1 ? (
+      {!next ? (
         <FormWrapper
           title="Reset passowrd to "
           firstFeature="Login to your accounr"
