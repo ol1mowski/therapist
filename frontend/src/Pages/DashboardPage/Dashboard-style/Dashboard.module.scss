@@ -29,6 +29,7 @@
     }
   }
   &__userAccount {
+    margin-top: 1rem;
     @include d-flex-column;
     color: $white-text-color;
     cursor: pointer;
