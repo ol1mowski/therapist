@@ -1,12 +1,19 @@
-import { DashboardHeader } from "./Dashboard-Header/DashboardHeader"
-import DashboardHistory from "./Dashboard-History/DashboardHistory"
+import s from "./Dashboard-style/Dashboard.module.scss";
 
+import DashboardHeader from "./Dashboard-Header/DashboardHeader";
+import DashboardHistory from "./Dashboard-History/DashboardHistory";
+import DashboardNews from "./Dashboard-News/DashboadNews";
 
 export const DashboardPage = () => {
   return (
-    <section>
+    <>
+      <section className={s.header}>
         <DashboardHeader />
+      </section>
+      <section className={s.body}>
         <DashboardHistory />
-    </section>
-  )
-}
+        <DashboardNews />
+      </section>
+    </>
+  );
+};

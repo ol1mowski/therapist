@@ -1,6 +1,6 @@
 import s from "../Dashboard-style/Dashboard.module.scss";
 
-export const DashboardHeader = () => {
+const DashboardHeader = () => {
   return (
     <header className={s.headerContainer}>
       <section className={s.headerContainer__userName}>Hi, User Name !</section>
@@ -26,3 +26,4 @@ export const DashboardHeader = () => {
     </header>
   );
 };
+export default DashboardHeader;

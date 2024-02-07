@@ -1,14 +1,23 @@
 @import "../../../sass/settings.scss";
 
+.header {
+  height: 100%;
+}
+
+.body {
+  @include d-flex-row;
+  height: 100%;
+  align-items: flex-start;
+}
+
 .headerContainer {
   width: 100vw;
-  height: 15vh;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
   background-color: $black-background-color;
   @include d-flex-row;
   justify-content: space-between;
   @media screen and (min-width: $desktop) {
-    padding: 2rem 3rem;
+    padding: 0 3rem;
   }
   &__userName {
     font-size: 150%;
@@ -38,7 +47,7 @@
 
 .historyContainer {
   width: 25vw;
-  height: 85vh;
+  height: 87.6vh;
   padding: 1rem;
   background-color: $black-background-color;
   @include d-flex-column;
@@ -64,7 +73,7 @@
     gap: 1rem;
 
     @media screen and (min-width: $tablet) {
-        gap: 2rem;
+      gap: 2rem;
     }
 
     &__historyElement {
@@ -77,6 +86,56 @@
       flex-wrap: wrap;
       @media screen and (min-width: $tablet) {
         font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+.newsContainer {
+  padding: 2rem;
+  width: 75vw;
+  height: 100%;
+  @include d-flex-column;
+  justify-content: flex-start;
+  &__header {
+    width: 100%;
+    @include d-flex-row;
+    &__title {
+      font-size: 2.3rem;
+      @media screen and (min-width: $mobile) {
+        font-size: 3rem;
+      }
+      @media screen and (min-width: $tablet) {
+        font-size: 4rem;
+      }
+    }
+  }
+  &__content {
+    @include d-flex-column;
+    gap: 2rem;
+    &__image {
+      width: 50vw;
+      @media screen and (min-width: $desktop) {
+        width: 40rem;
+      }
+      &__img {
+        border-radius: 0.5rem;
+        box-shadow: $box-shadow;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__desc {
+      @include article;
+      @media screen and (min-width: $tablet) {
+        padding: 0 3rem;
+      }
+      @media screen and (min-width: $desktop) {
+        padding: 0 5rem;
+      }
+      
+      @media screen and (min-width: $big-desktop) {
+        padding: 0 17rem;
       }
     }
   }
