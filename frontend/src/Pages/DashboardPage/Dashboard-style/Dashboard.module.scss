@@ -1,14 +1,38 @@
-@import '../../../sass/settings.scss';
+@import "../../../sass/settings.scss";
 
 .headerContainer {
-    width: 100vw;
-    height: 15vh;
-    padding: 0 2rem;
-    background-color: $black-background-color;
-    @include d-flex-row;
-    justify-content: flex-start;
-    &__userName {
-        font-size: 150%;
-        color: #fff;
+  width: 100vw;
+  padding: 1rem 2rem;
+  background-color: $black-background-color;
+  @include d-flex-row;
+  justify-content: space-between;
+  @media screen and (min-width: $desktop) {
+    padding: 2rem 3rem;
+}
+  &__userName {
+    font-size: 150%;
+    color: $white-text-color;
+    @media screen and (min-width: $desktop) {
+        font-size: 200%;
     }
+  }
+  &__projectTitle {
+    display: none;
+    font-size: 1.3rem;
+    color: $white-text-color;
+    @media screen and (min-width: $tablet) {
+        display: block;
+    }
+    @media screen and (min-width: $desktop) {
+        font-size: 2rem;
+    }
+  }
+  &__userAccount {
+    @include d-flex-column;
+    color: $white-text-color;
+    cursor: pointer;
+  }
+}
+.alice {
+    @include aliceTextStarting;
 }
