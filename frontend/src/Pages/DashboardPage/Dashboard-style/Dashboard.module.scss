@@ -2,18 +2,19 @@
 
 .headerContainer {
   width: 100vw;
+  height: 15vh;
   padding: 1rem 2rem;
   background-color: $black-background-color;
   @include d-flex-row;
   justify-content: space-between;
   @media screen and (min-width: $desktop) {
     padding: 2rem 3rem;
-}
+  }
   &__userName {
     font-size: 150%;
     color: $white-text-color;
     @media screen and (min-width: $desktop) {
-        font-size: 200%;
+      font-size: 200%;
     }
   }
   &__projectTitle {
@@ -21,10 +22,10 @@
     font-size: 1.3rem;
     color: $white-text-color;
     @media screen and (min-width: $tablet) {
-        display: block;
+      display: block;
     }
     @media screen and (min-width: $desktop) {
-        font-size: 2rem;
+      font-size: 2rem;
     }
   }
   &__userAccount {
@@ -33,6 +34,51 @@
     cursor: pointer;
   }
 }
+
+.historyContainer {
+  width: 30vw;
+  height: 85vh;
+  padding: 1rem;
+  background-color: $black-background-color;
+  @include d-flex-column;
+  justify-content: flex-start;
+  &__header {
+    width: 100%;
+    color: $white-text-color;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    @media screen and (min-width: $tablet) {
+      font-size: 2.5rem;
+    }
+    @media screen and (min-width: $desktop) {
+      font-size: 3rem;
+    }
+  }
+  &__historyElementsContainer {
+    margin-top: 1rem;
+    @include d-flex-column;
+    gap: 1rem;
+
+    @media screen and (min-width: $tablet) {
+        gap: 2rem;
+    }
+
+    &__historyElement {
+      width: 100%;
+      border: 2px solid #fff;
+      border-radius: 0.3rem;
+      color: $white-text-color;
+      @include d-flex-row;
+      padding: 0.5rem;
+      flex-wrap: wrap;
+      @media screen and (min-width: $tablet) {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
 .alice {
-    @include aliceTextStarting;
+  @include aliceTextStarting;
 }
