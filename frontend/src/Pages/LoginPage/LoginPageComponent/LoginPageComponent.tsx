@@ -1,8 +1,8 @@
 import s from "../LoginPage.module.scss";
 
-import { Login } from "../../../Components/Form/Forms/Login/Login.component";
-import { Signup } from "../../../Components/Form/Forms/Singup/Singup.component";
-import { Reset } from '../../../Components/Form/Forms/Reset/Reset.component';
+import Login from "../../../Components/Form/Forms/Login/Login.component";
+import Signup from "../../../Components/Form/Forms/Singup/Singup.component";
+import Reset from '../../../Components/Form/Forms/Reset/Reset.component';
 
 import img from "../../../assets/alice.webp";
 

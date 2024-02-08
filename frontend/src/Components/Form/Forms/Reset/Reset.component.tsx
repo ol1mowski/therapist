@@ -3,8 +3,9 @@ import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 import s from "../../Form-sass/FormStyle.module.scss";
 import { InputComponent } from "../../Input-component/Input-component";
 import { ResetSecondStep } from "./ResetSecondStep/ResetSecondStep.component";
+import { emailValidate } from "../../Form-validation/FormValidate.component";
 
-export const Reset = () => {
+const Reset = () => {
   type ValidateObject = {
     isError: boolean;
     errorMessage: string | null;
@@ -19,25 +20,9 @@ export const Reset = () => {
     errorMessage: null,
   });
 
-  const emailValidate = (values: string) => {
-    if (!values) {
-      setEmailError({ isError: true, errorMessage: "required" });
-      emailElement.current?.classList.add(s.unvalid);
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
-      setEmailError({ isError: true, errorMessage: "invalid email" });
-      emailElement.current?.classList.add(s.unvalid);
-    } else {
-      setEmailError({ isError: false, errorMessage: null });
-
-      if (emailElement.current?.classList) {
-        emailElement.current?.classList.remove(s.unvalid);
-      }
-    }
-  };
-
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    emailValidate(email);
+    emailValidate(email, emailElement, setEmailError);
     setCheck(true);
   };
 
@@ -92,3 +77,6 @@ export const Reset = () => {
     </>
   );
 };
+
+
+export default Reset;

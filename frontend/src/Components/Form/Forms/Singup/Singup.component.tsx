@@ -1,110 +1,64 @@
 import { MouseEvent, useEffect, useRef, useState } from "react";
-
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 import { InputComponent } from "../../Input-component/Input-component";
-
 import s from "../../Form-sass/FormStyle.module.scss";
-
-import validator from "validator";
 import SingupSuccess from "./Singup-Success-component/SingupSuccess.component";
+import {
+  emailValidate,
+  nameValidate,
+  passwordValidate,
+} from "../../Form-validation/FormValidate.component";
 
 export type ValidateObject = {
   isError: boolean;
   errorMessage: string | null;
 };
 
-export const Signup = () => {
+const Signup = () => {
   const [isDataValidate, setIsDataValidate] = useState<boolean>(false);
-  const [isButtonCliked, setIsButtonCliked] = useState<boolean>(false);
+  const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);
 
-  const emailElement = useRef<HTMLInputElement>(null);
-  const [email, setEmail] = useState<string>("");
   const [emailError, setEmailError] = useState<ValidateObject>({
     isError: false,
     errorMessage: null,
   });
 
-  const passwordElement = useRef<HTMLInputElement>(null);
-  const [password, setPassword] = useState<string>("");
   const [passwordError, setPasswordError] = useState<ValidateObject>({
     isError: false,
     errorMessage: null,
   });
 
-  const nameElement = useRef<HTMLInputElement>(null);
-  const [name, setName] = useState<string>("");
   const [nameError, setNameError] = useState<ValidateObject>({
     isError: false,
     errorMessage: null,
   });
 
-  const emailValidate = (values: string) => {
-    if (!values) {
-      setEmailError({ isError: true, errorMessage: "required" });
-      emailElement.current?.classList.add(s.unvalid);
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
-      setEmailError({ isError: true, errorMessage: "invalid email" });
-      emailElement.current?.classList.add(s.unvalid);
-    } else {
-      setEmailError({ isError: false, errorMessage: null });
+  const [email, setEmail] = useState<string>("");
+  const emailElement = useRef<HTMLInputElement>(null);
 
-      if (emailElement.current?.classList) {
-        emailElement.current?.classList.remove(s.unvalid);
-      }
-    }
-  };
+  const [password, setPassword] = useState<string>("");
+  const passwordElement = useRef<HTMLInputElement>(null);
 
-  const passwordValidate = (value: string) => {
-    if (
-      validator.isStrongPassword(value, {
-        minLength: 8,
-        minLowercase: 1,
-        minUppercase: 1,
-        minNumbers: 1,
-        minSymbols: 1,
-      })
-    ) {
-      setPasswordError({ isError: false, errorMessage: null });
-      if (passwordElement.current?.classList) {
-        passwordElement.current?.classList.remove(s.unvalid);
-      }
-    } else {
-      setPasswordError({ isError: true, errorMessage: "too weak password" });
-
-      passwordElement.current?.classList.add(s.unvalid);
-    }
-  };
-
-  const nameValidate = (value: string) => {
-    if (value.length < 3) {
-      setNameError({ isError: true, errorMessage: "name is too short" });
-      nameElement.current?.classList.add(s.unvalid);
-    } else {
-      setNameError({ isError: false, errorMessage: null });
-      if (nameElement.current?.classList) {
-        nameElement.current?.classList.remove(s.unvalid);
-      }
-    }
-  };
+  const [name, setName] = useState<string>("");
+  const nameElement = useRef<HTMLInputElement>(null);
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    emailValidate(email);
-    passwordValidate(password);
-    nameValidate(name);
-
-    setIsButtonCliked(true);
+    emailValidate(email, emailElement, setEmailError);
+    passwordValidate(password, passwordElement, setPasswordError);
+    nameValidate(name, nameElement, setNameError);
+    setIsButtonClicked(true);
   };
 
   useEffect(() => {
-    if (isButtonCliked) {
+    if (isButtonClicked) {
       if (!passwordError.isError && !emailError.isError && !nameError.isError) {
         setIsDataValidate(true);
       } else {
         setIsDataValidate(false);
       }
     }
-  }, [passwordError, emailError, isButtonCliked]);
+  }, [passwordError, emailError, isButtonClicked]);
 
   return (
     <>
@@ -169,3 +123,6 @@ export const Signup = () => {
     </>
   );
 };
+
+
+export default Signup;

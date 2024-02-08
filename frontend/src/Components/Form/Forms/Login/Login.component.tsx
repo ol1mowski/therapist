@@ -1,15 +1,11 @@
-import { useEffect, useRef, useState, type MouseEvent } from "react";
-
+import { useEffect, useRef, useState, MouseEvent } from "react";
 import { Navigate } from "react-router-dom";
-
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
-import { InputComponent } from "../../Input-component/Input-component";
-
 import s from "../../Form-sass/FormStyle.module.scss";
+import { InputComponent } from "../../Input-component/Input-component";
+import { emailValidate, passwordValidate } from "../../Form-validation/FormValidate.component";
 
-import validator from "validator";
-
-export const Login = () => {
+const Login = () => {
   type ValidateObject = {
     isError: boolean;
     errorMessage: string | null;
@@ -32,47 +28,10 @@ export const Login = () => {
     errorMessage: null,
   });
 
-  const emailValidate = (values: string) => {
-    if (!values) {
-      setEmailError({ isError: true, errorMessage: "required" });
-      emailElement.current?.classList.add(s.unvalid);
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values)) {
-      setEmailError({ isError: true, errorMessage: "invalid email" });
-      emailElement.current?.classList.add(s.unvalid);
-    } else {
-      setEmailError({ isError: false, errorMessage: null });
-
-      if (emailElement.current?.classList) {
-        emailElement.current?.classList.remove(s.unvalid);
-      }
-    }
-  };
-
-  const passwordValidate = (value: string) => {
-    if (
-      validator.isStrongPassword(value, {
-        minLength: 8,
-        minLowercase: 1,
-        minUppercase: 1,
-        minNumbers: 1,
-        minSymbols: 1,
-      })
-    ) {
-      setPasswordError({ isError: false, errorMessage: null });
-      if (passwordElement.current?.classList) {
-        passwordElement.current?.classList.remove(s.unvalid);
-      }
-    } else {
-      setPasswordError({ isError: true, errorMessage: "too weak password" });
-
-      passwordElement.current?.classList.add(s.unvalid);
-    }
-  };
-
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    emailValidate(email);
-    passwordValidate(password);
+    emailValidate(email, emailElement, setEmailError);
+    passwordValidate(password, passwordElement, setPasswordError);
 
     setIsButtonCliked(true);
   };
@@ -139,3 +98,5 @@ export const Login = () => {
     </>
   );
 };
+
+export default Login;
