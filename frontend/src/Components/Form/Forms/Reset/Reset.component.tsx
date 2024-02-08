@@ -1,9 +1,7 @@
 import { MouseEvent, useEffect, useRef, useState } from "react";
-import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
-import s from "../../Form-sass/FormStyle.module.scss";
-import { InputComponent } from "../../Input-component/Input-component";
 import { ResetSecondStep } from "./ResetSecondStep/ResetSecondStep.component";
 import { emailValidate } from "../../Form-validation/FormValidate.component";
+import ResetBody from "./ResetBody.component";
 
 const Reset = () => {
   type ValidateObject = {
@@ -38,45 +36,18 @@ const Reset = () => {
   return (
     <>
       {!next ? (
-        <FormWrapper
-          title="Reset passowrd to "
-          firstFeature="Login to your accounr"
-          firstFeatureLink="/form/login"
-          secondFeature="Create new account"
-          secondFeatureLink="/form/signup"
-          buttonName="Next Step"
-        >
-          <div
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper
-            }
-          >
-            <InputComponent
-              elementError={emailError}
-              labelTitle="Enter your email:"
-              inputType={"text"}
-              name={"email"}
-              id={"email"}
-              element={email}
-              setElement={setEmail}
-              hrefToElement={emailElement}
-            />
-          </div>
-          <div className={s.button}>
-            <button
-              onClick={(e) => buttonSubmitHandler(e)}
-              className={s.button__btn_small}
-            >
-              Next step
-            </button>
-          </div>
-        </FormWrapper>
+        <ResetBody
+          email={email}
+          emailElement={emailElement}
+          emailError={emailError}
+          setEmail={setEmail}
+          buttonSubmitHandler={buttonSubmitHandler}
+        />
       ) : (
         <ResetSecondStep />
       )}
     </>
   );
 };
-
 
 export default Reset;
