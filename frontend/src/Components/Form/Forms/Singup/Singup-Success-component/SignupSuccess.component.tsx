@@ -3,7 +3,7 @@ import s from "../../../Form-sass/FormStyle.module.scss";
 
 import FormWrapperSuccess from "../../../FormWrapper-component/FormWrapperSuccess.component";
 
-const SingupSuccess = () => {
+const SignupSuccess = () => {
   return (
     <FormWrapperSuccess title="Success to create ">
       <h2 className={s.sucess}>Success !</h2>
@@ -15,4 +15,4 @@ const SingupSuccess = () => {
   );
 };
 
-export default SingupSuccess;
+export default SignupSuccess;

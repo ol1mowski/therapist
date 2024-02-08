@@ -1,5 +1,5 @@
 import { MouseEvent, useEffect, useRef, useState } from "react";
-import SingupSuccess from "./Singup-Success-component/SingupSuccess.component";
+import SignupSuccess from "./Singup-Success-component/SignupSuccess.component";
 import {
   emailValidate,
   nameValidate,
@@ -61,7 +61,7 @@ const Signup = () => {
   return (
     <>
       {isDataValidate ? (
-        <SingupSuccess />
+        <SignupSuccess />
       ) : (
         <SignupBody
           email={email}
