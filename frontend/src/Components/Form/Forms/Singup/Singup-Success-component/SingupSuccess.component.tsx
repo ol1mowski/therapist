@@ -1,14 +1,18 @@
+import { Link } from "react-router-dom";
 import s from "../../../Form-sass/FormStyle.module.scss";
 
 import FormWrapperSuccess from "../../../FormWrapper-component/FormWrapperSuccess.component";
 
-export const ResetSecondStep = () => {
+const SingupSuccess = () => {
   return (
-    <FormWrapperSuccess title="Recovering ">
+    <FormWrapperSuccess title="Success to create ">
       <h2 className={s.sucess}>Success !</h2>
       <h3 className={s.content}>
-        Further instructions have been sent to the e-mail address you provided
+        Your account has successfully created ! Let's login now
       </h3>
+      <Link to="/form/login">Login</Link>
     </FormWrapperSuccess>
   );
 };
+
+export default SingupSuccess;

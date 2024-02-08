@@ -72,9 +72,7 @@ export const Login = () => {
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     emailValidate(email);
-    emailError.isError ? console.log(emailError.errorMessage) : null;
     passwordValidate(password);
-    passwordError.isError ? console.log(passwordError.errorMessage) : null;
 
     setIsButtonCliked(true);
   };
