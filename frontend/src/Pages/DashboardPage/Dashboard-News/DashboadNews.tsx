@@ -1,6 +1,7 @@
 import s from "../Dashboard-style/Dashboard.module.scss";
 
 import img from "../../../assets/AI_help.webp";
+// import ButtonComponent from "../../../Components/Button-component/Button-component";
 
 const DashboardNews = () => {
   return (
@@ -22,6 +23,9 @@ const DashboardNews = () => {
           ullam animi assumenda adipisci ipsum expedita nisi eos hic a dolorem
           quia!
         </div>
+        {/* <ButtonComponent>
+          Let's Talk with Alice
+        </ButtonComponent> */}
       </div>
     </section>
   );

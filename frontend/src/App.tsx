@@ -4,8 +4,23 @@ import PageLayout from "./PageLayout/PageLayout";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import RootPage from "./Pages/RootPage/RootPage";
 import { DashboardPage } from "./Pages/DashboardPage/DashboardPage";
+import { useEffect } from "react";
 
 function App() {
+
+  useEffect(() => {
+    const scrollHandler = () => {
+      window.scrollTo(0, 0);
+    };
+
+    // Dodanie listenera do obsługi zmiany routingu
+    window.addEventListener('popstate', scrollHandler);
+
+    // Usunięcie listenera po zniszczeniu komponentu
+    return () => {
+      window.removeEventListener('popstate', scrollHandler);
+    };
+  }, []);
   const router = createBrowserRouter([
     {
       path: "/",

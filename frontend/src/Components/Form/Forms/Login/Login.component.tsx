@@ -1,4 +1,6 @@
-import { useRef, useState, type MouseEvent  } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
+
+import { Navigate } from "react-router-dom";
 
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 import { InputComponent } from "../../Input-component/Input-component";
@@ -12,6 +14,9 @@ export const Login = () => {
     isError: boolean;
     errorMessage: string | null;
   };
+
+  const [isDataValidate, setIsDataValidate] = useState<boolean>(false);
+  const [isButtonCliked, setIsButtonCliked] = useState<boolean>(false);
 
   const emailElement = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState<string>("");
@@ -70,51 +75,69 @@ export const Login = () => {
     emailError.isError ? console.log(emailError.errorMessage) : null;
     passwordValidate(password);
     passwordError.isError ? console.log(passwordError.errorMessage) : null;
+
+    setIsButtonCliked(true);
   };
 
+  useEffect(() => {
+    if (isButtonCliked) {
+      if (!passwordError.isError && !emailError.isError) {
+        setIsDataValidate(true);
+      } else {
+        setIsDataValidate(false);
+      }
+    }
+  }, [passwordError, emailError, isButtonCliked]);
+
   return (
-    <FormWrapper
-      title="Login to "
-      firstFeature="Do you forgot your password ?"
-      firstFeatureLink="/form/reset"
-      secondFeature="Create new account"
-      secondFeatureLink="/form/signup"
-      buttonName="Login"
-    >
-      <div
-        className={
-          s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper
-        }
-      >
-        <InputComponent
-          elementError={emailError}
-          labelTitle="Enter your email:"
-          inputType={"text"}
-          name={"email"}
-          id={"email"}
-          element={email}
-          setElement={setEmail}
-          hrefToElement={emailElement}
-        />
-        <InputComponent
-          elementError={passwordError}
-          labelTitle={"Enter your password:"}
-          inputType={"password"}
-          name={"password"}
-          id={"password"}
-          element={password}
-          setElement={setPassword}
-          hrefToElement={passwordElement}
-        />
-      </div>
-      <div className={s.button}>
-        <button
-          onClick={(e) => buttonSubmitHandler(e)}
-          className={s.button__btn_small}
+    <>
+      {isDataValidate ? (
+        <Navigate to="/dashboard" replace={true} />
+      ) : (
+        <FormWrapper
+          title="Login to "
+          firstFeature="Do you forgot your password ?"
+          firstFeatureLink="/form/reset"
+          secondFeature="Create new account"
+          secondFeatureLink="/form/signup"
+          buttonName="Login"
         >
-          Login
-        </button>
-      </div>
-    </FormWrapper>
+          <div
+            className={
+              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper
+            }
+          >
+            <InputComponent
+              elementError={emailError}
+              labelTitle="Enter your email:"
+              inputType={"text"}
+              name={"email"}
+              id={"email"}
+              element={email}
+              setElement={setEmail}
+              hrefToElement={emailElement}
+            />
+            <InputComponent
+              elementError={passwordError}
+              labelTitle={"Enter your password:"}
+              inputType={"password"}
+              name={"password"}
+              id={"password"}
+              element={password}
+              setElement={setPassword}
+              hrefToElement={passwordElement}
+            />
+          </div>
+          <div className={s.button}>
+            <button
+              onClick={(e) => buttonSubmitHandler(e)}
+              className={s.button__btn_small}
+            >
+              Login
+            </button>
+          </div>
+        </FormWrapper>
+      )}
+    </>
   );
 };
