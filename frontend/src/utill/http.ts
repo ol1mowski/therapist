@@ -1,12 +1,27 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc, type DocumentData } from "firebase/firestore";
 import { db } from "./firebase";
-
-
+import { type WithFieldValue } from "firebase/firestore/lite";
 
 // import { QueryClient } from "@tanstack/react-query";
 
-
 // export const queryClient = new QueryClient();
+
+
+export async function Adduser(recordData: WithFieldValue<DocumentData>) {
+  try {
+    const collectionRef = collection(db, 'users');
+
+    const docRef = await addDoc(collectionRef, recordData);
+
+    console.log(
+      "Rekord został dodany do bazy Firestore z identyfikatorem:",
+      docRef.id
+    );
+  } catch (error) {
+    console.error("Błąd podczas dodawania rekordu do bazy Firestore:", error);
+    throw error;
+  }
+}
 
 
 async function fetchData(collectionName: string) {
@@ -22,5 +37,5 @@ async function fetchData(collectionName: string) {
 }
 
 export function fetchElements() {
-  return fetchData('users');
+  return fetchData("users");
 }

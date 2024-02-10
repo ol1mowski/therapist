@@ -12,6 +12,7 @@ const Login = () => {
     errorMessage: string | null;
   };
 
+
   const [isDataValidate, setIsDataValidate] = useState<boolean>(false);
   const [isButtonCliked, setIsButtonCliked] = useState<boolean>(false);
 
@@ -46,7 +47,7 @@ const Login = () => {
       }
     }
   }, [passwordError, emailError, isButtonCliked]);
-  
+
   return (
     <>
       {isDataValidate ? (
