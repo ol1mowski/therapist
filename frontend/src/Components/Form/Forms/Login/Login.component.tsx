@@ -8,19 +8,17 @@ import LoginBody from "./LoginBody.component";
 import { fetchElements } from "../../../../utill/http";
 
 const Login = () => {
-
   type FetchUserObject = {
     id?: string;
     email?: string;
     password?: string;
   };
 
-  
-
   type ValidateObject = {
     isError: boolean;
     errorMessage: string | null;
   };
+
 
   const [fetchUsers, setFetchUsers] = useState<Array<FetchUserObject>>([]);
 
@@ -47,7 +45,7 @@ const Login = () => {
     const passwordUsersInDb = fetchUsers.map((user) => user.password);
 
     const emailIndex = emailUsersInDb.indexOf(email);
-    
+
     if (emailIndex !== -1) {
       if (passwordUsersInDb[emailIndex] === password) {
         return true;
@@ -57,9 +55,7 @@ const Login = () => {
     } else {
       return false;
     }
-    
   }
-
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -71,16 +67,18 @@ const Login = () => {
   useEffect(() => {
     if (isButtonCliked) {
       if (!passwordError.isError && !emailError.isError) {
-        // setIsDataValidate(true);
-        const resoult = checkUser(email, password);
-        resoult.then(res => console.log(res)
-        );
-        
+        checkUser(email, password).then((res) => {
+          if (res) {
+            setIsDataValidate(true);
+          } else {
+            setIsDataValidate(false);
+          }
+        });
       } else {
         setIsDataValidate(false);
       }
     }
-  }, [passwordError, emailError, isButtonCliked]);
+  }, [passwordError, emailError, isButtonCliked, checkUser]);
 
   return (
     <>
