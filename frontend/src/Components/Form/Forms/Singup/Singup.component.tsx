@@ -6,6 +6,7 @@ import {
   passwordValidate,
 } from "../../Form-validation/FormValidate.component";
 import SignupBody from "./SingupBody.component";
+import { Adduser } from "../../../../utill/http";
 
 export type ValidateObject = {
   isError: boolean;
@@ -52,6 +53,7 @@ const Signup = () => {
     if (isButtonClicked) {
       if (!passwordError.isError && !emailError.isError && !nameError.isError) {
         setIsDataValidate(true);
+        Adduser({name: name, password: password, email: email});
       } else {
         setIsDataValidate(false);
       }
