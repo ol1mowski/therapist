@@ -10,7 +10,7 @@ const SignupSuccess = () => {
       <h3 className={s.content}>
         Your account has successfully created ! Let's login now
       </h3>
-      <Link to="/form/login">Login</Link>
+      <Link to="/form/login" className={s.sucessLink}>Login</Link>
     </FormWrapperSuccess>
   );
 };
