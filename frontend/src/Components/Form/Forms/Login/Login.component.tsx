@@ -46,7 +46,7 @@ const Login = () => {
       }
     }
   }, [passwordError, emailError, isButtonCliked]);
-
+  
   return (
     <>
       {isDataValidate ? (
