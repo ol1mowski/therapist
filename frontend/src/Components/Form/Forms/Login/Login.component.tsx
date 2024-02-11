@@ -1,6 +1,6 @@
 import s from "../../Form-sass/FormStyle.module.scss";
 
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { useRef, useState, type MouseEvent } from "react";
 import { Navigate } from "react-router-dom";
 import {
   emailValidate,
@@ -23,8 +23,9 @@ const Login = () => {
 
   const [fetchUsers, setFetchUsers] = useState<Array<FetchUserObject>>([]);
 
+  const [formErrors, setFormErrors] = useState<boolean>(true);
   const [isDataValidate, setIsDataValidate] = useState<boolean>(false);
-  const [isButtonClicked, setIsButtonClicked] = useState<number>(0);
+  const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);
 
   const emailElement = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState<string>("");
@@ -60,62 +61,60 @@ const Login = () => {
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    // setIsButtonClicked(prev => prev + 1);
+    setIsButtonClicked(true);
+
     emailValidate(email, emailElement, setEmailError);
     loginPasswordValidate(password, passwordElement, setPasswordError);
+
+    if (!passwordError.isError && !emailError.isError) {
+      checkUser(email, password).then((res) => {
+        if (res) {
+          setIsDataValidate(true);
+          emailElement.current?.classList.remove(s.unvalid);
+          passwordElement.current?.classList.remove(s.unvalid);
+        } else {
+          setIsDataValidate(false);
+          setFormErrors(false);
+
+          passwordElement.current?.classList.add(s.unvalid);
+          emailElement.current?.classList.add(s.unvalid);
+        }
+      });
+    }
   };
-
-
-  // useEffect(() => {
-    
-  //   if (isButtonClicked !== 0) {
-  //     if (!passwordError.isError && !emailError.isError) {
-  //       checkUser(email, password).then((res) => {
-  //         if (res) {
-  //           setIsDataValidate(true);
-  //           emailElement.current?.classList.remove(s.unvalid);
-  //           passwordElement.current?.classList.remove(s.unvalid);
-  //         } else {
-  //           setIsDataValidate(false);
-  //           passwordElement.current?.classList.add(s.unvalid);
-  //           emailElement.current?.classList.add(s.unvalid);
-  //         }
-  //       });
-  //     }
-  //   }
-  // }, [passwordError, emailError, isButtonClicked, checkUser, isDataValidate]);
 
   const emailOnchangeHandler = (e: any) => {
     const newValue = e.target.value;
-    setEmail(newValue); 
+    setEmail(newValue);
 
     emailValidate(newValue, emailElement, setEmailError);
   };
-  
+
   const passwordOnchangeHandler = (e: any) => {
     const newValue = e.target.value;
-    setPassword(newValue); 
+    setPassword(newValue);
+    setFormErrors(true);
 
     loginPasswordValidate(newValue, passwordElement, setPasswordError);
   };
 
   return (
     <>
-        <LoginBody
-          isDataValidate={isDataValidate}
-          isButtonClicked={isButtonClicked}
-          email={email}
-          emailElement={emailElement}
-          emailError={emailError}
-          password={password}
-          passwordElement={passwordElement}
-          passwordError={passwordError}
-          setPassword={setPassword}
-          buttonSubmitHandler={buttonSubmitHandler}
-          emailOnchangeHandler={emailOnchangeHandler}
-          passwordOnchangeHandler={passwordOnchangeHandler}
-        />
-      { isDataValidate ? <Navigate to="/dashboard" replace={true} /> : null }
+      <LoginBody
+        formErrors={formErrors}
+        isButtonClicked={isButtonClicked}
+        email={email}
+        emailElement={emailElement}
+        emailError={emailError}
+        password={password}
+        passwordElement={passwordElement}
+        passwordError={passwordError}
+        setPassword={setPassword}
+        buttonSubmitHandler={buttonSubmitHandler}
+        emailOnchangeHandler={emailOnchangeHandler}
+        passwordOnchangeHandler={passwordOnchangeHandler}
+      />
+      {isDataValidate ? <Navigate to="/dashboard" replace={true} /> : null}
     </>
   );
 };

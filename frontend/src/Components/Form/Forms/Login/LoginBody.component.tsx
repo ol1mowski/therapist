@@ -10,8 +10,8 @@ type LoginBody = {
   password: string;
   setPassword: (value: string) => void;
   passwordElement: RefObject<HTMLInputElement>;
-  isButtonClicked: number;
-  isDataValidate: boolean;
+  isButtonClicked: boolean;
+  formErrors: boolean;
   buttonSubmitHandler: (e: MouseEvent<HTMLButtonElement>) => void;
   emailOnchangeHandler: (e: any) => void;
   passwordOnchangeHandler: (e: any) => void;
@@ -27,10 +27,12 @@ const LoginBody = ({
   passwordElement,
   passwordError,
   isButtonClicked,
-  isDataValidate,
+  formErrors,
   buttonSubmitHandler,
 }: LoginBody) => {
 
+  console.log(emailError.errorMessage, passwordError.errorMessage);
+  
 
   return (
     <FormWrapper
@@ -103,8 +105,8 @@ const LoginBody = ({
           ) : null}
         </div>
       </div>
-      {!isDataValidate &&
-      isButtonClicked % 2 !== 0 &&
+      {!formErrors &&
+      isButtonClicked &&
       emailError.errorMessage === null &&
       passwordError.errorMessage === null ? (
         <div
