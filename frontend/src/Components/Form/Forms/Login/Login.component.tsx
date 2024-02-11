@@ -24,7 +24,7 @@ const Login = () => {
   const [fetchUsers, setFetchUsers] = useState<Array<FetchUserObject>>([]);
 
   const [isDataValidate, setIsDataValidate] = useState<boolean>(false);
-  const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);
+  const [isButtonClicked, setIsButtonClicked] = useState<number>(0);
 
   const emailElement = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState<string>("");
@@ -60,13 +60,14 @@ const Login = () => {
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    emailValidate(email, emailElement, setEmailError);
-    loginPasswordValidate(password, passwordElement, setPasswordError);
-    setIsButtonClicked(true);
+    setIsButtonClicked(prev => prev + 1);
+    
   };
 
+
   useEffect(() => {
-    if (isButtonClicked) {
+    
+    if (isButtonClicked !== 0) {
       if (!passwordError.isError && !emailError.isError) {
         checkUser(email, password).then((res) => {
           if (res) {
@@ -79,31 +80,36 @@ const Login = () => {
             emailElement.current?.classList.add(s.unvalid);
           }
         });
-      } else {
-        setIsDataValidate(false);
       }
+      // emailValidate(email, emailElement, setEmailError);
+      // loginPasswordValidate(password, passwordElement, setPasswordError);
     }
-  }, [passwordError, emailError, isButtonClicked, checkUser]);
+  }, [passwordError, emailError, isButtonClicked, checkUser, isDataValidate]);
+
+  const emailOnchangeHandler = (e: any) => {
+    const newValue = e.target.value;
+    setEmail(newValue); 
+
+    emailValidate(newValue, emailElement, setEmailError);
+  };
+  
 
   return (
     <>
-      {isDataValidate ? (
-        <Navigate to="/dashboard" replace={true} />
-      ) : (
         <LoginBody
-        isDataValidate={isDataValidate}
+          isDataValidate={isDataValidate}
           isButtonClicked={isButtonClicked}
           email={email}
           emailElement={emailElement}
           emailError={emailError}
-          setEmail={setEmail}
           password={password}
           passwordElement={passwordElement}
           passwordError={passwordError}
           setPassword={setPassword}
           buttonSubmitHandler={buttonSubmitHandler}
+          emailOnchangeHandler={emailOnchangeHandler}
         />
-      )}
+      { isDataValidate ? <Navigate to="/dashboard" replace={true} /> : null }
     </>
   );
 };

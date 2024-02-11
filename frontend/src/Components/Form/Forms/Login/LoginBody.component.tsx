@@ -1,26 +1,26 @@
 import s from "../../Form-sass/FormStyle.module.scss";
+import { emailValidate } from "../../Form-validation/FormValidate.component";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
-import { InputComponent } from "../../Input-component/Input-component";
 import { type MouseEvent, type RefObject } from "react";
 
 type LoginBody = {
   emailError: { isError: boolean; errorMessage: string | null };
   email: string;
-  setEmail: (value: string) => void;
   emailElement: RefObject<HTMLInputElement>;
   passwordError: { isError: boolean; errorMessage: string | null };
   password: string;
   setPassword: (value: string) => void;
   passwordElement: RefObject<HTMLInputElement>;
-  isButtonClicked: boolean;
+  isButtonClicked: number;
   isDataValidate: boolean;
   buttonSubmitHandler: (e: MouseEvent<HTMLButtonElement>) => void;
+  emailOnchangeHandler: (e: any) => void;
 };
 
 const LoginBody = ({
   emailError,
   email,
-  setEmail,
+  emailOnchangeHandler,
   emailElement,
   password,
   passwordElement,
@@ -30,8 +30,8 @@ const LoginBody = ({
   isDataValidate,
   buttonSubmitHandler,
 }: LoginBody) => {
-  console.log(emailError);
-  
+
+
   return (
     <FormWrapper
       title="Login to "
@@ -46,28 +46,67 @@ const LoginBody = ({
           s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper
         }
       >
-        <InputComponent
-          elementError={emailError}
-          labelTitle="Enter your email:"
-          inputType={"text"}
-          name={"email"}
-          id={"email"}
-          element={email}
-          setElement={setEmail}
-          hrefToElement={emailElement}
-        />
-        <InputComponent
-          elementError={passwordError}
-          labelTitle={"Enter your password:"}
-          inputType={"password"}
-          name={"password"}
-          id={"password"}
-          element={password}
-          setElement={setPassword}
-          hrefToElement={passwordElement}
-        />
+        <div
+          className={
+            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
+          }
+        >
+          <label
+            className={
+              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
+            }
+            htmlFor="email"
+          >
+            Enter your email
+          </label>
+          <input
+            ref={emailElement}
+            value={email}
+            onChange={(e) => emailOnchangeHandler(e)}
+            className={
+              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
+            }
+            type="text"
+            name="email"
+            id="email"
+          />
+          {emailError.isError ? (
+            <p className={s.unvalid__message}>{emailError.errorMessage}</p>
+          ) : null}
+        </div>
+        <div
+          className={
+            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
+          }
+        >
+          <label
+            className={
+              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
+            }
+            htmlFor="passowrd"
+          >
+            Enter your password
+          </label>
+          <input
+            ref={passwordElement}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={
+              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
+            }
+            type="text"
+            name="password"
+            id="password"
+          />
+          {passwordError.isError ? (
+            <p className={s.unvalid__message}>{passwordError.errorMessage}</p>
+          ) : null}
+        </div>
       </div>
-      { !isDataValidate && isButtonClicked && emailError.errorMessage === null && passwordError.errorMessage === null ? (
+      {!isDataValidate &&
+      isButtonClicked % 2 !== 0 &&
+      emailError.errorMessage === null &&
+      passwordError.errorMessage === null ? (
         <div
           className={
             s.loginContainer__wrapper__loginFormContainer__form__loginError

@@ -54,6 +54,9 @@ export const loginPasswordValidate = (
   if (!value) {
     setPasswordError({ isError: true, errorMessage: "required" });
     passwordElement.current?.classList.add(s.unvalid);
+  } else {
+    setPasswordError({ isError: false, errorMessage: null });
+    passwordElement.current?.classList.remove(s.unvalid);
   }
 };
 
