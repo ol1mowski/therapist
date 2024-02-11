@@ -1,5 +1,4 @@
 import s from "../../Form-sass/FormStyle.module.scss";
-import { emailValidate } from "../../Form-validation/FormValidate.component";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 import { type MouseEvent, type RefObject } from "react";
 
@@ -15,17 +14,18 @@ type LoginBody = {
   isDataValidate: boolean;
   buttonSubmitHandler: (e: MouseEvent<HTMLButtonElement>) => void;
   emailOnchangeHandler: (e: any) => void;
+  passwordOnchangeHandler: (e: any) => void;
 };
 
 const LoginBody = ({
   emailError,
   email,
   emailOnchangeHandler,
+  passwordOnchangeHandler,
   emailElement,
   password,
   passwordElement,
   passwordError,
-  setPassword,
   isButtonClicked,
   isDataValidate,
   buttonSubmitHandler,
@@ -90,11 +90,11 @@ const LoginBody = ({
           <input
             ref={passwordElement}
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => passwordOnchangeHandler(e)}
             className={
               s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
             }
-            type="text"
+            type="password"
             name="password"
             id="password"
           />

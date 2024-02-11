@@ -60,31 +60,30 @@ const Login = () => {
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setIsButtonClicked(prev => prev + 1);
-    
+    // setIsButtonClicked(prev => prev + 1);
+    emailValidate(email, emailElement, setEmailError);
+    loginPasswordValidate(password, passwordElement, setPasswordError);
   };
 
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    if (isButtonClicked !== 0) {
-      if (!passwordError.isError && !emailError.isError) {
-        checkUser(email, password).then((res) => {
-          if (res) {
-            setIsDataValidate(true);
-            emailElement.current?.classList.remove(s.unvalid);
-            passwordElement.current?.classList.remove(s.unvalid);
-          } else {
-            setIsDataValidate(false);
-            passwordElement.current?.classList.add(s.unvalid);
-            emailElement.current?.classList.add(s.unvalid);
-          }
-        });
-      }
-      // emailValidate(email, emailElement, setEmailError);
-      // loginPasswordValidate(password, passwordElement, setPasswordError);
-    }
-  }, [passwordError, emailError, isButtonClicked, checkUser, isDataValidate]);
+  //   if (isButtonClicked !== 0) {
+  //     if (!passwordError.isError && !emailError.isError) {
+  //       checkUser(email, password).then((res) => {
+  //         if (res) {
+  //           setIsDataValidate(true);
+  //           emailElement.current?.classList.remove(s.unvalid);
+  //           passwordElement.current?.classList.remove(s.unvalid);
+  //         } else {
+  //           setIsDataValidate(false);
+  //           passwordElement.current?.classList.add(s.unvalid);
+  //           emailElement.current?.classList.add(s.unvalid);
+  //         }
+  //       });
+  //     }
+  //   }
+  // }, [passwordError, emailError, isButtonClicked, checkUser, isDataValidate]);
 
   const emailOnchangeHandler = (e: any) => {
     const newValue = e.target.value;
@@ -93,6 +92,12 @@ const Login = () => {
     emailValidate(newValue, emailElement, setEmailError);
   };
   
+  const passwordOnchangeHandler = (e: any) => {
+    const newValue = e.target.value;
+    setPassword(newValue); 
+
+    loginPasswordValidate(newValue, passwordElement, setPasswordError);
+  };
 
   return (
     <>
@@ -108,6 +113,7 @@ const Login = () => {
           setPassword={setPassword}
           buttonSubmitHandler={buttonSubmitHandler}
           emailOnchangeHandler={emailOnchangeHandler}
+          passwordOnchangeHandler={passwordOnchangeHandler}
         />
       { isDataValidate ? <Navigate to="/dashboard" replace={true} /> : null }
     </>
