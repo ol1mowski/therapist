@@ -61,6 +61,15 @@
       border: 2px solid #e4ccff;
     }
   }
+  &__loginError {
+    @include d-flex-row;
+    width: 100%;
+    text-align: center;
+    &__error {
+      color: $red-color;
+      font-size: 1.2rem;
+    }
+  }
   &__buttonWrapper {
     width: 2rem;
   }

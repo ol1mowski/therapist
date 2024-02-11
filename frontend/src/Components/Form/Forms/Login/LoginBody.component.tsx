@@ -8,10 +8,12 @@ type LoginBody = {
   email: string;
   setEmail: (value: string) => void;
   emailElement: RefObject<HTMLInputElement>;
-  passwordError: { isError: boolean; errorMessage: string | null  };
+  passwordError: { isError: boolean; errorMessage: string | null };
   password: string;
   setPassword: (value: string) => void;
   passwordElement: RefObject<HTMLInputElement>;
+  isButtonClicked: boolean;
+  isDataValidate: boolean;
   buttonSubmitHandler: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
@@ -24,8 +26,12 @@ const LoginBody = ({
   passwordElement,
   passwordError,
   setPassword,
-  buttonSubmitHandler
+  isButtonClicked,
+  isDataValidate,
+  buttonSubmitHandler,
 }: LoginBody) => {
+  console.log(emailError);
+  
   return (
     <FormWrapper
       title="Login to "
@@ -61,6 +67,22 @@ const LoginBody = ({
           hrefToElement={passwordElement}
         />
       </div>
+      { !isDataValidate && isButtonClicked && emailError.errorMessage === null && passwordError.errorMessage === null ? (
+        <div
+          className={
+            s.loginContainer__wrapper__loginFormContainer__form__loginError
+          }
+        >
+          <p
+            className={
+              s.loginContainer__wrapper__loginFormContainer__form__loginError__error
+            }
+          >
+            [-] Your email or password is invalid
+          </p>
+        </div>
+      ) : null}
+
       <div className={s.button}>
         <button
           onClick={(e) => buttonSubmitHandler(e)}

@@ -1,8 +1,10 @@
+import s from "../../Form-sass/FormStyle.module.scss";
+
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { Navigate } from "react-router-dom";
 import {
   emailValidate,
-  passwordValidate,
+  loginPasswordValidate,
 } from "../../Form-validation/FormValidate.component";
 import LoginBody from "./LoginBody.component";
 import { fetchElements } from "../../../../utill/http";
@@ -19,11 +21,10 @@ const Login = () => {
     errorMessage: string | null;
   };
 
-
   const [fetchUsers, setFetchUsers] = useState<Array<FetchUserObject>>([]);
 
   const [isDataValidate, setIsDataValidate] = useState<boolean>(false);
-  const [isButtonCliked, setIsButtonCliked] = useState<boolean>(false);
+  const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);
 
   const emailElement = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState<string>("");
@@ -60,25 +61,29 @@ const Login = () => {
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     emailValidate(email, emailElement, setEmailError);
-    passwordValidate(password, passwordElement, setPasswordError);
-    setIsButtonCliked(true);
+    loginPasswordValidate(password, passwordElement, setPasswordError);
+    setIsButtonClicked(true);
   };
 
   useEffect(() => {
-    if (isButtonCliked) {
+    if (isButtonClicked) {
       if (!passwordError.isError && !emailError.isError) {
         checkUser(email, password).then((res) => {
           if (res) {
             setIsDataValidate(true);
+            emailElement.current?.classList.remove(s.unvalid);
+            passwordElement.current?.classList.remove(s.unvalid);
           } else {
             setIsDataValidate(false);
+            passwordElement.current?.classList.add(s.unvalid);
+            emailElement.current?.classList.add(s.unvalid);
           }
         });
       } else {
         setIsDataValidate(false);
       }
     }
-  }, [passwordError, emailError, isButtonCliked, checkUser]);
+  }, [passwordError, emailError, isButtonClicked, checkUser]);
 
   return (
     <>
@@ -86,6 +91,8 @@ const Login = () => {
         <Navigate to="/dashboard" replace={true} />
       ) : (
         <LoginBody
+        isDataValidate={isDataValidate}
+          isButtonClicked={isButtonClicked}
           email={email}
           emailElement={emailElement}
           emailError={emailError}

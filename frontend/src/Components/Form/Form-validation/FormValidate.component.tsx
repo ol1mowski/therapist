@@ -25,7 +25,11 @@ export const passwordValidate = (
   passwordElement: RefObject<HTMLInputElement>,
   setPasswordError: (error: ValidateObject) => void
 ) => {
-  if (
+  if (!value) {
+    setPasswordError({ isError: true, errorMessage: "required" });
+    passwordElement.current?.classList.add(s.unvalid);
+  }
+  else if (
     validator.isStrongPassword(value, {
       minLength: 8,
       minLowercase: 1,
@@ -38,6 +42,17 @@ export const passwordValidate = (
     passwordElement.current?.classList.remove(s.unvalid);
   } else {
     setPasswordError({ isError: true, errorMessage: "too weak password" });
+    passwordElement.current?.classList.add(s.unvalid);
+  }
+};
+
+export const loginPasswordValidate = (
+  value: string,
+  passwordElement: RefObject<HTMLInputElement>,
+  setPasswordError: (error: ValidateObject) => void
+) => {
+  if (!value) {
+    setPasswordError({ isError: true, errorMessage: "required" });
     passwordElement.current?.classList.add(s.unvalid);
   }
 };
