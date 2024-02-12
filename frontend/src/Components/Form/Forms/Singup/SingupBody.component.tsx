@@ -1,6 +1,5 @@
 import s from "../../Form-sass/FormStyle.module.scss";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
-import { InputComponent } from "../../Input-component/Input-component";
 import { type MouseEvent, type RefObject } from "react";
 
 type SignupBodyProps = {
@@ -16,22 +15,25 @@ type SignupBodyProps = {
   name: string;
   setName: (value: string) => void;
   nameElement: RefObject<HTMLInputElement>;
+  emailOnchangeHandler: (e: any) => void;
+  passwordOnchangeHandler: (e: any) => void;
+  nameOnchangeHandler: (e: any) => void;
   buttonSubmitHandler: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const SignupBody = ({
   emailError,
   email,
-  setEmail,
   emailElement,
   password,
   passwordElement,
   passwordError,
-  setPassword,
   nameError,
   name,
   nameElement,
-  setName,
+  emailOnchangeHandler,
+  nameOnchangeHandler,
+  passwordOnchangeHandler,
   buttonSubmitHandler,
 }: SignupBodyProps) => {
   return (
@@ -48,37 +50,85 @@ const SignupBody = ({
           s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper
         }
       >
-        <InputComponent
-          elementError={nameError}
-          inputType={"text"}
-          name={"name"}
-          id={"name"}
-          element={name}
-          setElement={setName}
-          hrefToElement={nameElement}
-          labelTitle="Enter your name:"
-        />
+       <div
+      className={
+        s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
+      }
+    >
+      <label
+        className={
+          s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
+        }
+        htmlFor='name'
+      >
+       Enter your name
+      </label>
+      <input
+        ref={nameElement}
+        value={name}
+        onChange={(e) => nameOnchangeHandler(e)}
+        className={
+          s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
+        }
+        type='text'
+        name='name'
+        id='name'
+      />
+      { nameError.isError ? <p className={s.unvalid__message}>{ nameError.errorMessage }</p> : null}
+    </div>
 
-        <InputComponent
-          elementError={emailError}
-          labelTitle="Enter your email:"
-          inputType={"text"}
-          name={"email"}
-          id={"email"}
-          element={email}
-          setElement={setEmail}
-          hrefToElement={emailElement}
-        />
-        <InputComponent
-          elementError={passwordError}
-          labelTitle={"Enter your password:"}
-          inputType={"password"}
-          name={"password"}
-          id={"password"}
-          element={password}
-          setElement={setPassword}
-          hrefToElement={passwordElement}
-        />
+    <div
+      className={
+        s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
+      }
+    >
+      <label
+        className={
+          s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
+        }
+        htmlFor='email'
+      >
+       Enter your email
+      </label>
+      <input
+        ref={emailElement}
+        value={email}
+        onChange={(e) => emailOnchangeHandler(e)}
+        className={
+          s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
+        }
+        type='text'
+        name='email'
+        id='email'
+      />
+      { emailError.isError ? <p className={s.unvalid__message}>{ emailError.errorMessage }</p> : null}
+    </div>
+    <div
+      className={
+        s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
+      }
+    >
+      <label
+        className={
+          s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
+        }
+        htmlFor='password'
+      >
+       Enter your password
+      </label>
+      <input
+        ref={passwordElement}
+        value={password}
+        onChange={(e) => passwordOnchangeHandler(e)}
+        className={
+          s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
+        }
+        type='password'
+        name='password'
+        id='password'
+      />
+      { passwordError.isError ? <p className={s.unvalid__message}>{ passwordError.errorMessage }</p> : null}
+    </div>
       </div>
       <div className={s.button}>
         <button

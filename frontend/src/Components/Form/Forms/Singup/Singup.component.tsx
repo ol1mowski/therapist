@@ -53,13 +53,33 @@ const Signup = () => {
     if (isButtonClicked) {
       if (!passwordError.isError && !emailError.isError && !nameError.isError) {
         setIsDataValidate(true);
-        Adduser({name: name, password: password, email: email});
+        Adduser({ name: name, password: password, email: email });
       } else {
         setIsDataValidate(false);
       }
     }
   }, [passwordError, emailError, isButtonClicked]);
 
+  const emailOnchangeHandler = (e: any) => {
+    const newValue = e.target.value;
+    setEmail(newValue);
+
+    emailValidate(newValue, emailElement, setEmailError);
+  };
+
+  const passwordOnchangeHandler = (e: any) => {
+    const newValue = e.target.value;
+    setPassword(newValue);
+
+    passwordValidate(newValue, passwordElement, setPasswordError);
+  };
+
+  const nameOnchangeHandler = (e: any) => {
+    const newValue = e.target.value;
+    setName(newValue);
+
+    nameValidate(newValue, nameElement, setNameError);
+  };
   return (
     <>
       {isDataValidate ? (
@@ -78,6 +98,9 @@ const Signup = () => {
           nameElement={nameElement}
           nameError={nameError}
           setName={setName}
+          emailOnchangeHandler={emailOnchangeHandler}
+          passwordOnchangeHandler={passwordOnchangeHandler}
+          nameOnchangeHandler={nameOnchangeHandler}
           buttonSubmitHandler={buttonSubmitHandler}
         />
       )}
