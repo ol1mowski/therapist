@@ -14,15 +14,20 @@ const Reset = () => {
   const [next, setNext] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [emailError, setEmailError] = useState<ValidateObject>({
-    isError: false,
+    isError: true,
     errorMessage: null,
   });
 
   const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    emailValidate(email, emailElement, setEmailError);
-    setCheck(true);
+    emailValidate(email, emailElement, setEmailError);    
+    
+    if (!emailError.isError) {
+      setCheck(true);
+      //http
+    }
   };
+  
 
   useEffect(() => {
     if (check) {
@@ -31,7 +36,17 @@ const Reset = () => {
         //http
       }
     }
-  }, [email, emailError]);
+  }, [email, emailError, check]);
+
+  console.log(check);
+  
+
+  const emailOnchangeHandler = (e: any) => {
+    const newValue = e.target.value;
+    setEmail(newValue);
+
+    emailValidate(newValue, emailElement, setEmailError);
+  };
 
   return (
     <>
@@ -41,6 +56,7 @@ const Reset = () => {
           emailElement={emailElement}
           emailError={emailError}
           setEmail={setEmail}
+          emailOnchangeHandler={emailOnchangeHandler}
           buttonSubmitHandler={buttonSubmitHandler}
         />
       ) : (
