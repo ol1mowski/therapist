@@ -1,0 +1,1 @@
+import{j as _}from"./index-XUCgEBQ_.js";const s="_button_e8eek_1",e="_button__btn_e8eek_11",u="_button__btn_small_e8eek_28",n={button:s,button__btn:e,button__btn_small:u},l=t=>{t.preventDefault()},m=({children:t,small:o})=>_.jsx("div",{className:n.button,children:_.jsx("button",{onClick:b=>l(b),className:o?n.button__btn_small:n.button__btn,children:t})});export{m as B};
