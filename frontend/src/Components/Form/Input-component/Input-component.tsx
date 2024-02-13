@@ -4,24 +4,22 @@ import { ValidateObject } from "../Forms/Singup/Singup.component";
 
 type InputComponentProps = {
   labelTitle: string;
-  element: string;
-  setElement: (value: string) => void;
+  elementValue: string;
   inputType: string;
   name: string;
-  id: string;
   hrefToElement: LegacyRef<HTMLInputElement>;
   elementError: ValidateObject;
+  onchangeHandler: (e: any) => void;
 };
 
 export const InputComponent = ({
-  element,
-  setElement,
+  elementValue,
   inputType,
   name,
-  id,
-  hrefToElement,
   labelTitle,
   elementError,
+  onchangeHandler,
+  hrefToElement,
 }: InputComponentProps) => {
   return (
     <div
@@ -33,22 +31,23 @@ export const InputComponent = ({
         className={
           s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
         }
-        htmlFor={id}
+        htmlFor={name}
       >
-       { labelTitle }
+        {labelTitle}
       </label>
       <input
         ref={hrefToElement}
-        value={element}
-        onChange={(e) => setElement(e.target.value)}
+        value={elementValue}
+        onChange={(e) => onchangeHandler(e)}
         className={
           s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
         }
         type={inputType}
         name={name}
-        id={id}
       />
-      { elementError.isError ? <p className={s.unvalid__message}>{ elementError.errorMessage }</p> : null}
+      {elementError.isError ? (
+        <p className={s.unvalid__message}>{elementError.errorMessage}</p>
+      ) : null}
     </div>
   );
 };

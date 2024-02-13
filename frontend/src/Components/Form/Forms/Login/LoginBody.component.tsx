@@ -1,6 +1,8 @@
+import InvalidLoginData from "../../../../Errors/InvalidLoginData/InvalidLoginData";
 import s from "../../Form-sass/FormStyle.module.scss";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
 import { type MouseEvent, type RefObject } from "react";
+import { InputComponent } from "../../Input-component/Input-component";
 
 type LoginBody = {
   emailError: { isError: boolean; errorMessage: string | null };
@@ -30,10 +32,6 @@ const LoginBody = ({
   formErrors,
   buttonSubmitHandler,
 }: LoginBody) => {
-
-  console.log(emailError.errorMessage, passwordError.errorMessage);
-  
-
   return (
     <FormWrapper
       title="Login to "
@@ -48,80 +46,31 @@ const LoginBody = ({
           s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper
         }
       >
-        <div
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
-          }
-        >
-          <label
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
-            }
-            htmlFor="email"
-          >
-            Enter your email
-          </label>
-          <input
-            ref={emailElement}
-            value={email}
-            onChange={(e) => emailOnchangeHandler(e)}
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
-            }
-            type="text"
-            name="email"
-            id="email"
-          />
-          {emailError.isError ? (
-            <p className={s.unvalid__message}>{emailError.errorMessage}</p>
-          ) : null}
-        </div>
-        <div
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper
-          }
-        >
-          <label
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
-            }
-            htmlFor="passowrd"
-          >
-            Enter your password
-          </label>
-          <input
-            ref={passwordElement}
-            value={password}
-            onChange={(e) => passwordOnchangeHandler(e)}
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
-            }
-            type="password"
-            name="password"
-            id="password"
-          />
-          {passwordError.isError ? (
-            <p className={s.unvalid__message}>{passwordError.errorMessage}</p>
-          ) : null}
-        </div>
+        <InputComponent
+          labelTitle="Enter your email"
+          inputType="text"
+          name="email"
+          elementValue={email}
+          elementError={emailError}
+          hrefToElement={emailElement}
+          onchangeHandler={emailOnchangeHandler}
+        />
+
+        <InputComponent
+          labelTitle="Enter your password"
+          inputType="text"
+          name="password"
+          elementValue={password}
+          elementError={passwordError}
+          hrefToElement={passwordElement}
+          onchangeHandler={passwordOnchangeHandler}
+        />
       </div>
       {!formErrors &&
       isButtonClicked &&
       emailError.errorMessage === null &&
       passwordError.errorMessage === null ? (
-        <div
-          className={
-            s.loginContainer__wrapper__loginFormContainer__form__loginError
-          }
-        >
-          <p
-            className={
-              s.loginContainer__wrapper__loginFormContainer__form__loginError__error
-            }
-          >
-            [-] Your email or password is invalid
-          </p>
-        </div>
+        <InvalidLoginData style={s} />
       ) : null}
 
       <div className={s.button}>
