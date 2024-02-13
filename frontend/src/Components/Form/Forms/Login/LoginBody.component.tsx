@@ -58,7 +58,7 @@ const LoginBody = ({
 
         <InputComponent
           labelTitle="Enter your password"
-          inputType="text"
+          inputType="password"
           name="password"
           elementValue={password}
           elementError={passwordError}
