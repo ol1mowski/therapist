@@ -1,6 +1,6 @@
 import s from "../../Form-sass/FormStyle.module.scss";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
-import { type MouseEvent, type RefObject } from "react";
+import { type ChangeEvent, type MouseEvent, type RefObject } from "react";
 import { InputComponent } from "../../Input-component/Input-component";
 
 type ResetBodyProps = {
@@ -8,7 +8,7 @@ type ResetBodyProps = {
   email: string;
   setEmail: (value: string) => void;
   emailElement: RefObject<HTMLInputElement>;
-  emailOnchangeHandler: (e: any) => void;
+  emailOnchangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
   buttonSubmitHandler: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 

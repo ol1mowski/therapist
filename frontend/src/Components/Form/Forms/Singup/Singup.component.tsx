@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { type ChangeEvent, type MouseEvent, useEffect, useRef, useState } from "react";
 import SignupSuccess from "./Singup-Success-component/SignupSuccess.component";
 import {
   emailValidate,
@@ -60,21 +60,21 @@ const Signup = () => {
     }
   }, [passwordError, emailError, isButtonClicked]);
 
-  const emailOnchangeHandler = (e: any) => {
+  const emailOnchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setEmail(newValue);
 
     emailValidate(newValue, emailElement, setEmailError);
   };
 
-  const passwordOnchangeHandler = (e: any) => {
+  const passwordOnchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setPassword(newValue);
 
     passwordValidate(newValue, passwordElement, setPasswordError);
   };
 
-  const nameOnchangeHandler = (e: any) => {
+  const nameOnchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setName(newValue);
 

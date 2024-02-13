@@ -1,6 +1,6 @@
 import s from "../../Form-sass/FormStyle.module.scss";
 
-import { useRef, useState, type MouseEvent } from "react";
+import { type ChangeEvent, useRef, useState, type MouseEvent } from "react";
 import { Navigate } from "react-router-dom";
 import {
   emailValidate,
@@ -83,14 +83,14 @@ const Login = () => {
     }
   };
 
-  const emailOnchangeHandler = (e: any) => {
+  const emailOnchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setEmail(newValue);
 
     emailValidate(newValue, emailElement, setEmailError);
   };
 
-  const passwordOnchangeHandler = (e: any) => {
+  const passwordOnchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setPassword(newValue);
     setFormErrors(true);

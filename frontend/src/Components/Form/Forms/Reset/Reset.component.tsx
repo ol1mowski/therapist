@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { type ChangeEvent, type MouseEvent, useEffect, useRef, useState } from "react";
 import { ResetSecondStep } from "./ResetSecondStep/ResetSecondStep.component";
 import { emailValidate } from "../../Form-validation/FormValidate.component";
 import ResetBody from "./ResetBody.component";
@@ -41,10 +41,10 @@ const Reset = () => {
   console.log(check);
   
 
-  const emailOnchangeHandler = (e: any) => {
+  const emailOnchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setEmail(newValue);
-
+  
     emailValidate(newValue, emailElement, setEmailError);
   };
 

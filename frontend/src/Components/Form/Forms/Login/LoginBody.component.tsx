@@ -1,7 +1,7 @@
 import InvalidLoginData from "../../../../Errors/InvalidLoginData/InvalidLoginData";
 import s from "../../Form-sass/FormStyle.module.scss";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
-import { type MouseEvent, type RefObject } from "react";
+import { type ChangeEvent, type MouseEvent, type RefObject } from "react";
 import { InputComponent } from "../../Input-component/Input-component";
 
 type LoginBody = {
@@ -15,8 +15,8 @@ type LoginBody = {
   isButtonClicked: boolean;
   formErrors: boolean;
   buttonSubmitHandler: (e: MouseEvent<HTMLButtonElement>) => void;
-  emailOnchangeHandler: (e: any) => void;
-  passwordOnchangeHandler: (e: any) => void;
+  emailOnchangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+  passwordOnchangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const LoginBody = ({

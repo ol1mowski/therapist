@@ -1,6 +1,6 @@
 import s from "../../Form-sass/FormStyle.module.scss";
 import { FormWrapper } from "../../FormWrapper-component/FormWrapper.component";
-import { type MouseEvent, type RefObject } from "react";
+import { type ChangeEvent, type MouseEvent, type RefObject } from "react";
 import { InputComponent } from "../../Input-component/Input-component";
 
 type SignupBodyProps = {
@@ -16,9 +16,9 @@ type SignupBodyProps = {
   name: string;
   setName: (value: string) => void;
   nameElement: RefObject<HTMLInputElement>;
-  emailOnchangeHandler: (e: any) => void;
-  passwordOnchangeHandler: (e: any) => void;
-  nameOnchangeHandler: (e: any) => void;
+  emailOnchangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+  passwordOnchangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+  nameOnchangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
   buttonSubmitHandler: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
