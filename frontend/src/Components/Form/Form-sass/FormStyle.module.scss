@@ -61,6 +61,15 @@
       border: 2px solid #e4ccff;
     }
   }
+  &__loginError {
+    @include d-flex-row;
+    width: 100%;
+    text-align: center;
+    &__error {
+      color: $red-color;
+      font-size: 1.2rem;
+    }
+  }
   &__buttonWrapper {
     width: 2rem;
   }
@@ -79,6 +88,19 @@
   font-size: 3rem;
 }
 
+.sucessLink {
+  font-weight: bold;
+  @include aliceTextStarting;
+  font-size: 2rem;
+  text-decoration: underline;
+  transition: scale 0.7s;
+  will-change: scale;
+}
+
+.sucessLink:hover {
+  scale: 1.1;
+}
+
 .content {
   @include article;
   font-size: 1rem;
@@ -89,9 +111,10 @@
   border: 2px solid $red-color;
   animation: unvalidAnimation 0.3s linear;
   &__message {
+    text-align: left;
     font-size: 1.2rem;
     color: red;
-    margin: .5rem;
+    margin: 0.5rem;
   }
 }
 
