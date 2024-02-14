@@ -12,6 +12,7 @@ type InputComponentProps = {
   onchangeHandler: (e: any) => void;
   icon?: boolean;
   iconSrc?: string;
+  changeIconHandler?: () => void;
 };
 
 export const InputComponent = ({
@@ -23,8 +24,10 @@ export const InputComponent = ({
   onchangeHandler,
   hrefToElement,
   icon,
+  changeIconHandler,
   iconSrc,
 }: InputComponentProps) => {
+  
   return (
     <div
       className={
@@ -56,6 +59,7 @@ export const InputComponent = ({
         />
         {icon ? (
           <img
+            onClick={changeIconHandler}
             src={iconSrc}
             alt="passoword icon"
             className={
