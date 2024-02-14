@@ -10,7 +10,7 @@
   @include d-flex-row;
   gap: 3rem;
   margin: 0 auto;
-  @media screen and (min-width: $big-desktop)  {
+  @media screen and (min-width: $big-desktop) {
     gap: 10rem;
   }
   &__wrapper {
@@ -25,8 +25,10 @@
       @include d-flex-row;
       padding: 1rem;
       @media screen and (min-width: $mobile) {
-       width: 30rem;
+        width: 30rem;
       }
+
+      animation: wrapperAnimate 1s linear;
 
       &__header {
         @include header-small;
@@ -82,5 +84,16 @@
     @media screen and (min-width: $desktop) {
       display: flex;
     }
+  }
+}
+
+@keyframes wrapperAnimate {
+  0% {
+    transform: translateX(-5vw);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
