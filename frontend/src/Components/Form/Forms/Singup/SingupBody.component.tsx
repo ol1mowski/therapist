@@ -38,14 +38,14 @@ const SignupBody = ({
   buttonSubmitHandler,
 }: SignupBodyProps) => {
   const imageSrc = [
-    "https://img.icons8.com/material-outlined/24/000000/hide.png",
-    "https://img.icons8.com/material-outlined/24/000000/visible--v1.png",
+    "https://img.icons8.com/material-outlined/24/A68DDD/hide.png",
+    "https://img.icons8.com/material-outlined/24/A68DDD/visible--v1.png",
   ];
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const [iconSrc, setIconSrc] = useState<string>(
-    "https://img.icons8.com/material-outlined/24/000000/hide.png"
+    "https://img.icons8.com/material-outlined/24/A68DDD/hide.png"
   );
 
   const changeIconHandler = () => {
