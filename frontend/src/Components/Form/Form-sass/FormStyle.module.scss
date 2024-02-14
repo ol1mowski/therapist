@@ -48,17 +48,26 @@
       margin-top: 1rem;
       width: 100%;
       padding: 0.5rem;
-    }
-    &__label {
-      font-size: 1.3rem;
-      width: 100%;
-    }
-    &__input {
-      width: 90%;
-      padding: 2% 2% 2% 5%;
-      font-size: 120%;
-      border-radius: 0.3rem;
-      border: 2px solid #e4ccff;
+      &__label {
+        font-size: 1.3rem;
+        width: 100%;
+      }
+      &__wrapper {
+        position: relative;
+      }
+      &__input {
+        width: 90%;
+        padding: 2% 2% 2% 5%;
+        font-size: 120%;
+        border-radius: 0.3rem;
+        border: 2px solid #e4ccff;
+      }
+      &__img {
+        position: absolute;
+        right: 5vw;
+        bottom: .8rem;
+        cursor: pointer;
+      }
     }
   }
   &__loginError {

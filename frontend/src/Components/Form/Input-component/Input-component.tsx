@@ -10,6 +10,8 @@ type InputComponentProps = {
   hrefToElement: LegacyRef<HTMLInputElement>;
   elementError: ValidateObject;
   onchangeHandler: (e: any) => void;
+  icon?: boolean;
+  iconSrc?: string;
 };
 
 export const InputComponent = ({
@@ -20,6 +22,8 @@ export const InputComponent = ({
   elementError,
   onchangeHandler,
   hrefToElement,
+  icon,
+  iconSrc,
 }: InputComponentProps) => {
   return (
     <div
@@ -29,22 +33,38 @@ export const InputComponent = ({
     >
       <label
         className={
-          s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__label
+          s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper__label
         }
         htmlFor={name}
       >
         {labelTitle}
       </label>
-      <input
-        ref={hrefToElement}
-        value={elementValue}
-        onChange={(e) => onchangeHandler(e)}
+      <div
         className={
-          s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__input
+          s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper__wrapper
         }
-        type={inputType}
-        name={name}
-      />
+      >
+        <input
+          ref={hrefToElement}
+          value={elementValue}
+          onChange={(e) => onchangeHandler(e)}
+          className={
+            s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper__input
+          }
+          type={inputType}
+          name={name}
+        />
+        {icon ? (
+          <img
+            src={iconSrc}
+            alt="passoword icon"
+            className={
+              s.loginContainer__wrapper__loginFormContainer__form__inputsWrapper__inputWrapper__img
+            }
+          />
+        ) : null}
+      </div>
+       
       {elementError.isError ? (
         <p className={s.unvalid__message}>{elementError.errorMessage}</p>
       ) : null}
