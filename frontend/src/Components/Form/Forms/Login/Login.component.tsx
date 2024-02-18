@@ -10,18 +10,17 @@ import LoginBody from "./LoginBody.component";
 import { fetchElements } from "../../../../utill/http";
 
 const Login = () => {
-  type FetchUserObject = {
-    id?: string;
-    email?: string;
-    password?: string;
-  };
-
   type ValidateObject = {
     isError: boolean;
     errorMessage: string | null;
   };
 
-  const [fetchUsers, setFetchUsers] = useState<Array<FetchUserObject>>([]);
+  type User = {
+    email: string;
+    password: string;
+  };
+
+  const [isDataFetched, setIsDataFetched] = useState<boolean>(true);
 
   const [formErrors, setFormErrors] = useState<boolean>(true);
   const [isDataValidate, setIsDataValidate] = useState<boolean>(false);
@@ -42,24 +41,28 @@ const Login = () => {
   });
 
   async function checkUser(email: string, password: string) {
-    fetchElements().then((user) => setFetchUsers(user));
-    const emailUsersInDb = fetchUsers.map((user) => user.email);
-    const passwordUsersInDb = fetchUsers.map((user) => user.password);
+    setIsDataFetched(false);
+    return fetchElements().then((user: Array<User>) => {
+      const emailUsersInDb = user.map((user) => user.email);
+      const passwordUsersInDb = user.map((user) => user.password);
 
-    const emailIndex = emailUsersInDb.indexOf(email);
+      const emailIndex = emailUsersInDb.indexOf(email);
 
-    if (emailIndex !== -1) {
-      if (passwordUsersInDb[emailIndex] === password) {
-        return true;
+      setIsDataFetched(true);
+
+      if (emailIndex !== -1) {
+        if (passwordUsersInDb[emailIndex] === password) {
+          return true;
+        } else {
+          return false;
+        }
       } else {
         return false;
       }
-    } else {
-      return false;
-    }
+    });
   }
 
-  const buttonSubmitHandler = (e: MouseEvent<HTMLButtonElement>) => {
+  const buttonSubmitHandler = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsButtonClicked(true);
 
@@ -67,7 +70,8 @@ const Login = () => {
     loginPasswordValidate(password, passwordElement, setPasswordError);
 
     if (!passwordError.isError && !emailError.isError) {
-      checkUser(email, password).then((res) => {
+      try {
+        const res = await checkUser(email, password);
         if (res) {
           setIsDataValidate(true);
           emailElement.current?.classList.remove(s.unvalid);
@@ -79,7 +83,9 @@ const Login = () => {
           passwordElement.current?.classList.add(s.unvalid);
           emailElement.current?.classList.add(s.unvalid);
         }
-      });
+      } catch (error) {
+        console.error("Wystąpił błąd podczas weryfikacji użytkownika:", error);
+      }
     }
   };
 
@@ -101,6 +107,7 @@ const Login = () => {
   return (
     <>
       <LoginBody
+        isDataFetched={isDataFetched}
         formErrors={formErrors}
         isButtonClicked={isButtonClicked}
         email={email}

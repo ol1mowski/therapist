@@ -48,17 +48,39 @@
       margin-top: 1rem;
       width: 100%;
       padding: 0.5rem;
-    }
-    &__label {
-      font-size: 1.3rem;
-      width: 100%;
-    }
-    &__input {
-      width: 90%;
-      padding: 2% 2% 2% 5%;
-      font-size: 120%;
-      border-radius: 0.3rem;
-      border: 2px solid #e4ccff;
+      &__label {
+        font-size: 1.3rem;
+        width: 100%;
+      }
+      &__wrapper {
+        position: relative;
+      }
+      &__input {
+        width: 90%;
+        padding: 2% 2% 2% 5%;
+        font-size: 120%;
+        border-radius: 0.3rem;
+        border: 2px solid #e4ccff;
+      }
+      &__img {
+        position: absolute;
+        right: 2.5rem;
+        bottom: 0.6rem;
+        @media screen and (min-width: 400px) {
+          right: 3rem;
+        }
+        @media screen and (min-width: $mobile) {
+          right: 3.5rem;
+          bottom: 0.8rem;
+        }
+
+        @media screen and (min-width: $desktop) {
+          right: 4rem;
+          bottom: 0.8rem;
+        }
+
+        cursor: pointer;
+      }
     }
   }
   &__loginError {
