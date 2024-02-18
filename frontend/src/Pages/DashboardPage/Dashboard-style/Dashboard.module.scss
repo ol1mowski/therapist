@@ -3,6 +3,7 @@
 .dashboardContainer {
   @include d-flex-row;
   &__nav {
+    animation: navAnimate .7s linear;
     width: 5rem;
     background-color: $black-background-color;
     height: 100vh;
@@ -17,5 +18,16 @@
   &__contentWrapper {
     width: 100%;
     height: 100vh;
+  }
+}
+
+@keyframes navAnimate {
+  0% {
+    transform: translateX(-20vw);
+    opacity: .3;
+  } 
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }

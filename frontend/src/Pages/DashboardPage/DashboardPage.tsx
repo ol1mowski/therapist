@@ -1,6 +1,7 @@
 import s from "./Dashboard-style/Dashboard.module.scss";
 
-export const DashboardPage = () => {
+ const DashboardPage = () => {
+
   return (
     <>
       <section className={s.dashboardContainer}>
@@ -10,7 +11,7 @@ export const DashboardPage = () => {
               <img
                 width="40"
                 height="40"
-                src="https://img.icons8.com/small/40/ffffff/home.png"
+                src="https://img.icons8.com/small/40/a78edd/home.png"
                 alt="home"
               />
             </div>
@@ -78,3 +79,6 @@ export const DashboardPage = () => {
     </>
   );
 };
+
+
+export default DashboardPage;
