@@ -10,12 +10,12 @@ import LoginBody from "./LoginBody.component";
 import { fetchElements } from "../../../../utill/http";
 
 const Login = () => {
-
   type ValidateObject = {
     isError: boolean;
     errorMessage: string | null;
   };
 
+  const [isDataFetched, setIsDataFetched] = useState<boolean>(true);
 
   const [formErrors, setFormErrors] = useState<boolean>(true);
   const [isDataValidate, setIsDataValidate] = useState<boolean>(false);
@@ -36,26 +36,26 @@ const Login = () => {
   });
 
   async function checkUser(email: string, password: string) {
-    return fetchElements()
-      .then((user: Array<Object>) => {
-  
-        const emailUsersInDb = user.map((user) => user.email);
-        const passwordUsersInDb = user.map((user) => user.password);
-  
-        const emailIndex = emailUsersInDb.indexOf(email);
-  
-        if (emailIndex !== -1) {
-          if (passwordUsersInDb[emailIndex] === password) {
-            return true;
-          } else {
-            return false;
-          }
+    setIsDataFetched(false);
+    return fetchElements().then((user: Array<Object>) => {
+      const emailUsersInDb = user.map((user) => user.email);
+      const passwordUsersInDb = user.map((user) => user.password);
+
+      const emailIndex = emailUsersInDb.indexOf(email);
+
+      setIsDataFetched(true);
+
+      if (emailIndex !== -1) {
+        if (passwordUsersInDb[emailIndex] === password) {
+          return true;
         } else {
           return false;
         }
-      });
+      } else {
+        return false;
+      }
+    });
   }
-  
 
   const buttonSubmitHandler = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -79,7 +79,6 @@ const Login = () => {
           emailElement.current?.classList.add(s.unvalid);
         }
       } catch (error) {
-        // Obsługa błędów
         console.error("Wystąpił błąd podczas weryfikacji użytkownika:", error);
       }
     }
@@ -103,6 +102,7 @@ const Login = () => {
   return (
     <>
       <LoginBody
+        isDataFetched={isDataFetched}
         formErrors={formErrors}
         isButtonClicked={isButtonClicked}
         email={email}
