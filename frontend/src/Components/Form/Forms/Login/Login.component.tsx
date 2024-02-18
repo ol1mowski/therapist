@@ -42,7 +42,7 @@ const Login = () => {
   });
 
   async function checkUser(email: string, password: string) {
-    fetchElements().then((user) => setFetchUsers(user));
+    await fetchElements().then((user) => setFetchUsers(user));
     const emailUsersInDb = fetchUsers.map((user) => user.email);
     const passwordUsersInDb = fetchUsers.map((user) => user.password);
 
