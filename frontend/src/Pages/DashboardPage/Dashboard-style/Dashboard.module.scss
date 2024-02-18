@@ -45,6 +45,13 @@
         @include article;
         font-size: 1rem;
         text-align: left;
+        @media screen and (min-width: $mobile) {
+          font-size: 1.2rem;
+          width: 70vw;
+        }
+        @media screen and (min-width: $desktop) {
+          width: 40rem;
+        }
       }
       &__image {
         @include d-flex-row;
@@ -52,6 +59,15 @@
           width: 15rem;
           border-radius: .7rem;
           box-shadow: $box-shadow;
+          @media screen and (min-width: $mobile) {
+            width: 25rem;
+          }
+          @media screen and (min-width: $tablet) {
+            width: 30rem;
+          }
+          @media screen and ($big-desktop) {
+            width: 40rem;
+          }
         }
       }
     }
