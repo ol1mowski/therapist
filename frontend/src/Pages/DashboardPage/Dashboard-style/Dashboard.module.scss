@@ -9,6 +9,16 @@
     height: 100vh;
     @include d-flex-column;
     justify-content: space-between;
+
+    &__item {
+      transition: scale .7s;
+      will-change: scale;
+    }
+
+    &__item:hover {
+      scale: 1.1;
+      cursor: pointer;
+    }
     &__top, &__bottom {
       margin-top: 3rem;
       @include d-flex-column;
@@ -18,6 +28,33 @@
   &__contentWrapper {
     width: 100%;
     height: 100vh;
+    @include d-flex-row;
+    &__content {
+      @include d-flex-column;
+      gap: 2rem;
+      padding: 1rem;
+      &__header {
+        @include header-small;
+        font-size: 1.7rem
+      }
+      &__subTitle {
+        font-size: 1.5rem;
+        text-align: left;
+      }
+      &__description {
+        @include article;
+        font-size: 1rem;
+        text-align: left;
+      }
+      &__image {
+        @include d-flex-row;
+        &__img {
+          width: 15rem;
+          border-radius: .7rem;
+          box-shadow: $box-shadow;
+        }
+      }
+    }
   }
 }
 

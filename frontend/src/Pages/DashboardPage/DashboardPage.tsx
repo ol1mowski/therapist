@@ -1,7 +1,8 @@
 import s from "./Dashboard-style/Dashboard.module.scss";
 
- const DashboardPage = () => {
+import img from "../../assets/AI_help.webp";
 
+const DashboardPage = () => {
   return (
     <>
       <section className={s.dashboardContainer}>
@@ -56,29 +57,45 @@ import s from "./Dashboard-style/Dashboard.module.scss";
             <div
               className={s.dashboardContainer__contentWrapper__content__header}
             >
-              <h2></h2>
+              <h2>What's new ?</h2>
             </div>
             <div
               className={s.dashboardContainer__contentWrapper__content__image}
             >
-              <img src="" alt="" />
+              <img
+                src={img}
+                className={
+                  s.dashboardContainer__contentWrapper__content__image__img
+                }
+                alt="image of AI helping people"
+              />
             </div>
             <div
               className={
                 s.dashboardContainer__contentWrapper__content__subTitle
               }
-            ></div>
+            >
+              <h3>When AI will help people ?</h3>
+            </div>
             <div
               className={
                 s.dashboardContainer__contentWrapper__content__description
               }
-            ></div>
+            >
+              <p>
+                As AI technology continues to advance, it will likely play an
+                even greater role in helping people across various aspects of
+                their lives, from everyday tasks to solving complex societal
+                challenges. However, it's important to consider ethical
+                implications and ensure that AI is developed and deployed
+                responsibly for the benefit of all.
+              </p>
+            </div>
           </section>
         </main>
       </section>
     </>
   );
 };
-
 
 export default DashboardPage;
