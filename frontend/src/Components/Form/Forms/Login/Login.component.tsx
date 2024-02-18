@@ -15,6 +15,11 @@ const Login = () => {
     errorMessage: string | null;
   };
 
+  type User = {
+    email: string;
+    password: string;
+  };
+
   const [isDataFetched, setIsDataFetched] = useState<boolean>(true);
 
   const [formErrors, setFormErrors] = useState<boolean>(true);
@@ -37,7 +42,7 @@ const Login = () => {
 
   async function checkUser(email: string, password: string) {
     setIsDataFetched(false);
-    return fetchElements().then((user: Array<Object>) => {
+    return fetchElements().then((user: Array<User>) => {
       const emailUsersInDb = user.map((user) => user.email);
       const passwordUsersInDb = user.map((user) => user.password);
 

@@ -19,18 +19,29 @@ export async function Adduser(recordData: WithFieldValue<DocumentData>) {
 }
 
 
-async function fetchData(collectionName: string) {
+async function fetchData(collectionName: string): Promise<User[]> {
   const collectionRef = collection(db, collectionName);
 
   try {
     const snapshot = await getDocs(collectionRef);
-    const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    const data: User[] = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      email: doc.data().email,
+      password: doc.data().password
+    }));
     return data;
   } catch (error) {
     throw error;
   }
 }
 
-export function fetchElements() {
+
+type User = {
+  id: string;
+  email: string;
+  password: string;
+}
+
+export function fetchElements(): Promise<User[]> {
   return fetchData("users");
 }
