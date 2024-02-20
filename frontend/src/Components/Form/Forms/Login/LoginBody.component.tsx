@@ -10,7 +10,7 @@ import {
 import { InputComponent } from "../../Input-component/Input-component";
 
 type LoginBody = {
-  isDataFetched: boolean;
+  // isDataFetched: boolean;
   emailError: { isError: boolean; errorMessage: string | null };
   email: string;
   emailElement: RefObject<HTMLInputElement>;
@@ -26,7 +26,7 @@ type LoginBody = {
 };
 
 const LoginBody = ({
-  isDataFetched,
+  // isDataFetched,
   emailError,
   email,
   emailOnchangeHandler,
@@ -123,7 +123,7 @@ const LoginBody = ({
           onClick={(e) => buttonSubmitHandler(e)}
           className={s.button__btn_small}
         >
-          { isDataFetched ? 'Login' : 'Loading...' }
+          Login
         </button>
       </div>
     </FormWrapper>
