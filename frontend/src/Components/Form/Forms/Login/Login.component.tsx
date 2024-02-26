@@ -73,12 +73,11 @@ const Login = () => {
 
     if (!passwordError.isError && !emailError.isError) {
       try {
-        await signInWithEmailAndPassword(auth, email, password).then((user) =>
-          console.log(user)
-        );
+        await signInWithEmailAndPassword(auth, email, password).then((res) => console.log(res));
         setIsDataValidate(true);
       } catch (error) {
-        console.error(error);
+        console.log(error);
+        
         setIsDataValidate(false);
         setFormErrors(false);
 
@@ -102,6 +101,9 @@ const Login = () => {
 
     loginPasswordValidate(newValue, passwordElement, setPasswordError);
   };
+
+  console.log(isDataValidate);
+  
 
   return (
     <>

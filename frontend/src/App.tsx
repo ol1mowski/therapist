@@ -32,6 +32,12 @@ function App() {
     {
       path: "/dashboard",
       element: <DashboardPage />,
+      children: [
+        { path: "/dashboard/home", element: <DashboardPage /> },
+        { path: "/dashboard/account", element: <DashboardPage /> },
+        { path: "/dashboard/alice", element: <DashboardPage /> },
+        { path: "/dashboard/settings", element: <DashboardPage /> },
+      ]
     },
   ]);
 

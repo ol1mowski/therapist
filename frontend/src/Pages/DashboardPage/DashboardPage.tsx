@@ -2,11 +2,14 @@ import s from "./Dashboard-style/Dashboard.module.scss";
 
 import img from "../../assets/AI_help.webp";
 import { useEffect, useState } from "react";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../../utill/firebase";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth/cordova";
 
 const DashboardPage = () => {
+  // const url = useParams();
+
   // const ICONS = [
   //   {
   //     id: 1,
@@ -27,7 +30,6 @@ const DashboardPage = () => {
       }
     });
 
-
     return () => {
       listen();
     };
@@ -47,40 +49,52 @@ const DashboardPage = () => {
         <section className={s.dashboardContainer}>
           <nav className={s.dashboardContainer__nav}>
             <section className={s.dashboardContainer__nav__top}>
-              <div className={s.dashboardContainer__nav__item}>
+              <Link
+                to="/dashboard/home"
+                className={s.dashboardContainer__nav__item}
+              >
                 <img
                   width="40"
                   height="40"
                   src="https://img.icons8.com/small/40/a78edd/home.png"
                   alt="home"
                 />
-              </div>
-              <div className={s.dashboardContainer__nav__item}>
+              </Link>
+              <Link
+                to="/dashboard/account"
+                className={s.dashboardContainer__nav__item}
+              >
                 <img
                   width="40"
                   height="40"
                   src="https://img.icons8.com/fluency-systems-regular/40/ffffff/guest-male.png"
                   alt="guest-male"
                 />
-              </div>
-              <div className={s.dashboardContainer__nav__item}>
+              </Link>
+              <Link
+                to="/dashboard/alice"
+                className={s.dashboardContainer__nav__item}
+              >
                 <img
                   width="40"
                   height="40"
                   src="https://img.icons8.com/windows/40/ffffff/talk-female.png"
                   alt="talk-female"
                 />
-              </div>
+              </Link>
             </section>
             <section className={s.dashboardContainer__nav__bottom}>
-              <div className={s.dashboardContainer__nav__item}>
+              <Link
+                to="/dashboard/settings"
+                className={s.dashboardContainer__nav__item}
+              >
                 <img
                   width="40"
                   height="40"
                   src="https://img.icons8.com/ios/40/ffffff/settings--v1.png"
                   alt="settings--v1"
                 />
-              </div>
+              </Link>
               <div
                 className={s.dashboardContainer__nav__item}
                 onClick={userSignOut}
