@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import s from "./Dashboard-style/Dashboard.module.scss";
 
 import { Link, useParams } from "react-router-dom";
-import Home from "./DashboardComponnents/Home/Home";
-import Account from "./DashboardComponnents/Account/Account";
-import Alice from "./DashboardComponnents/Alice/Alice";
+import Home from "./DashboardComponnents/Home-component/Home.component";
+import Account from "./DashboardComponnents/Account-component/Account.component";
+import Alice from "./DashboardComponnents/Alice-component/Alice.component";
+import Settings from "./DashboardComponnents/Settings-component/Settings.component";
 
 const DashboardPage = () => {
   const url = useParams();
@@ -12,6 +13,7 @@ const DashboardPage = () => {
   const [homePath, setHomePath] = useState<boolean>(false);
   const [accountPath, setAccountPath] = useState<boolean>(false);
   const [alicePath, setAlicePath] = useState<boolean>(false);
+  const [settingsPath, setSettingsPath] = useState<boolean>(false);
 
   // const ICONS = [
   //   {
@@ -47,11 +49,10 @@ const DashboardPage = () => {
   // };
 
   useEffect(() => {
-    console.log(url);
-    
-    url.id === 'home' ? setHomePath(true) : setHomePath(false);
-    url.id === 'account' ? setAccountPath(true) : setAccountPath(false);
-    url.id === 'alice' ? setAlicePath(true) : setAlicePath(false);
+    url.id === "home" ? setHomePath(true) : setHomePath(false);
+    url.id === "account" ? setAccountPath(true) : setAccountPath(false);
+    url.id === "alice" ? setAlicePath(true) : setAlicePath(false);
+    url.id === "settings" ? setSettingsPath(true) : setSettingsPath(false);
   }, [url]);
 
   return (
@@ -63,34 +64,61 @@ const DashboardPage = () => {
               to="/dashboard/home"
               className={s.dashboardContainer__nav__item}
             >
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/small/40/a78edd/home.png"
-                alt="home"
-              />
+              {homePath ? (
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/small/40/a78edd/home.png"
+                  alt="home"
+                />
+              ) : (
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/small/40/ffffff/home.png"
+                  alt="home"
+                />
+              )}
             </Link>
             <Link
               to="/dashboard/account"
               className={s.dashboardContainer__nav__item}
             >
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/fluency-systems-regular/40/ffffff/guest-male.png"
-                alt="guest-male"
-              />
+              {accountPath ? (
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/fluency-systems-regular/40/a78edd/guest-male.png"
+                  alt="guest-male"
+                />
+              ) : (
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/fluency-systems-regular/40/ffffff/guest-male.png"
+                  alt="guest-male"
+                />
+              )}
             </Link>
             <Link
               to="/dashboard/alice"
               className={s.dashboardContainer__nav__item}
             >
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/windows/40/ffffff/talk-female.png"
-                alt="talk-female"
-              />
+              {alicePath ? (
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/windows/40/a78edd/talk-female.png"
+                  alt="talk-female"
+                />
+              ) : (
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/windows/40/ffffff/talk-female.png"
+                  alt="talk-female"
+                />
+              )}
             </Link>
           </section>
           <section className={s.dashboardContainer__nav__bottom}>
@@ -98,12 +126,21 @@ const DashboardPage = () => {
               to="/dashboard/settings"
               className={s.dashboardContainer__nav__item}
             >
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/ios/40/ffffff/settings--v1.png"
-                alt="settings--v1"
-              />
+              {settingsPath ? (
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/ios/40/a78edd/settings--v1.png"
+                  alt="settings--v1"
+                />
+              ) : (
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/ios/40/ffffff/settings--v1.png"
+                  alt="settings--v1"
+                />
+              )}
             </Link>
             <div
               className={s.dashboardContainer__nav__item}
@@ -122,6 +159,7 @@ const DashboardPage = () => {
           {homePath ? <Home /> : null}
           {accountPath ? <Account /> : null}
           {alicePath ? <Alice /> : null}
+          {settingsPath ? <Settings /> : null}
         </main>
       </section>
     </>
