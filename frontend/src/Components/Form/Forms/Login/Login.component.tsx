@@ -122,7 +122,7 @@ const Login = () => {
         emailOnchangeHandler={emailOnchangeHandler}
         passwordOnchangeHandler={passwordOnchangeHandler}
       />
-      {isDataValidate ? <Navigate to="/dashboard" replace={true} /> : null}
+      {isDataValidate ? <Navigate to="/dashboard/home" replace={true} /> : null}
     </>
   );
 };
