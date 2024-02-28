@@ -1,6 +1,6 @@
 import { Form } from "react-router-dom";
 
-import s from "../../../../Components/Form/Form-sass/FormStyle.module.scss";
+import s from "../../../Components/Form/Form-sass/FormStyle.module.scss";
 
 const Account = () => {
   return (

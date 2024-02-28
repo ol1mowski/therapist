@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import s from "../../../Pages/DashboardPage/Dashboard-style/Dashboard.module.scss";
 import NavItem from "./Nav-Item-component/NavItem.component";
 
@@ -10,79 +9,57 @@ type NavProps = {
 };
 
 const Nav = ({ homePath, alicePath, accountPath, settingsPath }: NavProps) => {
+  const ITEMS = [
+    {
+      id: 1,
+      path: homePath,
+      href: "/dashboard/home",
+      activeIcon: "https://img.icons8.com/small/40/a78edd/home.png",
+      noActiveIcon: "https://img.icons8.com/small/40/ffffff/home.png",
+      alt: "home",
+    },
+    {
+      id: 2,
+      path: accountPath,
+      href: "/dashboard/account",
+      activeIcon:
+        "https://img.icons8.com/fluency-systems-regular/40/a78edd/guest-male.png",
+      noActiveIcon:
+        "https://img.icons8.com/fluency-systems-regular/40/ffffff/guest-male.png",
+      alt: "account",
+    },
+    {
+      id: 3,
+      path: alicePath,
+      href: "/dashboard/alice",
+      activeIcon: "https://img.icons8.com/windows/40/a78edd/talk-female.png",
+      noActiveIcon: "https://img.icons8.com/windows/40/ffffff/talk-female.png",
+      alt: "alice",
+    },
+  ];
   return (
     <div>
       <nav className={s.dashboardContainer__nav}>
         <section className={s.dashboardContainer__nav__top}>
-          <NavItem
-            path={homePath}
-            href="/dashboard/home"
-            activeIcon="https://img.icons8.com/small/40/a78edd/home.png"
-            noActiveIcon="https://img.icons8.com/small/40/ffffff/home.png"
-            alt="home"
-          />
-          <Link
-            to="/dashboard/account"
-            className={s.dashboardContainer__nav__item}
-          >
-            {accountPath ? (
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/fluency-systems-regular/40/a78edd/guest-male.png"
-                alt="guest-male"
-              />
-            ) : (
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/fluency-systems-regular/40/ffffff/guest-male.png"
-                alt="guest-male"
-              />
-            )}
-          </Link>
-          <Link
-            to="/dashboard/alice"
-            className={s.dashboardContainer__nav__item}
-          >
-            {alicePath ? (
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/windows/40/a78edd/talk-female.png"
-                alt="talk-female"
-              />
-            ) : (
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/windows/40/ffffff/talk-female.png"
-                alt="talk-female"
-              />
-            )}
-          </Link>
+          {ITEMS.map((item) => (
+            <NavItem
+              key={item.id}
+              path={item.path}
+              href={item.href}
+              activeIcon={item.activeIcon}
+              noActiveIcon={item.noActiveIcon}
+              alt={item.alt}
+            />
+          ))}
         </section>
         <section className={s.dashboardContainer__nav__bottom}>
-          <Link
-            to="/dashboard/settings"
-            className={s.dashboardContainer__nav__item}
-          >
-            {settingsPath ? (
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/ios/40/a78edd/settings--v1.png"
-                alt="settings--v1"
-              />
-            ) : (
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/ios/40/ffffff/settings--v1.png"
-                alt="settings--v1"
-              />
-            )}
-          </Link>
+          <NavItem
+            path={settingsPath}
+            href="/dashboard/settings"
+            activeIcon="https://img.icons8.com/ios/40/a78edd/settings--v1.png"
+            noActiveIcon="https://img.icons8.com/ios/40/ffffff/settings--v1.png"
+            alt="settings"
+          />
           <div
             className={s.dashboardContainer__nav__item}
             // onClick={userSignOut}

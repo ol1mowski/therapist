@@ -1,6 +1,6 @@
-import s from "../../Dashboard-style/Dashboard.module.scss";
+import s from "../../../Pages/DashboardPage/Dashboard-style/Dashboard.module.scss";
 
-import img from "../../../../assets/AI_help.webp";
+import img from "../../../assets/AI_help.webp";
 
 const Home = () => {
   return (
