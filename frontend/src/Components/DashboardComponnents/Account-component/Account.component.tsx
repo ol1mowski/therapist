@@ -63,12 +63,14 @@ const Account = () => {
               <input
                 className={s.accountContainer__formWrapper__inputWrapper__input}
                 type="text"
+                id="password"
                 name="password"
               />
             ) : (
               <input
                 className={s.accountContainer__formWrapper__inputWrapper__input}
                 type="password"
+                id="password"
                 name="password"
               />
             )}

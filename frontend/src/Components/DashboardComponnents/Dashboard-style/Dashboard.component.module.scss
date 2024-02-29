@@ -18,11 +18,16 @@
     gap: 2rem;
     &__topSide {
       @include d-flex-column;
+      padding-bottom: 1rem;
+      border-bottom: 2px dashed #e4ccff;
       &__item {
         width: 100%;
         text-align: left;
         &__content {
           font-size: 1.2rem;
+          @media screen and (min-width: $mobile) {
+            font-size: 1.4rem;
+          }
         }
       }
     }
@@ -32,6 +37,9 @@
     gap: 0.5rem;
     &__label {
       font-size: 1.2rem;
+      @media screen and (min-width: $mobile) {
+        font-size: 1.4rem;
+      }
     }
     &__inputWrapper {
       position: relative;
