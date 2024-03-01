@@ -45,17 +45,30 @@ const Account = () => {
     passwordValidate(password, passwordElement, setPasswordError);
   };
 
-  const changePasswordHandler = (e: MouseEvent<HTMLButtonElement>) => {
+  const changePasswordHandler = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (!passwordError.isError) {
-      if (success.current) {
-        success.current.style.display = "block";
-        setTimeout(() => {
-          if (success.current) {
-            success.current.style.display = "none";
-          }
-        }, 3000);
+    try {
+      const validationResult = await passwordValidate(
+        password,
+        passwordElement,
+        setPasswordError
+      );
+      if (
+        !validationResult?.isError &&
+        validationResult?.isError !== undefined
+      ) {
+        if (success.current) {
+          success.current.style.display = "block";
+          setPassword("");
+          setTimeout(() => {
+            if (success.current) {
+              success.current.style.display = "none";
+            }
+          }, 3000);
+        }
       }
+    } catch (error) {
+      console.error("Błąd walidacji hasła:", error);
     }
   };
 

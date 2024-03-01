@@ -39,9 +39,12 @@ export const passwordValidate = (
   ) {
     setPasswordError({ isError: false, errorMessage: null });
     passwordElement.current?.classList.remove(s.unvalid);
+    return { isError: false, errorMessage: null };
   } else {
     setPasswordError({ isError: true, errorMessage: "too weak password" });
     passwordElement.current?.classList.add(s.unvalid);
+    return { isError: true, errorMessage: "too weak password" }
+
   }
 };
 
