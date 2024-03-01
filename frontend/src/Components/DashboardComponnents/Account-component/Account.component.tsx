@@ -1,12 +1,17 @@
+import s from "../Dashboard-style/Dashboard.component.module.scss";
+
+import { type FormEvent, useRef, useState, type MouseEvent } from "react";
+import { type ValidateObject } from "../../Form/Forms/Singup/Singup.component";
+
 import { Form } from "react-router-dom";
 
-import s from "../Dashboard-style/Dashboard.component.module.scss";
-import { FormEvent, useRef, useState, type MouseEvent } from "react";
-import { type ValidateObject } from "../../Form/Forms/Singup/Singup.component";
 import { passwordValidate } from "../../Form/Form-validation/FormValidate.component";
+
 import AccountButton from "./Account-body-components/Account-Button.component";
 import AccountPassword from "./Account-body-components/Account-Password.component";
 import AccountNotification from "./Account-body-components/Account-Notification.component";
+import AccountUserData from "./Account-body-components/Account-UserData.component";
+import AccountHeader from "./Account-body-components/Account-Header.component";
 
 const Account = () => {
   const success = useRef<HTMLDivElement>(null);
@@ -68,7 +73,7 @@ const Account = () => {
         }
       }
     } catch (error) {
-      console.error("Błąd walidacji hasła:", error);
+      console.error("Error after password validation:", error);
     }
   };
 
@@ -84,30 +89,9 @@ const Account = () => {
         success={success}
         closeNotificationHandler={closeNotificationHandler}
       />
-      <header className={s.accountContainer__header}>
-        <h2 className={s.accountContainer__header__title}>Change Your Data</h2>
-      </header>
+      <AccountHeader />
       <section className={s.accountContainer__dataWrapper}>
-        <section className={s.accountContainer__dataWrapper__topSide}>
-          <div className={s.accountContainer__dataWrapper__topSide__item}>
-            <p
-              className={
-                s.accountContainer__dataWrapper__topSide__item__content
-              }
-            >
-              Your name: Alice
-            </p>
-          </div>
-          <div className={s.accountContainer__dataWrapper__topSide__item}>
-            <p
-              className={
-                s.accountContainer__dataWrapper__topSide__item__content
-              }
-            >
-              Your email: alice@alice.pl
-            </p>
-          </div>
-        </section>
+        <AccountUserData />
         <Form method="post" className={s.accountContainer__formWrapper}>
           <AccountPassword
             iconSrc={iconSrc}
