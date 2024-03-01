@@ -1,11 +1,13 @@
 import { Form } from "react-router-dom";
 
 import s from "../Dashboard-style/Dashboard.component.module.scss";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useRef, useState, type MouseEvent } from "react";
 import { type ValidateObject } from "../../Form/Forms/Singup/Singup.component";
 import { passwordValidate } from "../../Form/Form-validation/FormValidate.component";
 
 const Account = () => {
+  const success = useRef<HTMLDivElement>(null);
+
   const imageSrc = [
     "https://img.icons8.com/material-outlined/24/A68DDD/hide.png",
     "https://img.icons8.com/material-outlined/24/A68DDD/visible--v1.png",
@@ -40,10 +42,35 @@ const Account = () => {
     passwordValidate(password, passwordElement, setPasswordError);
   };
 
-  console.log(passwordError);
+  const changePasswordHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!passwordError.isError) {
+      if (success.current) {
+        success.current.style.display = "block";
+        setTimeout(() => {
+          if (success.current) {
+            success.current.style.display = "none";
+          }
+        }, 3000);
+      }
+    }
+  };
+
+  const closeNotificationHandler = () => {
+    if (success.current) {
+      success.current.style.display = "none";
+    }
+  };
 
   return (
     <main className={s.accountContainer}>
+      <div
+        onClick={closeNotificationHandler}
+        ref={success}
+        className={s.accountContainer__succesPasswordChange}
+      >
+        Success !
+      </div>
       <header className={s.accountContainer__header}>
         <h2 className={s.accountContainer__header__title}>Change Your Data</h2>
       </header>
@@ -111,9 +138,20 @@ const Account = () => {
               }
             />
           </div>
-          {passwordError.isError ? <p className={s.accountContainer__passwordValidationError}>[-] {passwordError.errorMessage}</p> : null}
+          {passwordError.isError ? (
+            <p className={s.accountContainer__passwordValidationError}>
+              [-] {passwordError.errorMessage}
+            </p>
+          ) : null}
           <div className={s.accountContainer__button}>
-            <button className={s.accountContainer__button__btn}>Change</button>
+            <button
+              onClick={(e: MouseEvent<HTMLButtonElement>) =>
+                changePasswordHandler(e)
+              }
+              className={s.accountContainer__button__btn}
+            >
+              Change
+            </button>
           </div>
         </Form>
       </section>
