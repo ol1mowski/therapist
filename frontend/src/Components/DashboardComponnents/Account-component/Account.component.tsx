@@ -1,7 +1,9 @@
 import { Form } from "react-router-dom";
 
 import s from "../Dashboard-style/Dashboard.component.module.scss";
-import { useState } from "react";
+import { FormEvent, useRef, useState } from "react";
+import { type ValidateObject } from "../../Form/Forms/Singup/Singup.component";
+import { passwordValidate } from "../../Form/Form-validation/FormValidate.component";
 
 const Account = () => {
   const imageSrc = [
@@ -10,6 +12,13 @@ const Account = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const passwordElement = useRef<HTMLInputElement>(null);
+  const [password, setPassword] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<ValidateObject>({
+    isError: false,
+    errorMessage: null,
+  });
 
   const [iconSrc, setIconSrc] = useState<string>(
     "https://img.icons8.com/material-outlined/24/A68DDD/hide.png"
@@ -24,6 +33,14 @@ const Account = () => {
       setIconSrc(imageSrc[0]);
     }
   };
+
+  const livePassowrdValidationHandler = (e: FormEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+    setPassword(target.value);
+    passwordValidate(password, passwordElement, setPasswordError);
+  };
+
+  console.log(passwordError);
 
   return (
     <main className={s.accountContainer}>
@@ -61,6 +78,11 @@ const Account = () => {
           <div className={s.accountContainer__formWrapper__inputWrapper}>
             {currentIndex === 1 ? (
               <input
+                ref={passwordElement}
+                value={password}
+                onChange={(e: FormEvent<HTMLInputElement>) =>
+                  livePassowrdValidationHandler(e)
+                }
                 className={s.accountContainer__formWrapper__inputWrapper__input}
                 type="text"
                 id="password"
@@ -68,6 +90,11 @@ const Account = () => {
               />
             ) : (
               <input
+                ref={passwordElement}
+                value={password}
+                onChange={(e: FormEvent<HTMLInputElement>) =>
+                  livePassowrdValidationHandler(e)
+                }
                 className={s.accountContainer__formWrapper__inputWrapper__input}
                 type="password"
                 id="password"
@@ -84,6 +111,7 @@ const Account = () => {
               }
             />
           </div>
+          {passwordError.isError ? <p className={s.accountContainer__passwordValidationError}>[-] {passwordError.errorMessage}</p> : null}
           <div className={s.accountContainer__button}>
             <button className={s.accountContainer__button__btn}>Change</button>
           </div>
