@@ -6,7 +6,8 @@ import {
   passwordValidate,
 } from "../../Form-validation/FormValidate.component";
 import SignupBody from "./SingupBody.component";
-import { Adduser } from "../../../../utill/http";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from "../../../../utill/firebase";
 
 export type ValidateObject = {
   isError: boolean;
@@ -52,8 +53,14 @@ const Signup = () => {
   useEffect(() => {
     if (isButtonClicked) {
       if (!passwordError.isError && !emailError.isError && !nameError.isError) {
-        setIsDataValidate(true);
-        Adduser({ name: name, password: password, email: email });
+        try {
+          createUserWithEmailAndPassword(auth, email, password).then((user) =>
+            console.log(user)
+          );
+          setIsDataValidate(true);
+        } catch (error) {
+          console.error(error);
+        }
       } else {
         setIsDataValidate(false);
       }

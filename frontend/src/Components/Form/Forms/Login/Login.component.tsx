@@ -7,7 +7,9 @@ import {
   loginPasswordValidate,
 } from "../../Form-validation/FormValidate.component";
 import LoginBody from "./LoginBody.component";
-import { fetchElements } from "../../../../utill/http";
+// import { fetchElements } from "../../../../utill/http";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../../utill/firebase";
 
 const Login = () => {
   type ValidateObject = {
@@ -15,12 +17,12 @@ const Login = () => {
     errorMessage: string | null;
   };
 
-  type User = {
-    email: string;
-    password: string;
-  };
+  // type User = {
+  //   email: string;
+  //   password: string;
+  // };
 
-  const [isDataFetched, setIsDataFetched] = useState<boolean>(true);
+  // const [isDataFetched, setIsDataFetched] = useState<boolean>(true);
 
   const [formErrors, setFormErrors] = useState<boolean>(true);
   const [isDataValidate, setIsDataValidate] = useState<boolean>(false);
@@ -40,27 +42,27 @@ const Login = () => {
     errorMessage: null,
   });
 
-  async function checkUser(email: string, password: string) {
-    setIsDataFetched(false);
-    return fetchElements().then((user: Array<User>) => {
-      const emailUsersInDb = user.map((user) => user.email);
-      const passwordUsersInDb = user.map((user) => user.password);
+  // async function checkUser(email: string, password: string) {
+  //   setIsDataFetched(false);
+  //   return fetchElements().then((user: Array<User>) => {
+  //     const emailUsersInDb = user.map((user) => user.email);
+  //     const passwordUsersInDb = user.map((user) => user.password);
 
-      const emailIndex = emailUsersInDb.indexOf(email);
+  //     const emailIndex = emailUsersInDb.indexOf(email);
 
-      setIsDataFetched(true);
+  //     setIsDataFetched(true);
 
-      if (emailIndex !== -1) {
-        if (passwordUsersInDb[emailIndex] === password) {
-          return true;
-        } else {
-          return false;
-        }
-      } else {
-        return false;
-      }
-    });
-  }
+  //     if (emailIndex !== -1) {
+  //       if (passwordUsersInDb[emailIndex] === password) {
+  //         return true;
+  //       } else {
+  //         return false;
+  //       }
+  //     } else {
+  //       return false;
+  //     }
+  //   });
+  // }
 
   const buttonSubmitHandler = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -71,20 +73,16 @@ const Login = () => {
 
     if (!passwordError.isError && !emailError.isError) {
       try {
-        const res = await checkUser(email, password);
-        if (res) {
-          setIsDataValidate(true);
-          emailElement.current?.classList.remove(s.unvalid);
-          passwordElement.current?.classList.remove(s.unvalid);
-        } else {
-          setIsDataValidate(false);
-          setFormErrors(false);
-
-          passwordElement.current?.classList.add(s.unvalid);
-          emailElement.current?.classList.add(s.unvalid);
-        }
+        await signInWithEmailAndPassword(auth, email, password).then((res) => console.log(res));
+        setIsDataValidate(true);
       } catch (error) {
-        console.error("Wystąpił błąd podczas weryfikacji użytkownika:", error);
+        console.log(error);
+        
+        setIsDataValidate(false);
+        setFormErrors(false);
+
+        passwordElement.current?.classList.add(s.unvalid);
+        emailElement.current?.classList.add(s.unvalid);
       }
     }
   };
@@ -104,10 +102,13 @@ const Login = () => {
     loginPasswordValidate(newValue, passwordElement, setPasswordError);
   };
 
+  console.log(isDataValidate);
+  
+
   return (
     <>
       <LoginBody
-        isDataFetched={isDataFetched}
+        // isDataFetched={isDataFetched}
         formErrors={formErrors}
         isButtonClicked={isButtonClicked}
         email={email}
@@ -121,7 +122,7 @@ const Login = () => {
         emailOnchangeHandler={emailOnchangeHandler}
         passwordOnchangeHandler={passwordOnchangeHandler}
       />
-      {isDataValidate ? <Navigate to="/dashboard" replace={true} /> : null}
+      {isDataValidate ? <Navigate to="/dashboard/home" replace={true} /> : null}
     </>
   );
 };
