@@ -1,11 +1,10 @@
 @import "../../../sass/settings.scss";
 
 .accountContainer {
-  height: 100%;
-  width: 90%;
   @include d-flex-column;
   gap: 2rem;
   margin: 0 auto;
+  height: 100%;
   justify-content: flex-start;
   &__header {
     &__title {
@@ -16,6 +15,20 @@
   &__dataWrapper {
     @include d-flex-column;
     gap: 2rem;
+    border: 2px solid #e4ccff;
+    -webkit-box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
+    -moz-box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
+    box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
+    border-radius: 0.7rem;
+    padding: 1rem;
+
+    @media screen and (min-width: $tablet) {
+      padding: 3rem;
+    }
+    @media screen and (min-width: $big-desktop) {
+      padding: 5rem;
+    }
+
     &__topSide {
       @include d-flex-column;
       padding-bottom: 1rem;
@@ -28,6 +41,9 @@
           @media screen and (min-width: $mobile) {
             font-size: 1.4rem;
           }
+          @media screen and (min-width: $big-desktop) {
+            font-size: 1.6rem;
+          }
         }
       }
     }
@@ -39,6 +55,9 @@
       font-size: 1.2rem;
       @media screen and (min-width: $mobile) {
         font-size: 1.4rem;
+      }
+      @media screen and (min-width: $big-desktop) {
+        font-size: 1.6rem;
       }
     }
     &__inputWrapper {
@@ -53,21 +72,8 @@
       }
       &__inputIcon {
         position: absolute;
-        right: 2.5rem;
+        right: 2rem;
         bottom: 0.6rem;
-        @media screen and (min-width: 400px) {
-          right: 3rem;
-        }
-        @media screen and (min-width: $mobile) {
-          right: 3.5rem;
-          bottom: 0.8rem;
-        }
-
-        @media screen and (min-width: $desktop) {
-          right: 4rem;
-          bottom: 0.8rem;
-        }
-
         cursor: pointer;
       }
     }
