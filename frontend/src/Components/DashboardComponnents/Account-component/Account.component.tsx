@@ -4,6 +4,9 @@ import s from "../Dashboard-style/Dashboard.component.module.scss";
 import { FormEvent, useRef, useState, type MouseEvent } from "react";
 import { type ValidateObject } from "../../Form/Forms/Singup/Singup.component";
 import { passwordValidate } from "../../Form/Form-validation/FormValidate.component";
+import AccountButton from "./Account-body-components/Account-Button.component";
+import AccountPassword from "./Account-body-components/Account-Password.component";
+import AccountNotification from "./Account-body-components/Account-Notification.component";
 
 const Account = () => {
   const success = useRef<HTMLDivElement>(null);
@@ -64,13 +67,10 @@ const Account = () => {
 
   return (
     <main className={s.accountContainer}>
-      <div
-        onClick={closeNotificationHandler}
-        ref={success}
-        className={s.accountContainer__succesPasswordChange}
-      >
-        Success !
-      </div>
+      <AccountNotification
+        success={success}
+        closeNotificationHandler={closeNotificationHandler}
+      />
       <header className={s.accountContainer__header}>
         <h2 className={s.accountContainer__header__title}>Change Your Data</h2>
       </header>
@@ -96,63 +96,16 @@ const Account = () => {
           </div>
         </section>
         <Form method="post" className={s.accountContainer__formWrapper}>
-          <label
-            className={s.accountContainer__formWrapper__label}
-            htmlFor={"password"}
-          >
-            Change your password
-          </label>
-          <div className={s.accountContainer__formWrapper__inputWrapper}>
-            {currentIndex === 1 ? (
-              <input
-                ref={passwordElement}
-                value={password}
-                onChange={(e: FormEvent<HTMLInputElement>) =>
-                  livePassowrdValidationHandler(e)
-                }
-                className={s.accountContainer__formWrapper__inputWrapper__input}
-                type="text"
-                id="password"
-                name="password"
-              />
-            ) : (
-              <input
-                ref={passwordElement}
-                value={password}
-                onChange={(e: FormEvent<HTMLInputElement>) =>
-                  livePassowrdValidationHandler(e)
-                }
-                className={s.accountContainer__formWrapper__inputWrapper__input}
-                type="password"
-                id="password"
-                name="password"
-              />
-            )}
-
-            <img
-              onClick={changeIconHandler}
-              src={iconSrc}
-              alt="passoword icon"
-              className={
-                s.accountContainer__formWrapper__inputWrapper__inputIcon
-              }
-            />
-          </div>
-          {passwordError.isError ? (
-            <p className={s.accountContainer__passwordValidationError}>
-              [-] {passwordError.errorMessage}
-            </p>
-          ) : null}
-          <div className={s.accountContainer__button}>
-            <button
-              onClick={(e: MouseEvent<HTMLButtonElement>) =>
-                changePasswordHandler(e)
-              }
-              className={s.accountContainer__button__btn}
-            >
-              Change
-            </button>
-          </div>
+          <AccountPassword
+            iconSrc={iconSrc}
+            currentIndex={currentIndex}
+            changeIconHandler={changeIconHandler}
+            livePassowrdValidationHandler={livePassowrdValidationHandler}
+            password={password}
+            passwordElement={passwordElement}
+            passwordError={passwordError}
+          />
+          <AccountButton changePasswordHandler={changePasswordHandler} />
         </Form>
       </section>
     </main>
