@@ -11,7 +11,7 @@ import AccountButton from "./Account-body-components/Account-Button.component";
 import AccountPassword from "./Account-body-components/Account-Password.component";
 import AccountNotification from "./Account-body-components/Account-Notification.component";
 import AccountUserData from "./Account-body-components/Account-UserData.component";
-import AccountHeader from "./Account-body-components/Account-Header.component";
+import DashboardHeaderComponent from "../Dashboard-Header-Component/Dashboard-Header-Component.component";
 
 const Account = () => {
   const success = useRef<HTMLDivElement>(null);
@@ -89,7 +89,7 @@ const Account = () => {
         success={success}
         closeNotificationHandler={closeNotificationHandler}
       />
-      <AccountHeader />
+      <DashboardHeaderComponent title="Change your data" />
       <section className={s.accountContainer__dataWrapper}>
         <AccountUserData />
         <Form method="post" className={s.accountContainer__formWrapper}>
