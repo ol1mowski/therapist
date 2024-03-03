@@ -13,6 +13,15 @@ const Settings = () => {
                 s.settingsContainer__settingsWrapper__topSide__item__content
               }
             >
+              Status: Active
+            </p>
+          </div>
+          <div className={s.settingsContainer__settingsWrapper__topSide__item}>
+            <p
+              className={
+                s.settingsContainer__settingsWrapper__topSide__item__content
+              }
+            >
               Version: 1.0
             </p>
           </div>
@@ -28,10 +37,16 @@ const Settings = () => {
           <div className={s.settingsContainer__settingsWrapper__topSide__item}>
             <p
               className={
-                s.settingsContainer__settingsWrapper__topSide__item__content
+                s.settingsContainer__settingsWrapper__topSide__item__content_theme
               }
             >
-              <span className={s.settingsContainer__settingsWrapper__topSide__item__content__text}>Theme: </span>
+              <span
+                className={
+                  s.settingsContainer__settingsWrapper__topSide__item__content__text
+                }
+              >
+                Theme:{" "}
+              </span>
               <div
                 className={
                   s.settingsContainer__settingsWrapper__topSide__item__content__themeBox

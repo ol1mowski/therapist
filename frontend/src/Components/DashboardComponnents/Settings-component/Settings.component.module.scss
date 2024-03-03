@@ -24,6 +24,7 @@
     }
 
     &__topSide {
+      width: 100%;
       @include d-flex-column;
       padding-bottom: 1rem;
       gap: 1rem;
@@ -32,11 +33,9 @@
         width: 100%;
         text-align: left;
         &__content {
-          @include d-flex-row;
-          gap: 0.5rem;
           font-size: 1.5rem;
           &__text {
-            margin-top: .7rem;
+            margin-top: 0.7rem;
           }
           @media screen and (min-width: $mobile) {
             font-size: 1.8rem;
@@ -60,6 +59,18 @@
               position: absolute;
               left: 0.4rem;
             }
+          }
+        }
+        &__content_theme {
+          @include d-flex-row;
+          gap: 0.5rem;
+          font-size: 1.5rem;
+          justify-content: flex-start;
+          @media screen and (min-width: $mobile) {
+            font-size: 1.8rem;
+          }
+          @media screen and (min-width: $big-desktop) {
+            font-size: 2rem;
           }
         }
       }
