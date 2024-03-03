@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import s from "./Dashboard-style/Dashboard.module.scss";
 
 import { useParams } from "react-router-dom";
@@ -7,9 +7,12 @@ import Account from "../../Components/DashboardComponnents/Account-component/Acc
 import Alice from "../../Components/DashboardComponnents/Alice-component/Alice.component";
 import Settings from "../../Components/DashboardComponnents/Settings-component/Settings.component";
 import Nav from "../../Components/DashboardComponnents/Nav-component/Nav.component";
+import ThemeContext from "../../Context/ThemeContext";
 
 const DashboardPage = () => {
   const url = useParams();
+
+  const container = useRef<HTMLDivElement>(null);
 
   const [homePath, setHomePath] = useState<boolean>(false);
   const [accountPath, setAccountPath] = useState<boolean>(false);
@@ -47,9 +50,23 @@ const DashboardPage = () => {
     url.id === "settings" ? setSettingsPath(true) : setSettingsPath(false);
   }, [url]);
 
+  const { theme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    if (container.current) {
+      if (theme === 'light') {
+        container.current.style.backgroundColor = '#fefefe';
+        container.current.style.color = '#2d2e2d';
+      } else {
+        container.current.style.backgroundColor = '#2d2e2d';
+        container.current.style.color = '#fefefe';
+      }
+    }
+  }, [theme]);
+
   return (
     <>
-      <section className={s.dashboardContainer}>
+      <section ref={container} className={s.dashboardContainer}>
         <Nav
           homePath={homePath}
           accountPath={accountPath}

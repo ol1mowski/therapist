@@ -8,10 +8,19 @@ $red-color: red;
 $green-color: green;
 $pink-color: #e4ccff;
 
+
+
 //background colors
 $dark-background-color: #fdfdfe;
 $white-background-color: #fefefe;
 $black-background-color: #2d2e2d;
+
+//theme
+$light-theme-text-color: $white-text-color;
+$dark-theme-text-color: $dark-text-color;
+
+$light-theme-background-color: $white-background-color;
+$dark-theme-background-color: $dark-background-color;
 
 //box-shadow
 $box-shadow: 0 0.275rem 0.75rem -0.0625rem rgba(11, 15, 25, 0.06), 0 0.125rem 0.4rem -0.0625rem rgba(11, 15, 25, 0.03);
