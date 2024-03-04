@@ -76,14 +76,11 @@
             width: 4rem;
             height: 2rem;
             @include d-flex-row;
-            position: relative;
             &__ball {
               border-radius: 100%;
               background-color: yellow;
               width: 1.5rem;
               height: 1.5rem;
-              position: absolute;
-              left: .4rem;
             }
           }
         }
@@ -132,6 +129,7 @@
 
     &__btn {
       @include button;
+      background-color: aliceblue;
       margin-left: 12%;
       width: 70%;
       height: 80%;

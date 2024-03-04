@@ -10,6 +10,8 @@ const Settings = () => {
 
   const { theme, setTheme } = useContext(ThemeContext);
 
+  
+
   const changeThemeHandler = () => {
     if (ball.current) {
       if (theme === "light") {
@@ -18,7 +20,7 @@ const Settings = () => {
         setTheme("dark");
       } else {
         ball.current.className =
-          s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ball;
+          s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballLight;
         setTheme("light");
       }
     }
@@ -78,7 +80,7 @@ const Settings = () => {
                   ref={ball}
                   onClick={changeThemeHandler}
                   className={
-                    s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ball
+                    s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballLight
                   }
                 ></div>
               </div>
@@ -91,13 +93,13 @@ const Settings = () => {
               s.settingsContainer__settingsWrapper__bottomSide__buttonWrapper
             }
           >
-            <button
+            <div
               className={
                 s.settingsContainer__settingsWrapper__bottomSide__buttonWrapper__btn
               }
             >
               Delete Account
-            </button>
+            </div>
           </div>
         </section>
       </section>

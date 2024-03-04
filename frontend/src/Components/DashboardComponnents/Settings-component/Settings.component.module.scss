@@ -67,7 +67,7 @@
             height: 2rem;
             @include d-flex-row;
             cursor: pointer;
-            &__ball {
+            &__ballLight {
               border-radius: 100%;
               background-color: yellow;
               width: 1.5rem;
@@ -101,6 +101,12 @@
           will-change: scale;
           transition: scale 0.7s;
           cursor: pointer;
+          @media screen and (min-width: $mobile) {
+            font-size: 1.3rem;
+          }
+          @media screen and (min-width: $big-desktop) {
+            font-size: 1.5rem;
+          }
         }
         &__btn:hover {
           scale: 1.1;
