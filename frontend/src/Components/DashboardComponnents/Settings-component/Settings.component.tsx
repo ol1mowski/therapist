@@ -1,27 +1,47 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import DashboardHeaderComponent from "../Dashboard-Header-Component/Dashboard-Header-Component.component";
 import s from "./Settings.component.module.scss";
 import ThemeContext from "../../../Context/ThemeContext";
 
 const Settings = () => {
   const ball = useRef<HTMLDivElement>(null);
-
-  localStorage.setItem("theme", "light");
-
   const { theme, setTheme } = useContext(ThemeContext);
 
-  
+  useEffect(() => {
+    const currentTheme = localStorage.getItem("theme");
+    if (ball.current) {
+      if (currentTheme === "dark") {
+        ball.current.classList.add(
+          s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballDark
+        );
+      } else {
+        ball.current.classList.add(
+          s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballLight
+        );
+      }
+    }
+  }, []);
 
   const changeThemeHandler = () => {
     if (ball.current) {
       if (theme === "light") {
-        ball.current.className =
-          s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballDark;
+        ball.current.classList.remove(
+          s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballLight
+        );
+        ball.current.classList.add(
+          s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballDark
+        );
         setTheme("dark");
+        localStorage.setItem("theme", "dark");
       } else {
-        ball.current.className =
-          s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballLight;
+        ball.current.classList.remove(
+          s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballDark
+        );
+        ball.current.classList.add(
+          s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballLight
+        );
         setTheme("light");
+        localStorage.setItem("theme", "light");
       }
     }
   };
@@ -76,13 +96,7 @@ const Settings = () => {
                   s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox
                 }
               >
-                <div
-                  ref={ball}
-                  onClick={changeThemeHandler}
-                  className={
-                    s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballLight
-                  }
-                ></div>
+                <div ref={ball} onClick={changeThemeHandler}></div>
               </div>
             </div>
           </div>
