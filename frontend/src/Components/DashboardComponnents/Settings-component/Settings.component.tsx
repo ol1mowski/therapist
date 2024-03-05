@@ -13,7 +13,7 @@ import SettingTopWrapper from "./Settings-body-components/Settings-content-wrapp
 import SettingBottomWrapper from "./Settings-body-components/Settings-content-wrappers/Setting-bottom-wrapper.component";
 
 import { ITEMS_TEXTS } from "../../../utill/Settings-component/ITEMS";
-import { Navigate, redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Settings = () => {
 

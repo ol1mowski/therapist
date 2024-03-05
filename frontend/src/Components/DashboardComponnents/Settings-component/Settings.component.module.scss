@@ -15,7 +15,13 @@
     -moz-box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
     box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
     border-radius: 0.7rem;
-    padding: 1rem;
+    padding: 2rem 1rem;
+    width: 15rem;
+
+    @media screen and (min-width: $mobile) {
+      width: 20rem;
+      padding: 2rem 3rem;
+    }
 
     @media screen and (min-width: $tablet) {
       padding: 3rem;
@@ -31,7 +37,7 @@
       gap: 1rem;
       border-bottom: 2px dashed $pink-color;
       &__item {
-        width: 100%;
+        width: 80%;
         text-align: left;
         &__content {
           font-size: 1.5rem;
@@ -87,16 +93,25 @@
     }
     &__popupContainer {
       @include d-flex-column;
+      gap: 2rem;
       display: none;
+      color: $dark-text-color;
       background-color: rgb(242, 231, 255);
       border-radius: 0.7rem;
-      padding: 2rem 1rem;
-      width: 15rem;
+      padding: 2rem 7vw;
       position: absolute;
+      top: 13rem;
       -webkit-box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
       -moz-box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
       box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
       font-size: 2rem;
+      @media screen and (min-width: 375px) {
+        width: 70vw;
+      }
+      @media screen and (min-width: $mobile) {
+        width: 25rem;
+        height: 15rem;
+      }
       &__buttonWrapper {
         @include d-flex-row;
         gap: 2rem;
@@ -106,6 +121,12 @@
           border-radius: .5rem;
           font-size: 1.2rem;
           cursor: pointer;
+          transition: scale .7s;
+          will-change: scale, font-size;
+        }
+        &__btn:hover {
+          scale: 1.1;
+          font-size: 1.3rem;
         }
         &__btnNo {
           border: 3px solid $white-text-color;
