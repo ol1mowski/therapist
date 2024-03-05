@@ -13,10 +13,16 @@ import SettingTopWrapper from "./Settings-body-components/Settings-content-wrapp
 import SettingBottomWrapper from "./Settings-body-components/Settings-content-wrappers/Setting-bottom-wrapper.component";
 
 import { ITEMS_TEXTS } from "../../../utill/Settings-component/ITEMS";
+import { Navigate, redirect, useNavigate } from "react-router-dom";
 
 const Settings = () => {
+
   const ball = useRef<HTMLDivElement>(null);
+  const popup = useRef<HTMLDivElement>(null);
+
   const { theme, setTheme } = useContext(ThemeContext);
+
+  const navigate = useNavigate();
 
   const ballDarkClass =
     s.settingsContainer__settingsWrapper__topSide__item__contentTheme__themeBox__ballDark;
@@ -49,6 +55,24 @@ const Settings = () => {
       localStorage.setItem("theme", "light");
     }
   };
+
+  const deleteAccountPopupHandler = () => {
+    if (popup.current) {
+      popup.current.style.display = "flex";
+    }
+  };
+
+  const dontDelateAccountHandler = () => {
+    if (popup.current) {
+      popup.current.style.display = "none";
+    }
+  };
+  
+
+  const delateAccountHandler = () => {
+    navigate('/form/login');
+  };
+
   return (
     <SettingMainWrapper>
       <DashboardHeaderComponent title="Settings" />
@@ -63,6 +87,7 @@ const Settings = () => {
         </SettingTopWrapper>
 
         <section
+          ref={popup}
           className={s.settingsContainer__settingsWrapper__popupContainer}
         >
           <span
@@ -72,15 +97,28 @@ const Settings = () => {
           >
             Are you sure ?
           </span>
-          <section className={s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper}>
-
-          <button className={`${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btn} ${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btnYes}`}>Yes</button>
-          <button className={`${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btn} ${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btnNo}`}>No</button>
+          <section
+            className={
+              s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper
+            }
+          >
+            <button
+              onClick={delateAccountHandler}
+              className={`${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btn} ${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btnYes}`}
+            >
+              Yes
+            </button>
+            <button
+              onClick={dontDelateAccountHandler}
+              className={`${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btn} ${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btnNo}`}
+            >
+              No
+            </button>
           </section>
         </section>
 
         <SettingBottomWrapper>
-          <SettingsButton />
+          <SettingsButton delateButtonHandler={deleteAccountPopupHandler} />
         </SettingBottomWrapper>
       </SettingsContentWrapper>
     </SettingMainWrapper>

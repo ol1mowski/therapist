@@ -1,6 +1,10 @@
 import s from "../Settings.component.module.scss";
 
-const SettingsButton = () => {
+type SettingButtonProps = {
+  delateButtonHandler: () => void;
+};
+
+const SettingsButton = ({ delateButtonHandler }: SettingButtonProps) => {
   return (
     <div
       className={
@@ -8,6 +12,7 @@ const SettingsButton = () => {
       }
     >
       <div
+        onClick={delateButtonHandler}
         className={
           s.settingsContainer__settingsWrapper__bottomSide__buttonWrapper__btn
         }
