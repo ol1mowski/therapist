@@ -105,6 +105,7 @@
       -moz-box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
       box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
       font-size: 2rem;
+      animation: popupAnimation .5s linear;
       @media screen and (min-width: 375px) {
         width: 70vw;
       }
@@ -183,5 +184,16 @@
   }
   100% {
     transform: translateX(-1rem);
+  }
+}
+
+@keyframes popupAnimation {
+  0% {
+    transform: translateY(-5vh);
+    scale: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    scale: 1;
   }
 }
