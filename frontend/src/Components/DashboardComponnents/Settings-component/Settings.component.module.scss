@@ -85,6 +85,37 @@
         }
       }
     }
+    &__popupContainer {
+      @include d-flex-column;
+      display: none;
+      background-color: rgb(242, 231, 255);
+      border-radius: 0.7rem;
+      padding: 2rem 1rem;
+      width: 15rem;
+      position: absolute;
+      -webkit-box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
+      -moz-box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
+      box-shadow: 8px 5px 36px -7px rgba(228, 204, 255, 1);
+      font-size: 2rem;
+      &__buttonWrapper {
+        @include d-flex-row;
+        gap: 2rem;
+        &__btn {
+          width: 5rem;
+          padding: .3rem 0;
+          border-radius: .5rem;
+          font-size: 1.2rem;
+        }
+        &__btnNo {
+          border: 3px solid $white-text-color;
+          background-color: transparent;
+        }
+        &__btnYes {
+          background-color: rgba(255, 0, 0, 0.557);
+          border: none;
+        }
+      }
+    }
     &__bottomSide {
       @include d-flex-column;
       padding: 1rem 1rem 0 1rem;

@@ -62,6 +62,23 @@ const Settings = () => {
           <SettingsTheme ball={ball} changeThemeHandler={changeThemeHandler} />
         </SettingTopWrapper>
 
+        <section
+          className={s.settingsContainer__settingsWrapper__popupContainer}
+        >
+          <span
+            className={
+              s.settingsContainer__settingsWrapper__popupContainer__text
+            }
+          >
+            Are you sure ?
+          </span>
+          <section className={s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper}>
+
+          <button className={`${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btn} ${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btnYes}`}>Yes</button>
+          <button className={`${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btn} ${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btnNo}`}>No</button>
+          </section>
+        </section>
+
         <SettingBottomWrapper>
           <SettingsButton />
         </SettingBottomWrapper>
