@@ -14,9 +14,9 @@ import SettingBottomWrapper from "./Settings-body-components/Settings-content-wr
 
 import { ITEMS_TEXTS } from "../../../utill/Settings-component/ITEMS";
 import { useNavigate } from "react-router-dom";
+import SettingsPopup from "./Settings-body-components/Settings-popup.component";
 
 const Settings = () => {
-
   const ball = useRef<HTMLDivElement>(null);
   const popup = useRef<HTMLDivElement>(null);
 
@@ -67,10 +67,9 @@ const Settings = () => {
       popup.current.style.display = "none";
     }
   };
-  
 
   const delateAccountHandler = () => {
-    navigate('/form/login');
+    navigate("/form/login");
   };
 
   return (
@@ -86,36 +85,11 @@ const Settings = () => {
           <SettingsTheme ball={ball} changeThemeHandler={changeThemeHandler} />
         </SettingTopWrapper>
 
-        <section
-          ref={popup}
-          className={s.settingsContainer__settingsWrapper__popupContainer}
-        >
-          <span
-            className={
-              s.settingsContainer__settingsWrapper__popupContainer__text
-            }
-          >
-            Are you sure ?
-          </span>
-          <section
-            className={
-              s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper
-            }
-          >
-            <button
-              onClick={delateAccountHandler}
-              className={`${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btn} ${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btnYes}`}
-            >
-              Yes
-            </button>
-            <button
-              onClick={dontDelateAccountHandler}
-              className={`${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btn} ${s.settingsContainer__settingsWrapper__popupContainer__buttonWrapper__btnNo}`}
-            >
-              No
-            </button>
-          </section>
-        </section>
+        <SettingsPopup
+          popup={popup}
+          delateAccountHandler={delateAccountHandler}
+          dontDelateAccountHandler={dontDelateAccountHandler}
+        />
 
         <SettingBottomWrapper>
           <SettingsButton delateButtonHandler={deleteAccountPopupHandler} />
